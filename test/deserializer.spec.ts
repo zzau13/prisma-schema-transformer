@@ -1,23 +1,17 @@
-import {fixPrismaFile} from '../src';
+import { fixPrismaFile } from '../src';
 import * as fs from 'fs';
 
-test('deserialized model is identical with the input from simple schema', async () => {
-	const schemaPath = './fixtures/simple.prisma';
-  const schema = fs.readFileSync(schemaPath, "utf-8");
+test('deserialized simple', () =>
+  expect(
+    fixPrismaFile(fs.readFileSync('./fixtures/simple.prisma', 'utf-8')),
+  ).resolves.toMatchSnapshot());
 
-  await expect(fixPrismaFile(schema)).resolves.toMatchSnapshot()
-});
+test('deserialized schema', () =>
+  expect(
+    fixPrismaFile(fs.readFileSync('./fixtures/schema.prisma', 'utf-8')),
+  ).resolves.toMatchSnapshot());
 
-test('deserialized model is identical with the input from blog schema', async () => {
-	const schemaPath = './fixtures/blog.prisma';
-  const schema = fs.readFileSync(schemaPath, "utf-8");
-
-  await expect(fixPrismaFile(schema)).resolves.toMatchSnapshot()
-});
-
-test('deserialized model', async () => {
-	const schemaPath = './fixtures/schema.prisma';
-  const schema = fs.readFileSync(schemaPath, "utf-8");
-
-  await expect(fixPrismaFile(schema)).resolves.toMatchSnapshot()
-});
+test('deserialized blog', () =>
+  expect(
+    fixPrismaFile(fs.readFileSync('./fixtures/blog.prisma', 'utf-8')),
+  ).resolves.toMatchSnapshot());
