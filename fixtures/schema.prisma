@@ -9,8 +9,10 @@ datasource db {
 
 model Employees {
   PlantId                                                     String        @db.VarChar(10)
-  EmployeeId                                                  String        @db.VarChar(10)
+  EmployeeId                                                  String        @unique @db.VarChar(10)
+  Uni String
 
+  @@unique([PlantId, Uni])
   @@id([PlantId, EmployeeId])
 }
 

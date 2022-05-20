@@ -5,16 +5,17 @@ import {produce} from 'immer';
 import {Model, Field} from '.';
 import {DMMF} from '@prisma/generator-helper';
 
-function singularizeModelName(modelName: string) {
+function transformModelName(modelName: string) {
 	return camelcase(pluralize(modelName, 1), {pascalCase: true});
 }
 
 function transformModel(model: Model) {
-	const {name, uniqueFields, idFields} = model;
+	const {name, uniqueFields, primaryKey} = model;
+  const idFields = primaryKey?.fields;
 
 	const fixModelName = produce(model, draftModel => {
-		if (name !== singularizeModelName(name)) {
-			draftModel.name = singularizeModelName(name);
+		if (name !== transformModelName(name)) {
+			draftModel.name = transformModelName(name);
 			draftModel.dbName = name;
 		}
 	});
@@ -33,13 +34,13 @@ function transformModel(model: Model) {
 			}
 
 			// Posts posts[]
-			if (kind === 'object' && type !== singularizeModelName(type)) {
-				draftField.type = singularizeModelName(type);
+			if (kind === 'object' && type !== transformModelName(type)) {
+				draftField.type = transformModelName(type);
 			}
 
 			// Enum
-			if (kind === 'enum' && type !== singularizeModelName(type)) {
-				draftField.type = singularizeModelName(type);
+			if (kind === 'enum' && type !== transformModelName(type)) {
+				draftField.type = transformModelName(type);
 				if (draftField.default)
 					draftField.default = camelcase(draftField.default)
 			}
@@ -64,7 +65,7 @@ function transformModel(model: Model) {
 
 	const fixIdFieldsName = produce(fixUniqueName, draftModel => {
 		if (idFields && idFields.length > 0) {
-			draftModel.idFields = idFields.map(eachIdField => camelcase(eachIdField));
+			draftModel.idFields = idFields.map((x) => camelcase(x));
 		}
 	});
 
@@ -75,8 +76,8 @@ function transformEnum(enumm: DMMF.DatamodelEnum) {
 	const { name } = enumm;
 
 	const fixModelName = produce(enumm, draftModel => {
-		if (name !== singularizeModelName(name)) {
-			draftModel.name = singularizeModelName(name);
+		if (name !== transformModelName(name)) {
+			draftModel.name = transformModelName(name);
 			draftModel.dbName = name;
 		}
 	});
