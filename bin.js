@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+/* eslint-disable @typescript-eslint/no-var-requires */
 
 require('dotenv').config();
 const fs = require('fs');
@@ -53,13 +54,13 @@ const isPrint = args['--print'] || false;
 const denyList = args['--deny'] || [];
 
 (async function () {
-	const output = await fixPrismaFile(schemaPath, denyList);
+  const schema = fs.readFileSync(schemaPath, "utf-8");
+  const schemaFormatted = await formatSchema({schema});
+	const output = await formatSchema({schema: await fixPrismaFile(schemaFormatted, denyList) });
 	if (isPrint) {
 		console.log(output);
 	} else {
 		fs.writeFileSync(schemaPath, output);
-		const formatedOutput = await formatSchema({schemaPath});
-		fs.writeFileSync(schemaPath, formatedOutput);
 	}
 
 	process.exit(0);

@@ -4,14 +4,11 @@ datasource postgresql {
 }
 
 generator client {
-  provider      = "prisma-client-js"
-  output        = "node_modules/@prisma/client"
-  binaryTargets = ["native"]
-  previewFeatures = ["orderByRelation", "selectRelationCount"]
+  provider = "prisma-client-js"
 }
 
 model User {
-  id    String  @default(cuid()) @id
+  id    String  @id @default(cuid())
   email String  @unique
   name  String?
   posts Post[]
@@ -19,20 +16,20 @@ model User {
 }
 
 model Post {
-  id        String   @default(cuid()) @id
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
+  id        String       @id @default(cuid())
+  createdAt DateTime     @default(now())
+  updatedAt DateTime     @updatedAt
   published Boolean
   title     String
   content   String?
   authorId  String?
-  author    User?    @relation(fields: [authorId], references: [id])
+  author    User?        @relation(fields: [authorId], references: [id])
   status    PostStatuses
   Like      Like[]
 }
 
 model Like {
-  id     String @default(cuid()) @id
+  id     String @id @default(cuid())
   userId String
   user   User   @relation(fields: [userId], references: [id])
   postId String

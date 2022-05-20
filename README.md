@@ -1,22 +1,20 @@
 # prisma-schema-transformer
 
-> **EXPERIMENTAL FOR PRISMA V3**
-
 This project utilizes the [getDMMF](https://github.com/prisma/prisma/blob/023249752380976d797518e1350199895246d099/src/packages/sdk/src/engineCommands.ts#L45) method from `@prisma/sdk` to perform some post-processing work on generated Prisma schema, including the following.
 
-- Transform `snake_case` to `camelCase`, 
+- Transform any case to `camelCase`,
 - Properly singularize or pluralize model and field name.
 - Add `@updatedAt` attribute to field in the event of column name is `updated_at`
 - Ignore models from the schema.
 
-__TODO__
+**TODO**
 
 - [ ] Auto generate the `generator` and `datasource` nodes.
 
 ## Install
 
 ```bash
-$ yarn global add prisma-schema-transformer
+$ pnpm i -g git+https://github.com/botika/prisma-schema-transformer.git
 ```
 
 ## Usage
@@ -66,9 +64,8 @@ It's hacky, but it works. Some test fixtures are taken from the `@prisma/sdk` re
 Manipulate the naming of Model and Field to follow the `camelCase` naming convention.
 
 - Model name is always singular.
-- Field name is singular by default with the execption of `many-to-many` relation.
+- Field name is singular by default with the exception of `many-to-many` relation.
 
 ## License
 
 This project is [MIT licensed](./LICENSE).
-

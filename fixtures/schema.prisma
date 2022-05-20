@@ -8,11 +8,33 @@ datasource db {
 }
 
 model Employees {
-  PlantId                                                     String        @db.VarChar(10)
-  EmployeeId                                                  String        @unique @db.VarChar(10)
-  Uni String
+  PlantId    String     @db.VarChar(10)
+  EmployeeId String     @unique @db.VarChar(10)
+  Uni        String     @db.VarChar(10)
+  Anothers   Anothers[]
+  LastOne    Last?      @relation("EmployeesToLast_PlantId_EmployeeOneId")
+  LastTwo    Last?      @relation("EmployeesToLast_PlantId_EmployeeTwoId")
 
-  @@unique([PlantId, Uni])
   @@id([PlantId, EmployeeId])
+  @@unique([PlantId, Uni])
 }
 
+model Anothers {
+  AnotherId  String    @db.VarChar(10)
+  PlantId    String    @db.VarChar(10)
+  EmployeeId String    @db.VarChar(10)
+  Uni        String    @db.VarChar(10)
+  Employee   Employees @relation(fields: [PlantId, EmployeeId], references: [PlantId, EmployeeId], onDelete: NoAction, onUpdate: NoAction)
+
+  @@id([PlantId, AnotherId])
+}
+
+model Last {
+  PlantId       String    @db.VarChar(10)
+  id            Int       @id
+  EmployeeOneId String    @db.VarChar(10)
+  EmployeeOne   Employees @relation("EmployeesToLast_PlantId_EmployeeOneId", fields: [PlantId, EmployeeOneId], references: [PlantId, EmployeeId], onDelete: NoAction, onUpdate: NoAction)
+
+  EmployeeTwoId String    @db.VarChar(10)
+  EmployeeTwo   Employees @relation("EmployeesToLast_PlantId_EmployeeTwoId", fields: [PlantId, EmployeeTwoId], references: [PlantId, EmployeeId], onDelete: NoAction, onUpdate: NoAction)
+}
