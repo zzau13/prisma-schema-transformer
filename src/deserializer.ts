@@ -1,5 +1,6 @@
 import {ConnectorType, DataSource, DMMF, EnvValue, GeneratorConfig} from '@prisma/generator-helper/dist';
 import {printGeneratorConfig} from '@prisma/engine-core';
+import camelcase = require('camelcase');
 
 export interface Field {
 	kind: DMMF.FieldKind;
@@ -125,8 +126,8 @@ function handleFields(fields: Field[]) {
 		}).join('\n');
 }
 
-function handleIdFields(idFields: string[]) {
-	return idFields && idFields.length > 0 ? `@@id([${idFields.join(', ')}])` : '';
+function handleIdFields(idFields?: string[]) {
+	return idFields && idFields.length > 0 ? `@@id([${idFields.map((x) => camelcase(x)).join(', ')}])` : '';
 }
 
 function handleUniqueFieds(uniqueFields: string[][]) {
@@ -148,7 +149,7 @@ function handleProvider(provider: ConnectorType | string) {
 }
 
 function deserializeModel(model: Model) {
-	const {name, uniqueFields, dbName, idFields} = model;
+	const {name, uniqueFields, dbName, primaryKey} = model;
 	const fields = model.fields as unknown as Field[];
 
 	const output = `
@@ -156,7 +157,7 @@ model ${name} {
 ${handleFields(fields)}
 ${handleUniqueFieds(uniqueFields)}
 ${handleDbName(dbName)}
-${handleIdFields(idFields)}
+${handleIdFields(primaryKey?.fields)}
 }`;
 	return output;
 }

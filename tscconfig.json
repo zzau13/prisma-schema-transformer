@@ -9,8 +9,7 @@
     "noImplicitAny": false,
     "outDir": "dist",
     "declaration": true,
-    "incremental": true,
-    "typeRoots": ["./node_modules/@types"]
+    "incremental": true
   },
   "include": ["src/**/*"],
   "exclude": ["dist/**"]
