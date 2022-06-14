@@ -36,7 +36,7 @@
     "lint": "eslint --cache --max-warnings 0 --fix '**/*.{ts,js}'",
     "fmt": "prettier --write '**/*.{md,prisma,json}'",
     "lint:check": "eslint --cache --max-warnings 0 '**/*.{ts,js}'",
-    "fmt:check": "prettier '**/*.{md,prisma,json}'",
+    "fmt:check": "prettier --check '**/*.{md,prisma,json}'",
     "prepare": "husky install"
   },
   "dependencies": {
