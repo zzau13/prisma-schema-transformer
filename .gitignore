@@ -115,3 +115,5 @@ out
 .pnp.*
 
 .idea/
+
+dist/

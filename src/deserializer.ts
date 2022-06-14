@@ -168,13 +168,18 @@ const deserializeModel = ({
   dbName,
   primaryKey,
   fields,
-}: Model) => `
-model ${name} {
-  ${handleFields(fields)}
-  ${handleDbName(dbName)}
-  ${handleUniqueFields(uniqueFields)}
-  ${handleIdFields(primaryKey?.fields)}
-}`;
+}: Model) => {
+  let ret = `model ${name} {
+  ${handleFields(fields)}`;
+  const dbName1 = handleDbName(dbName);
+  if (dbName1) ret += `\n${dbName1}`;
+  const unique = handleUniqueFields(uniqueFields);
+  if (unique) ret += `\n${unique}`;
+  const ids = handleIdFields(primaryKey?.fields);
+  if (ids) ret += `\n${ids}`;
+
+  return ret + '\n}';
+};
 
 const deserializeDatasource = ({ activeProvider, name, url }: DataSource) => `
 datasource ${name} {
