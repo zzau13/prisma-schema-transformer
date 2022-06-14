@@ -15,7 +15,9 @@
   },
   "files": [
     "dist",
-    "bin.js"
+    "bin.js",
+    "schema.awk",
+    "db-pull.sh"
   ],
   "scripts": {
     "build": "rm -rf dist && tsc -p tsconfig.build.json",
