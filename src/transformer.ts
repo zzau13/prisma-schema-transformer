@@ -1,9 +1,9 @@
-import camelcase = require("camelcase");
-import pluralize = require("pluralize");
-import { produce } from "immer";
+import camelcase from 'camelcase';
+import { produce } from 'immer';
+import { DMMF } from '@prisma/generator-helper';
 
-import { Model } from ".";
-import { DMMF } from "@prisma/generator-helper";
+import { Model } from '.';
+import pluralize = require('pluralize');
 
 function transformModelName(modelName: string) {
   return camelcase(pluralize(modelName, 1), { pascalCase: true });
@@ -43,41 +43,48 @@ function transformModel(model: Model) {
         }
 
         // Posts posts[]
-        if (kind === "object" && type !== transformModelName(type)) {
+        if (kind === 'object' && type !== transformModelName(type)) {
           draftField.type = transformModelName(type);
         }
 
         // Enum
-        if (kind === "enum" && type !== transformModelName(type)) {
+        if (kind === 'enum' && type !== transformModelName(type)) {
           draftField.type = transformModelName(type);
           if (draftField.default)
             draftField.default = camelcase(draftField.default.toString());
         }
 
         // Object kind, with @relation attributes
-        if (kind === "object") {
-          draftField.relationFromFields = relationFromFields?.map((x) => camelcase(x));
-          draftField.relationToFields = relationToFields?.map((x) => camelcase(x));
+        if (kind === 'object') {
+          draftField.relationFromFields = relationFromFields?.map((x) =>
+            camelcase(x),
+          );
+          draftField.relationToFields = relationToFields?.map((x) =>
+            camelcase(x),
+          );
         }
 
-        if (name === "updated_at") {
+        if (name === 'updated_at') {
           draftField.isUpdatedAt = true;
         }
-      })
+      }),
     ) as unknown as DMMF.Field[]; // Force type conversion
   });
 
   const fixUniqueName = produce(fixFieldsName, (draftModel) => {
     if (uniqueFields.length > 0) {
       draftModel.uniqueFields = uniqueFields.map((eachUniqueField) =>
-        eachUniqueField.map((each) => camelcase(each))
+        eachUniqueField.map((each) => camelcase(each)),
       );
     }
   });
 
   const fixIdFieldsName = produce(fixUniqueName, (draftModel) => {
     if (primaryKey) {
-      draftModel.primaryKey = {...primaryKey, fields: primaryKey.fields.map((x) => camelcase(x)) };
+      draftModel.primaryKey = {
+        ...primaryKey,
+        fields: primaryKey.fields.map((x) => camelcase(x)),
+      };
     }
   });
 
@@ -106,7 +113,7 @@ function transformEnum(enumm: DMMF.DatamodelEnum) {
         if (draftField.name !== name) {
           draftField.dbName = dbName || name;
         }
-      })
+      }),
     );
   });
 
@@ -118,7 +125,7 @@ export function dmmfModelTransformer(models: Model[]): Model[] {
 }
 
 export function dmmfEnumTransformer(
-  enums: DMMF.DatamodelEnum[]
+  enums: DMMF.DatamodelEnum[],
 ): DMMF.DatamodelEnum[] {
   return enums.map((each) => transformEnum(each));
 }
