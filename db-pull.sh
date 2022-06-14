@@ -4,7 +4,7 @@ set -xe
 
 prisma db pull --schema prisma/back.prisma
 cp -f prisma/back.prisma prisma/transformer.prisma
-prisma-schema-transformer prisma/transformer.prisma
+prisma-schema-trans prisma/transformer.prisma
 
 cat > prisma/schema.prisma <<- EOM
 generator nestjsDto {

@@ -17,7 +17,8 @@
   "license": "MIT",
   "main": "dist/index.js",
   "bin": {
-    "prisma-schema-trans": "bin.js"
+    "prisma-schema-trans": "bin.js",
+    "prisma-db-pull": "db-pull.sh"
   },
   "files": [
     "dist",
@@ -28,8 +29,14 @@
   "scripts": {
     "build": "rm -rf dist && tsc -p tsconfig.build.json",
     "test": "DATABASE_URL=postgresql://localhost:5432/prisma jest",
-    "prerelease": "pnpm test && pnpm build",
+    "prerelease": "pnpm fix && pnpm test && pnpm build",
     "release": "release-it",
+    "fix": "pnpm lint && pnpm fmt",
+    "check": "pnpm lint:check && pnpm fmt:check",
+    "lint": "eslint --cache --max-warnings 0 --fix '**/*.{ts,js}'",
+    "fmt": "prettier --write '**/*.{md,prisma,json}'",
+    "lint:check": "eslint --cache --max-warnings 0 '**/*.{ts,js}'",
+    "fmt:check": "prettier '**/*.{md,prisma,json}'",
     "prepare": "husky install"
   },
   "dependencies": {
