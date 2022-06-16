@@ -29,8 +29,7 @@
   "scripts": {
     "build": "rm -rf dist && tsc -p tsconfig.build.json",
     "test": "DATABASE_URL=postgresql://localhost:5432/prisma jest",
-    "prerelease": "pnpm fix && pnpm test && pnpm build",
-    "release": "release-it",
+    "release": "pnpm fix && pnpm test && pnpm build && release-it",
     "fix": "pnpm lint && pnpm fmt",
     "check": "pnpm lint:check && pnpm fmt:check",
     "lint": "eslint --cache --max-warnings 0 --fix '**/*.{ts,js}'",
