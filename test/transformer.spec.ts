@@ -1,38 +1,34 @@
 import * as fs from 'fs';
-import {getDMMF} from '@prisma/sdk';
+import { getDMMF } from '@prisma/sdk';
 
-import {
-  dmmfModelsDeserializer,
-  Model,
-  dmmfEnumsDeserializer,
-} from '../src';
+import { dmmfModelsDeserializer, Model, dmmfEnumsDeserializer } from '../src';
 
 test('transform model name from snake_case to camelCase from simple schema', async () => {
-	const schemaPath = './fixtures/simple.prisma';
+  const schemaPath = './fixtures/simple.prisma';
 
-	const schema = fs.readFileSync(schemaPath, 'utf-8');
-	const dmmf = await getDMMF({datamodel: schema});
-	const models = dmmf.datamodel.models as Model[];
+  const schema = fs.readFileSync(schemaPath, 'utf-8');
+  const dmmf = await getDMMF({ datamodel: schema });
+  const models = dmmf.datamodel.models as Model[];
 
-	const outputSchema = await dmmfModelsDeserializer(models);
-	const outputDmf = await getDMMF({datamodel: outputSchema });
+  const outputSchema = await dmmfModelsDeserializer(models);
+  const outputDmf = await getDMMF({ datamodel: outputSchema });
 
-	expect(outputDmf.datamodel).toEqual(dmmf.datamodel);
+  expect(outputDmf.datamodel).toEqual(dmmf.datamodel);
 });
 
 test('transform model name from snake_case to camelCase from blog schema', async () => {
-	const schemaPath = './fixtures/blog.prisma';
+  const schemaPath = './fixtures/blog.prisma';
 
   const schema = fs.readFileSync(schemaPath, 'utf-8');
-	const dmmf = await getDMMF({datamodel: schema});
-	const models = dmmf.datamodel.models as Model[];
+  const dmmf = await getDMMF({ datamodel: schema });
+  const models = dmmf.datamodel.models as Model[];
 
-	const outputSchema = [
-		await dmmfModelsDeserializer(models),
-		await dmmfEnumsDeserializer(dmmf.datamodel.enums)
-	].join('\n\n\n')
+  const outputSchema = [
+    await dmmfModelsDeserializer(models),
+    await dmmfEnumsDeserializer(dmmf.datamodel.enums),
+  ].join('\n\n\n');
 
-	const outputDmf = await getDMMF({datamodel: outputSchema});
+  const outputDmf = await getDMMF({ datamodel: outputSchema });
 
   expect(outputDmf.datamodel).toEqual(dmmf.datamodel);
 });
@@ -41,15 +37,15 @@ test('transform model name from snake_case to camelCase from schema', async () =
   const schemaPath = './fixtures/schema.prisma';
 
   const datamodel = fs.readFileSync(schemaPath, 'utf-8');
-  const dmmf = await getDMMF({datamodel });
+  const dmmf = await getDMMF({ datamodel });
   const models = dmmf.datamodel.models as Model[];
 
   const outputSchema = [
     await dmmfModelsDeserializer(models),
-    await dmmfEnumsDeserializer(dmmf.datamodel.enums)
-  ].join('\n\n\n')
+    await dmmfEnumsDeserializer(dmmf.datamodel.enums),
+  ].join('\n\n\n');
 
-  const outputDmf = await getDMMF({datamodel: outputSchema});
+  const outputDmf = await getDMMF({ datamodel: outputSchema });
 
   expect(outputDmf.datamodel).toEqual(dmmf.datamodel);
 });

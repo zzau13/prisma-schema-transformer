@@ -12,16 +12,16 @@ generator nestjsDto {
   output                          = "../src/model-db"
   outputToNestJsResourceStructure = "true"
   reExport                        = "true"
+  fileNamingStyle                 = "kebab"
 }
 
 EOM
 
 BASEDIR=$(dirname "$0")
 
-$BASEDIR/schema.awk prisma/back.prisma \
-| paste prisma/transformer.prisma - >> prisma/schema.prisma
+"$BASEDIR"/schema.awk prisma/back.prisma | paste prisma/transformer.prisma - >> prisma/schema.prisma
 
 unset BASEDIR;
 
-prettier --write prisma/*
+prisma format
 prisma generate
