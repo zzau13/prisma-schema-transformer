@@ -1,3 +1,4 @@
+// TODO
 import {
   ConnectorType,
   DataSource,
@@ -29,9 +30,9 @@ export interface Model extends DMMF.Model {
 // eslint-disable-next-line @typescript-eslint/no-empty-function
 const empty = () => {};
 
-const handlers = (type, kind) => {
+const handlers = (type: string, kind: string) => {
   return {
-    default: (value) => {
+    default: (value: unknown) => {
       if (kind === 'enum') {
         return `@default(${value})`;
       }
@@ -45,7 +46,8 @@ const handlers = (type, kind) => {
       }
 
       if (typeof value === 'object') {
-        return `@default(${value.name}(${value.args}))`;
+        const { name, args } = value as { name: string; args: string };
+        return `@default(${name}(${args}))`;
       }
 
       if (typeof value === 'number') {
