@@ -14,7 +14,7 @@ generator client {
 
 
 model User {
-    id String  @id   @default(cuid())  
+    id String  @id   @default(dbgenerated(\\"gen_random_uuid()\\"))  
   email String @unique     
   name String?      
   posts Post[] @relation(\\"PostToUser\\")

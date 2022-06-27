@@ -1,10 +1,10 @@
-import { getDMMF, getConfig } from '@prisma/sdk';
+import { getConfig, getDMMF } from '@prisma/sdk';
 import {
   datasourceDeserializer,
-  dmmfModelsDeserializer,
   dmmfEnumsDeserializer,
-  dmmfModelTransformer,
   dmmfEnumTransformer,
+  dmmfModelsDeserializer,
+  dmmfModelTransformer,
   generatorsDeserializer,
   Model,
 } from '.';
@@ -32,16 +32,16 @@ export async function fixPrismaFile(
   const transformedModels = dmmfModelTransformer(filteredModels);
   const transformedEnums = dmmfEnumTransformer(filteredEnums);
 
-  const outputSchema = [
-    await datasourceDeserializer(datasources),
-    await generatorsDeserializer(generators),
-    await dmmfModelsDeserializer(transformedModels),
-    await dmmfEnumsDeserializer(transformedEnums),
-  ]
+  return (
+    await Promise.all([
+      datasourceDeserializer(datasources),
+      generatorsDeserializer(generators),
+      dmmfModelsDeserializer(transformedModels),
+      dmmfEnumsDeserializer(transformedEnums),
+    ])
+  )
     .filter((e) => e)
     .join('\n\n\n');
-
-  return outputSchema;
 }
 
 export * from './deserializer';

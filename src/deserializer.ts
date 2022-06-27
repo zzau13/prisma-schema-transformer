@@ -46,8 +46,10 @@ const handlers = (type: string, kind: string) => {
       }
 
       if (typeof value === 'object') {
-        const { name, args } = value as { name: string; args: string };
-        return `@default(${name}(${args}))`;
+        const { name, args } = value as { name: string; args: unknown[] };
+        return `@default(${name}(${
+          args.length ? args.map((x) => JSON.stringify(x)).join(',') : ''
+        }))`;
       }
 
       if (typeof value === 'number') {

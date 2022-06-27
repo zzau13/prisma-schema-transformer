@@ -1,9 +1,9 @@
 import { produce } from 'immer';
 import { DMMF } from '@prisma/generator-helper';
-import pluralize = require('pluralize');
-import camelcase = require('camelcase');
 
 import { Model } from '.';
+import pluralize = require('pluralize');
+import camelcase = require('camelcase');
 
 function transformModelName(modelName: string) {
   return camelcase(pluralize(modelName, 1), { pascalCase: true });
@@ -79,7 +79,7 @@ function transformModel(model: Model) {
     }
   });
 
-  const fixIdFieldsName = produce(fixUniqueName, (draftModel) => {
+  return produce(fixUniqueName, (draftModel) => {
     if (primaryKey) {
       draftModel.primaryKey = {
         ...primaryKey,
@@ -87,21 +87,19 @@ function transformModel(model: Model) {
       };
     }
   });
-
-  return fixIdFieldsName;
 }
 
-function transformEnum(enumm: DMMF.DatamodelEnum) {
-  const { name } = enumm;
+function transformEnum(enums: DMMF.DatamodelEnum) {
+  const { name } = enums;
 
-  const fixModelName = produce(enumm, (draftModel) => {
+  const fixModelName = produce(enums, (draftModel) => {
     if (name !== transformModelName(name)) {
       draftModel.name = transformModelName(name);
       draftModel.dbName = name;
     }
   });
 
-  const fixFieldsName = produce(fixModelName, (draftModel) => {
+  return produce(fixModelName, (draftModel) => {
     // eslint-disable-next-line @typescript-eslint/no-unnecessary-type-assertion
     draftModel.values = draftModel.values.map((field) =>
       produce(field, (draftField) => {
@@ -116,8 +114,6 @@ function transformEnum(enumm: DMMF.DatamodelEnum) {
       }),
     );
   });
-
-  return fixFieldsName;
 }
 
 export function dmmfModelTransformer(models: Model[]): Model[] {
