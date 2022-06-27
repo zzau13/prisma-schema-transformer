@@ -8,11 +8,11 @@ prisma-schema-trans prisma/transformer.prisma
 
 cat > prisma/schema.prisma <<- EOM
 generator nestjsDto {
-  provider                        = "prisma-generator-nestjs-dto"
+  provider                        = "prisma-generator-nestjs"
   output                          = "../src/model"
-  outputToNestJsResourceStructure = "true"
-  reExport                        = "true"
+  outputToNestJsResourceStructure = true
   fileNamingStyle                 = "kebab"
+  decimalAsNumber                 = true
 }
 
 EOM
