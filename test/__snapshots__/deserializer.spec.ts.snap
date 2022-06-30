@@ -75,7 +75,9 @@ model Employee {
 @@id([plantId, employeeId])
 }
 model Another {
-    anotherId String       @map(\\"AnotherId\\")
+  /// @Foo
+/// @Bar
+  anotherId String       @map(\\"AnotherId\\")
   plantId String       @map(\\"PlantId\\")
   employeeId String       @map(\\"EmployeeId\\")
   uni String       @map(\\"Uni\\")
@@ -84,7 +86,8 @@ model Another {
 @@id([plantId, anotherId])
 }
 model Last {
-    plantId String       @map(\\"PlantId\\")
+  /// @Foo
+  plantId String       @map(\\"PlantId\\")
   id Int  @id    
   employeeOneId String       @map(\\"EmployeeOneId\\")
   employeeOne Employee @relation(\\"EmployeesToLast_PlantId_EmployeeOneId\\", fields: [plantId,employeeOneId], references: [plantId,employeeId], onDelete: NoAction)

@@ -20,6 +20,8 @@ model Employees {
 }
 
 model Anothers {
+  /// @Foo
+  /// @Bar
   AnotherId  String    @db.VarChar(10)
   PlantId    String    @db.VarChar(10)
   EmployeeId String    @db.VarChar(10)
@@ -30,6 +32,7 @@ model Anothers {
 }
 
 model Last {
+  /// @Foo
   PlantId       String    @db.VarChar(10)
   id            Int       @id
   EmployeeOneId String    @db.VarChar(10)

@@ -120,29 +120,40 @@ function handleAttributes(
 
 const handleFields = (fields: DMMF.Field[]) =>
   fields
-    .map(({ name, kind, type, isRequired, isList, ...attributes }) => {
-      if (kind === 'scalar') {
-        return `  ${name} ${type}${isRequired ? '' : '?'} ${handleAttributes(
-          attributes,
-          kind,
-          type,
-        )}`;
-      }
+    .map(
+      ({
+        name,
+        kind,
+        type,
+        isRequired,
+        isList,
+        documentation,
+        ...attributes
+      }) => {
+        const doc = documentation
+          ? `/// ${documentation.replaceAll('\n', '\n/// ')}\n`
+          : '';
+        if (kind === 'scalar') {
+          return `${doc}  ${name} ${type}${
+            isRequired ? '' : '?'
+          } ${handleAttributes(attributes, kind, type)}`;
+        }
 
-      if (kind === 'object') {
-        return `  ${name} ${type}${
-          isList ? '[]' : isRequired ? '' : '?'
-        } ${handleAttributes(attributes, kind, type)}`;
-      }
+        if (kind === 'object') {
+          return `${doc}  ${name} ${type}${
+            isList ? '[]' : isRequired ? '' : '?'
+          } ${handleAttributes(attributes, kind, type)}`;
+        }
 
-      if (kind === 'enum') {
-        return `  ${name} ${type}${
-          isList ? '[]' : isRequired ? '' : '?'
-        } ${handleAttributes(attributes, kind, type)}`;
-      }
+        if (kind === 'enum') {
+          return `${doc}  ${name} ${type}${
+            isList ? '[]' : isRequired ? '' : '?'
+          } ${handleAttributes(attributes, kind, type)}`;
+        }
 
-      throw new Error(`Unsupported field kind "${kind}"`);
-    })
+        throw new Error(`Unsupported field kind "${kind}"`);
+      },
+    )
     .join('\n');
 
 const handleIdFields = (idFields?: string[]) =>
