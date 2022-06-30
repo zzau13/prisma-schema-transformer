@@ -239,7 +239,7 @@ const printGenerator = ({
   let ret = `generator ${name} {
   provider = ${printEnvVar(provider)}`;
   if (output) ret += `\n  output = ${printEnvVar(output)}`;
-  const conf = Object.entries(config);
+  const conf = Object.entries(config).sort(([a], [b]) => a.localeCompare(b));
   if (conf.length)
     ret += `\n  ${conf
       .map(([k, v]) => `${k} = ${JSON.stringify(v)}`)
