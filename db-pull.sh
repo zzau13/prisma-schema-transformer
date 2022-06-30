@@ -6,20 +6,9 @@ prisma db pull --schema prisma/back.prisma
 cp -f prisma/back.prisma prisma/transformer.prisma
 prisma-schema-trans prisma/transformer.prisma
 
-cat > prisma/schema.prisma <<- EOM
-generator nestjsDto {
-  provider                        = "prisma-generator-nestjs"
-  output                          = "../src/model"
-  outputToNestJsResourceStructure = true
-  fileNamingStyle                 = "kebab"
-  decimalAsNumber                 = true
-}
-
-EOM
-
 BASEDIR=$(dirname "$0")
 
-"$BASEDIR"/schema.awk prisma/back.prisma | paste prisma/transformer.prisma - >> prisma/schema.prisma
+"$BASEDIR"/schema.awk prisma/back.prisma | paste prisma/transformer.prisma - > prisma/schema.prisma
 
 unset BASEDIR;
 

@@ -60,6 +60,9 @@ datasource db {
 
 generator client {
   provider = \\"prisma-client-js\\"
+  output = env(\\"FOO\\")
+  another = \\"foo\\"
+  anotherFoo = \\"foo\\"
 }
 
 

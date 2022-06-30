@@ -1,5 +1,8 @@
 generator client {
-  provider = "prisma-client-js"
+  provider   = "prisma-client-js"
+  output     = env("FOO")
+  another    = "foo"
+  anotherFoo = "foo"
 }
 
 datasource db {

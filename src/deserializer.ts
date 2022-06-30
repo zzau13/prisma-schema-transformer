@@ -6,7 +6,6 @@ import {
   EnvValue,
   GeneratorConfig,
 } from '@prisma/generator-helper/dist';
-import { printGeneratorConfig } from '@prisma/engine-core';
 
 export type Attribute = Pick<
   DMMF.Field,
@@ -228,11 +227,30 @@ export async function datasourceDeserializer(datasource: DataSource[]) {
     .join('\n');
 }
 
-export async function generatorsDeserializer(generators: GeneratorConfig[]) {
-  return generators
-    .map((generator) => printGeneratorConfig(generator))
-    .join('\n');
-}
+const printEnvVar = ({ fromEnvVar, value }: EnvValue) =>
+  fromEnvVar ? `env(${JSON.stringify(fromEnvVar)})` : JSON.stringify(value);
+
+const printGenerator = ({
+  name,
+  config,
+  provider,
+  output,
+}: GeneratorConfig) => {
+  let ret = `generator ${name} {
+  provider = ${printEnvVar(provider)}`;
+  if (output) ret += `\n  output = ${printEnvVar(output)}`;
+  const conf = Object.entries(config);
+  if (conf.length)
+    ret += `\n  ${conf
+      .map(([k, v]) => `${k} = ${JSON.stringify(v)}`)
+      .join('\n  ')}`;
+  ret += '\n}';
+
+  return ret;
+};
+
+export const generatorsDeserializer = (generators: GeneratorConfig[]) =>
+  generators.map(printGenerator).join('\n');
 
 export async function dmmfEnumsDeserializer(enums: DMMF.DatamodelEnum[]) {
   return enums.map((each) => deserializeEnum(each)).join('\n');
