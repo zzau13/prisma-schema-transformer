@@ -8,6 +8,7 @@ import {
   generatorsDeserializer,
   Model,
 } from '.';
+import { getConfigFile } from './config';
 
 /**
  *
@@ -18,6 +19,7 @@ export async function fixPrismaFile(
   schema: string,
   denyList: readonly string[] = [],
 ) {
+  const configFile = await getConfigFile();
   const dmmf = await getDMMF({ datamodel: schema });
   const config = await getConfig({ datamodel: schema });
 
@@ -29,7 +31,7 @@ export async function fixPrismaFile(
   const filteredEnums = dmmf.datamodel.enums.filter(
     (each) => !denyList.includes(each.name),
   );
-  const transformedModels = dmmfModelTransformer(filteredModels);
+  const transformedModels = dmmfModelTransformer(filteredModels, configFile);
   const transformedEnums = dmmfEnumTransformer(filteredEnums);
 
   return (
@@ -46,3 +48,4 @@ export async function fixPrismaFile(
 
 export * from './deserializer';
 export * from './transformer';
+export { Config } from './config';

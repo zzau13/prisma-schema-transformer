@@ -1,7 +1,7 @@
 import { produce } from 'immer';
 import { DMMF } from '@prisma/generator-helper';
 
-import { Model } from '.';
+import { Config, Model } from '.';
 import pluralize = require('pluralize');
 import camelcase = require('camelcase');
 
@@ -9,7 +9,10 @@ function transformModelName(modelName: string) {
   return camelcase(pluralize(modelName, 1), { pascalCase: true });
 }
 
-function transformModel(model: Model) {
+function transformModel(
+  model: Model,
+  { omitPluralFields, pluralFields, updatedAtByTrigger }: Config,
+) {
   const { name, uniqueFields, primaryKey } = model;
 
   const fixModelName = produce(model, (draftModel) => {
@@ -33,10 +36,16 @@ function transformModel(model: Model) {
           isList,
         } = draftField;
 
+        let trans;
+        if (
+          (!pluralFields || !omitPluralFields.includes(name)) &&
+          (!relationToFields || !relationFromFields)
+        )
+          trans = name;
+        else trans = isList ? pluralize.plural(name) : pluralize.singular(name);
+
         // Transform field name
-        draftField.name = isList
-          ? camelcase(pluralize.plural(name))
-          : camelcase(pluralize.singular(name));
+        draftField.name = camelcase(trans);
 
         if (draftField.name !== name) {
           draftField.columnName = name;
@@ -64,9 +73,11 @@ function transformModel(model: Model) {
           );
         }
 
-        if (name === 'updated_at') {
+        if (
+          !updatedAtByTrigger &&
+          (name === 'updated_at' || name === 'update_at')
+        )
           draftField.isUpdatedAt = true;
-        }
       }),
     ) as unknown as DMMF.Field[]; // Force type conversion
   });
@@ -116,8 +127,8 @@ function transformEnum(enums: DMMF.DatamodelEnum) {
   });
 }
 
-export function dmmfModelTransformer(models: Model[]): Model[] {
-  return models.map((model) => transformModel(model));
+export function dmmfModelTransformer(models: Model[], config: Config): Model[] {
+  return models.map((model) => transformModel(model, config));
 }
 
 export function dmmfEnumTransformer(
