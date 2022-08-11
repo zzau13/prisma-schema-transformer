@@ -29,7 +29,7 @@
   "scripts": {
     "build": "rm -rf dist && tsc -p tsconfig.build.json",
     "test": "DATABASE_URL=postgresql://localhost:5432/prisma vitest test.ts",
-    "release": "pnpm fix && pnpm test && pnpm build && dotenv release-it",
+    "release": "pnpm fix && pnpm test -- --run && pnpm build && dotenv release-it",
     "fix": "pnpm lint && pnpm fmt",
     "check": "pnpm lint:check && pnpm fmt:check",
     "lint": "eslint --cache --max-warnings 0 --fix '**/*.{ts,js}'",
@@ -54,6 +54,7 @@
     "@commitlint/cli": "17.0.3",
     "@commitlint/config-conventional": "17.0.3",
     "@release-it/conventional-changelog": "5.0.0",
+    "@types/jest": "^28.1.6",
     "@types/node": "18.7.1",
     "@types/pluralize": "0.0.29",
     "@typescript-eslint/eslint-plugin": "5.33.0",
