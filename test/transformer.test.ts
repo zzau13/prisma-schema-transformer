@@ -1,6 +1,6 @@
 import { test, expect } from 'vitest';
 import { readFileSync } from 'node:fs';
-import { getDMMF } from '@prisma/sdk';
+import { getDMMF } from '@prisma/internals';
 
 import { dmmfModelsDeserializer, Model, dmmfEnumsDeserializer } from '../src';
 

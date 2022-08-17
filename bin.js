@@ -4,7 +4,7 @@
 require('dotenv').config();
 const fs = require('fs');
 const arg = require('arg');
-const { formatSchema } = require('@prisma/sdk');
+const { formatSchema } = require('@prisma/internals');
 const pkg = require('./package.json');
 const { fixPrismaFile } = require('./dist');
 
