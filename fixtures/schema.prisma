@@ -43,4 +43,7 @@ model Last {
 
   EmployeeTwoId String    @db.VarChar(10)
   EmployeeTwo   Employees @relation("EmployeesToLast_PlantId_EmployeeTwoId", fields: [PlantId, EmployeeTwoId], references: [PlantId, EmployeeId], onDelete: NoAction, onUpdate: NoAction)
+
+  @@unique([PlantId, EmployeeOneId])
+  @@unique([PlantId, EmployeeTwoId])
 }

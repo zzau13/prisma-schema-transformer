@@ -1,4 +1,4 @@
-import { getConfig, getDMMF } from '@prisma/sdk';
+import { getConfig, getDMMF } from '@prisma/internals';
 import {
   datasourceDeserializer,
   dmmfEnumsDeserializer,
