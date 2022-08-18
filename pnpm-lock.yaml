@@ -25,7 +25,7 @@ specifiers:
   lint-staged: 13.0.3
   pluralize: ^8.0.0
   prettier: 2.7.1
-  prettier-plugin-prisma: 4.1.0
+  prettier-plugin-prisma: 4.2.0
   prisma: ^4.2.1
   release-it: 15.3.0
   ts-toolbelt: ^9.6.0
@@ -61,7 +61,7 @@ devDependencies:
   husky: 8.0.1
   lint-staged: 13.0.3
   prettier: 2.7.1
-  prettier-plugin-prisma: 4.1.0_prettier@2.7.1
+  prettier-plugin-prisma: 4.2.0_prettier@2.7.1
   release-it: 15.3.0
   typescript: 4.7.4
   vitest: 0.22.0
@@ -699,8 +699,8 @@ packages:
       - supports-color
     dev: false
 
-  /@prisma/prisma-fmt-wasm/4.1.0-12.09f9659a3d73d5ed2aac8298e2856b8be910cd66:
-    resolution: {integrity: sha512-92cZ5P1IcJex6aIxFptU3HNv8g53b/eP0AhqmVGCiyzcTbwCQcbCMUycDuEoHjIuIR0o7XXdHIrXnbiQQMhEGg==}
+  /@prisma/prisma-fmt-wasm/4.2.0-33.2920a97877e12e055c1333079b8d19cee7f33826:
+    resolution: {integrity: sha512-xXE4vjNMlvY2T0MqyOpUwcKnuajn3SDksF23PWtd3mODP5J3rtf1QoqSk99CX1i8Opap/UN0L0VHvPwgE49O7g==}
     dev: true
 
   /@release-it/conventional-changelog/5.1.0_release-it@15.3.0:
@@ -1752,8 +1752,8 @@ packages:
     engines: {node: '>=10'}
     hasBin: true
     dependencies:
-      is-text-path: 1.0.1
       JSONStream: 1.3.5
+      is-text-path: 1.0.1
       lodash: 4.17.21
       meow: 8.1.2
       split2: 3.2.2
@@ -4439,13 +4439,13 @@ packages:
       fast-diff: 1.2.0
     dev: true
 
-  /prettier-plugin-prisma/4.1.0_prettier@2.7.1:
-    resolution: {integrity: sha512-bGh1pEzEjSVky3T1uznlZlWgPzyJykEbkg8iFjsBKWMMrkEDRT+5iDJD0CSFjR3bI6r9KkQQJcRvUa5oUR6hwA==}
+  /prettier-plugin-prisma/4.2.0_prettier@2.7.1:
+    resolution: {integrity: sha512-7KWA1L1p7PeSLOZJvDFKaik4z9c4SddgMGBkCzwzqUK13LhFhrIq3nyFBMZxoY3jt2gl8HfOiTT44/tCdjIBIQ==}
     engines: {node: '>=12', npm: '>=7'}
     peerDependencies:
       prettier: '>=2'
     dependencies:
-      '@prisma/prisma-fmt-wasm': 4.1.0-12.09f9659a3d73d5ed2aac8298e2856b8be910cd66
+      '@prisma/prisma-fmt-wasm': 4.2.0-33.2920a97877e12e055c1333079b8d19cee7f33826
       prettier: 2.7.1
     dev: true
 
