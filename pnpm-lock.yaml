@@ -27,7 +27,7 @@ specifiers:
   prettier: 2.7.1
   prettier-plugin-prisma: 4.2.0
   prisma: ^4.2.1
-  release-it: 15.3.0
+  release-it: 15.4.0
   ts-toolbelt: ^9.6.0
   typescript: 4.7.4
   vitest: 0.22.1
@@ -47,7 +47,7 @@ dependencies:
 devDependencies:
   '@commitlint/cli': 17.1.2
   '@commitlint/config-conventional': 17.1.0
-  '@release-it/conventional-changelog': 5.1.0_release-it@15.3.0
+  '@release-it/conventional-changelog': 5.1.0_release-it@15.4.0
   '@types/jest': 28.1.8
   '@types/node': 18.7.6
   '@types/pluralize': 0.0.29
@@ -62,7 +62,7 @@ devDependencies:
   lint-staged: 13.0.3
   prettier: 2.7.1
   prettier-plugin-prisma: 4.2.0_prettier@2.7.1
-  release-it: 15.3.0
+  release-it: 15.4.0
   typescript: 4.7.4
   vitest: 0.22.1
 
@@ -705,7 +705,7 @@ packages:
     resolution: {integrity: sha512-xXE4vjNMlvY2T0MqyOpUwcKnuajn3SDksF23PWtd3mODP5J3rtf1QoqSk99CX1i8Opap/UN0L0VHvPwgE49O7g==}
     dev: true
 
-  /@release-it/conventional-changelog/5.1.0_release-it@15.3.0:
+  /@release-it/conventional-changelog/5.1.0_release-it@15.4.0:
     resolution: {integrity: sha512-o55D822tVIoldUDj1Fp1KvenVREcEEjYOyuVNwRVnTcExFN6nWUPrH05q7Y8opT23N5snuCwPJ5bzLPEcpBvRg==}
     engines: {node: '>=14'}
     peerDependencies:
@@ -714,7 +714,7 @@ packages:
       concat-stream: 2.0.0
       conventional-changelog: 3.1.25
       conventional-recommended-bump: 6.1.0
-      release-it: 15.3.0
+      release-it: 15.4.0
       semver: 7.3.7
     dev: true
 
@@ -4707,8 +4707,8 @@ packages:
       rc: 1.2.8
     dev: true
 
-  /release-it/15.3.0:
-    resolution: {integrity: sha512-MI4EBGca+y4SskgBkWNIakFp/GvXfpZEMWkmqmsysPcou/L+E+sKd0oy33ovGCyLic+9SI2rv/lQ3ACgonmqdQ==}
+  /release-it/15.4.0:
+    resolution: {integrity: sha512-l7ZHfg5SHXWaAQy5gUS1dowryqjLevpXKvyNt8V7QCqqGQO/IvQEfLnc5xx4unBgJvxjt/X2f9KZ8FOzRnaT9w==}
     engines: {node: '>=14.9'}
     hasBin: true
     dependencies:
@@ -5722,7 +5722,7 @@ packages:
     dev: true
 
   /xregexp/2.0.0:
-    resolution: {integrity: sha1-UqY+VsoLhKfzpfPWGHLxJq16WUM=}
+    resolution: {integrity: sha512-xl/50/Cf32VsGq/1R8jJE5ajH1yMCQkpmoS10QbFZWl2Oor4H0Me64Pu2yxvsRWK3m6soJbmGfzSR7BYmDcWAA==}
     dev: true
 
   /xtend/4.0.2:
