@@ -61,7 +61,7 @@
     "@typescript-eslint/parser": "5.35.1",
     "@vitest/coverage-c8": "0.22.1",
     "dotenv-cli": "6.0.0",
-    "eslint": "8.22.0",
+    "eslint": "8.23.0",
     "eslint-config-prettier": "8.5.0",
     "eslint-plugin-prettier": "4.2.1",
     "husky": "8.0.1",
