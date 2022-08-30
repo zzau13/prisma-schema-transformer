@@ -1,7 +1,7 @@
 {
   "name": "prisma-schema-trans",
   "description": "Transform names from any case to camelCase in Prisma schema.",
-  "version": "1.2.3",
+  "version": "1.2.4",
   "repository": "https://github.com/botika/prisma-schema-transformer",
   "authors": [
     {
