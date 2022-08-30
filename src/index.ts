@@ -10,11 +10,6 @@ import {
 } from '.';
 import { getConfigFile } from './config';
 
-/**
- *
- * @param schema
- * @param denyList
- */
 export async function fixPrismaFile(
   schema: string,
   denyList: readonly string[] = [],
@@ -48,4 +43,3 @@ export async function fixPrismaFile(
 
 export * from './deserializer';
 export * from './transformer';
-export { Config } from './config';

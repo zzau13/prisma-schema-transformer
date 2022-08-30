@@ -47,5 +47,7 @@ jobs:
       - name: Codecov
         uses: codecov/codecov-action@v3
         with:
+          files: ./coverage/coverage-final.json
+          verbose: true
           token: ${{ secrets.CODECOV_TOKEN }}
 
