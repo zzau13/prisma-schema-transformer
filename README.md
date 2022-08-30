@@ -12,18 +12,18 @@ $ pnpm i -g prism-schema-trans
 $ prisma-schema-trans prisma/schema.prisma
 ```
 
-```
+```bash
 Usage
-  $ prisma-schema-transformer [options] [...args]
+  $ prisma-schema-trans [options] [...args]
 
 Specify a schema:
-  $ prisma-schema-transformer ./schema.prisma
+  $ prisma-schema-trans ./schema.prisma
 
 Instead of saving the result to the filesystem, you can also print it
-  $ prisma-schema-transformer ./schema.prisma --print
+  $ prisma-schema-trans ./schema.prisma --print
 
 Exclude some models from the output
-  $ prisma-schema-transformer ./schema.prisma --deny knex_migrations --deny knex_migration_lock
+  $ prisma-schema-trans ./schema.prisma --deny knex_migrations --deny knex_migration_lock
 
 Options:
   --print   Do not save
