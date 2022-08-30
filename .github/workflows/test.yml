@@ -13,7 +13,7 @@ jobs:
       - name: Install Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: lts/*
+          node-version: lts/fermium
 
       - uses: pnpm/action-setup@v2.2.2
         name: Install pnpm
@@ -40,6 +40,10 @@ jobs:
 
       - name: check
         run: pnpm check
+
+
+      - name: build
+        run: pnpm build
 
       - name: test
         run: pnpm test -- --coverage
