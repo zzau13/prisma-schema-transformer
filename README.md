@@ -15,6 +15,7 @@ import { defConfig } from 'prisma-schema-trans';
 
 // Default options
 export default defConfig({
+  deny: [],
   omitPluralFields: [],
   pluralFields: true,
   updatedAtByTrigger: false,
