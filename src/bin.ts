@@ -34,12 +34,15 @@ const options = program.opts<{
   deny: string[];
 }>();
 const schemaPath = program.args[0];
+const config = options.config
+  ? join(process.cwd(), options.config)
+  : options.config;
 
 (async function () {
   const schema = await fs.readFile(schemaPath, 'utf-8');
   const schemaFormatted = await formatSchema({ schema });
   const output = await formatSchema({
-    schema: await fixPrismaFile(schemaFormatted, options.deny, options.config),
+    schema: await fixPrismaFile(schemaFormatted, options.deny, config),
   });
   if (options.print) console.log(output);
   else await fs.writeFile(schemaPath, output);

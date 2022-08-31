@@ -14,6 +14,11 @@ export const FILE = 'schema-trans.mjs';
 export const getConfigFile = async (
   path = join(process.cwd(), FILE),
 ): Promise<Config> =>
-  (await stat(path).catch(() => false))
+  (await stat(path).catch(() => {
+    console.error(
+      `config file ${JSON.stringify(path)} not exits. Use default config`,
+    );
+    return false;
+  }))
     ? (Function(`return import(${JSON.stringify(path)})`)() as Promise<Config>)
     : config;
