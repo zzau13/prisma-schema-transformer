@@ -46,15 +46,15 @@
     "node": ">=16.17"
   },
   "dependencies": {
-    "@prisma/engine-core": "^4.2.1",
-    "@prisma/generator-helper": "^4.2.1",
-    "@prisma/internals": "^4.2.1",
+    "@prisma/engine-core": "^4.3.0",
+    "@prisma/generator-helper": "^4.3.0",
+    "@prisma/internals": "^4.3.0",
     "camelcase": "^6.0.0",
     "commander": "^9.4.0",
-    "dotenv": "^16.0.1",
+    "dotenv": "^16.0.2",
     "immer": "^9.0.15",
     "pluralize": "^8.0.0",
-    "prisma": "^4.2.1",
+    "prisma": "^4.3.0",
     "ts-toolbelt": "^9.6.0"
   },
   "devDependencies": {
@@ -62,7 +62,7 @@
     "@commitlint/config-conventional": "17.1.0",
     "@release-it/conventional-changelog": "5.1.0",
     "@types/jest": "29.0.0",
-    "@types/node": "18.7.6",
+    "@types/node": "18.7.14",
     "@types/pluralize": "0.0.29",
     "@typescript-eslint/eslint-plugin": "5.36.1",
     "@typescript-eslint/parser": "5.36.1",

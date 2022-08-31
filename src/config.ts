@@ -8,7 +8,10 @@ const config = {
 };
 
 export type Config = Readonly<typeof config>;
-export const defConfig = (cfg: Partial<Config>) => ({ ...config, ...cfg });
+export const defConfig = (cfg: Partial<Config>): Config => ({
+  ...config,
+  ...cfg,
+});
 
 export const FILE = 'schema-trans.mjs';
 export const getConfigFile = async (
