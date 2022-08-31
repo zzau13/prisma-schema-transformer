@@ -1,4 +1,4 @@
-import { join, extname } from 'path';
+import { join, extname } from 'node:path';
 import { stat } from 'node:fs/promises';
 
 const config = {
@@ -15,13 +15,14 @@ export const defConfig = (cfg: Partial<Config>): Config => ({
 });
 
 export const FILE = 'schema-trans.mjs';
+const PATH =  join(process.cwd(), FILE);
 export const getConfigFile = async (
-  path = join(process.cwd(), FILE),
+  path = PATH,
 ): Promise<Config> =>
   (extname(path) === '.mjs' && await stat(path)
     .then((x) => x.isFile())
     .catch(() => {
-      console.error(
+      if (path !== PATH) throw new Error(
         `bad config path ${JSON.stringify(
           path,
         )} or not correct file. Using default config`,

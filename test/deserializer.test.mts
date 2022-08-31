@@ -22,7 +22,14 @@ test('deserialized blog', () =>
   expect(
     fixPrismaFile(
       readFileSync(join(__dirname, './fixtures/blog.prisma'), 'utf-8'),
+    ),
+  ).resolves.toMatchSnapshot());
+
+test('bad config path', () =>
+  expect(
+    fixPrismaFile(
+      readFileSync(join(__dirname, './fixtures/blog.prisma'), 'utf-8'),
       [],
         'not-exist.mjs'
     ),
-  ).resolves.toMatchSnapshot());
+  ).rejects.toMatchSnapshot());
