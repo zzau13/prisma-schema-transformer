@@ -15,9 +15,9 @@
     }
   ],
   "license": "MIT",
-  "main": "dist/index.js",
+  "main": "dist/src/index.js",
   "bin": {
-    "prisma-schema-trans": "dist/bin.js",
+    "prisma-schema-trans": "dist/src/bin.js",
     "prisma-db-pull": "db-pull.sh"
   },
   "files": [
@@ -41,8 +41,8 @@
     "@prisma/engine-core": "^4.2.1",
     "@prisma/generator-helper": "^4.2.1",
     "@prisma/internals": "^4.2.1",
-    "arg": "^5.0.2",
     "camelcase": "^6.0.0",
+    "commander": "^9.4.0",
     "dotenv": "^16.0.1",
     "immer": "^9.0.15",
     "pluralize": "^8.0.0",

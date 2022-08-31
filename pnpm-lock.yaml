@@ -15,6 +15,7 @@ specifiers:
   '@vitest/coverage-c8': 0.22.1
   arg: ^5.0.2
   camelcase: ^6.0.0
+  commander: ^9.4.0
   dotenv: ^16.0.1
   dotenv-cli: 6.0.0
   eslint: 8.23.0
@@ -38,6 +39,7 @@ dependencies:
   '@prisma/internals': 4.2.1
   arg: 5.0.2
   camelcase: 6.3.0
+  commander: 9.4.0
   dotenv: 16.0.1
   immer: 9.0.15
   pluralize: 8.0.0
@@ -1555,7 +1557,6 @@ packages:
   /commander/9.4.0:
     resolution: {integrity: sha512-sRPT+umqkz90UA8M1yqYfnHlZA7fF6nSphDtxeywPZ49ysjxDQybzk13CL+mXekDRG92skbcqCLVovuCusNmFw==}
     engines: {node: ^12.20.0 || >=14}
-    dev: true
 
   /commondir/1.0.1:
     resolution: {integrity: sha512-W9pAhw0ja1Edb5GVdIF1mjZw/ASI0AlShXM83UUGe2DVr5TdAPEA1OA8m/g8zWp9x6On7gqufY+FatDbC3MDQg==}
