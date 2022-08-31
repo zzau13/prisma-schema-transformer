@@ -15,5 +15,5 @@ export const getConfigFile = async (
   path = join(process.cwd(), 'schema-trans.mjs'),
 ): Promise<Config> =>
   (await stat(path).catch(() => false))
-    ? (Function(`return import("${path}")`)() as Promise<Config>)
+    ? (Function(`return import(${JSON.stringify(path)})`)() as Promise<Config>)
     : config;
