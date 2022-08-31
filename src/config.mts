@@ -1,10 +1,11 @@
-import { join } from 'path';
+import { join, extname } from 'path';
 import { stat } from 'node:fs/promises';
 
 const config = {
   pluralFields: true,
   omitPluralFields: new Array<string>(),
   updatedAtByTrigger: false,
+  deny: new Array<string>(),
 };
 
 export type Config = Readonly<typeof config>;
@@ -17,13 +18,13 @@ export const FILE = 'schema-trans.mjs';
 export const getConfigFile = async (
   path = join(process.cwd(), FILE),
 ): Promise<Config> =>
-  (await stat(path)
+  (extname(path) === '.mjs' && await stat(path)
     .then((x) => x.isFile())
     .catch(() => {
       console.error(
-        `config file ${JSON.stringify(
+        `bad config path ${JSON.stringify(
           path,
-        )} not exits or is a directory. Use default config`,
+        )} or not correct file. Using default config`,
       );
       return false;
     }))
