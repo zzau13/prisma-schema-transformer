@@ -6,11 +6,11 @@
 $ prisma-schema-trans -h
 ```
 
-## Config file
+## ESModule config file
 
-In the root file `schema-trans.js`
+> schema-trans.mjs
 
-```javascript
+```ecmascript 6
 import { defConfig } from 'prisma-schema-trans';
 
 // Default options
