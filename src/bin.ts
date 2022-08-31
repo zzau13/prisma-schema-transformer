@@ -1,9 +1,10 @@
 #!/usr/bin/env node
+
+import { formatSchema } from '@prisma/internals';
 import dotenv from 'dotenv';
 import fs from 'node:fs/promises';
 import { Argument, program } from 'commander';
 
-import { formatSchema } from '@prisma/internals';
 import pkg from '../package.json';
 
 import { fixPrismaFile } from './fixer';
@@ -13,16 +14,19 @@ dotenv.config();
 program
   .name(pkg.name)
   .description(pkg.description)
-  .version(pkg.version, '-v, --version', 'output the current version');
-
-program
+  .version(pkg.version, '-v, --version', 'output the current version')
   .option('-c, --config <path>', 'path to config file')
   .option('-p, --print', 'dry run and print result for stdout', false)
+  // TODO:
   .option('-d, --deny <list>', 'deny model names', [])
-  .addArgument(new Argument('<path>', 'prisma schema to modify').argRequired());
-program.parse();
+  .addArgument(new Argument('<path>', 'prisma schema to modify').argRequired())
+  .parse();
 
-const options = program.opts();
+const options = program.opts<{
+  config?: string;
+  print: boolean;
+  deny: string[];
+}>();
 const schemaPath = program.args[0];
 
 (async function () {
@@ -31,11 +35,6 @@ const schemaPath = program.args[0];
   const output = await formatSchema({
     schema: await fixPrismaFile(schemaFormatted, options.deny, options.config),
   });
-  if (options.print) {
-    console.log(output);
-  } else {
-    await fs.writeFile(schemaPath, output);
-  }
-
-  process.exit(0);
+  if (options.print) console.log(output);
+  else await fs.writeFile(schemaPath, output);
 })();
