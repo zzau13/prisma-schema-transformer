@@ -2,13 +2,14 @@ import { readFileSync } from 'node:fs';
 import { test, expect } from 'vitest';
 
 import { fixPrismaFile } from '../src/fixer';
+import { join } from 'node:path';
 
 // TODO: ESModule dynamic import crash all
 const configPath = 'no-exist.mjs';
 test('deserialized simple', () =>
   expect(
     fixPrismaFile(
-      readFileSync('./fixtures/simple.prisma', 'utf-8'),
+      readFileSync(join(__dirname, './fixtures/simple.prisma'), 'utf-8'),
       [],
       configPath,
     ),
@@ -17,7 +18,7 @@ test('deserialized simple', () =>
 test('deserialized schema', () =>
   expect(
     fixPrismaFile(
-      readFileSync('./fixtures/schema.prisma', 'utf-8'),
+      readFileSync(join(__dirname, './fixtures/schema.prisma'), 'utf-8'),
       [],
       configPath,
     ),
@@ -26,7 +27,7 @@ test('deserialized schema', () =>
 test('deserialized blog', () =>
   expect(
     fixPrismaFile(
-      readFileSync('./fixtures/blog.prisma', 'utf-8'),
+      readFileSync(join(__dirname, './fixtures/blog.prisma'), 'utf-8'),
       [],
       configPath,
     ),

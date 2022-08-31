@@ -1,5 +1,6 @@
-import { test, expect } from 'vitest';
 import { readFileSync } from 'node:fs';
+import { join } from 'node:path';
+import { test, expect } from 'vitest';
 import { getDMMF } from '@prisma/internals';
 
 import {
@@ -9,7 +10,7 @@ import {
 } from '../src/deserializer';
 
 test('transform model name from snake_case to camelCase from simple schema', async () => {
-  const schemaPath = './fixtures/simple.prisma';
+  const schemaPath = join(__dirname, './fixtures/simple.prisma');
 
   const schema = readFileSync(schemaPath, 'utf-8');
   const dmmf = await getDMMF({ datamodel: schema });
@@ -22,7 +23,7 @@ test('transform model name from snake_case to camelCase from simple schema', asy
 });
 
 test('transform model name from snake_case to camelCase from blog schema', async () => {
-  const schemaPath = './fixtures/blog.prisma';
+  const schemaPath = join(__dirname, './fixtures/blog.prisma');
 
   const schema = readFileSync(schemaPath, 'utf-8');
   const dmmf = await getDMMF({ datamodel: schema });
@@ -39,7 +40,7 @@ test('transform model name from snake_case to camelCase from blog schema', async
 });
 
 test('transform model name from snake_case to camelCase from schema', async () => {
-  const schemaPath = './fixtures/schema.prisma';
+  const schemaPath = join(__dirname, './fixtures/schema.prisma');
 
   const datamodel = readFileSync(schemaPath, 'utf-8');
   const dmmf = await getDMMF({ datamodel });
