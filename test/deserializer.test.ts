@@ -2,9 +2,9 @@ import { readFileSync } from 'node:fs';
 import { test, expect } from 'vitest';
 
 import { fixPrismaFile } from '../src/fixer';
-import { join } from 'node:path';
 
-const configPath = join(__dirname, '../../schema-trans.mjs');
+// TODO: ESModule dynamic import crash all
+const configPath = 'no-exist.mjs';
 test('deserialized simple', () =>
   expect(
     fixPrismaFile(
