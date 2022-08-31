@@ -21,6 +21,13 @@ export default defConfig({
 });
 ```
 
+## Purpose
+
+Facilitate migrations from other frameworks or programming languages.
+Creating a prisma schema from an existing database.
+
+Call `prisma-db-pull` with a minimal configuration in a `prisma/back.prisma` file, documentation is not override.
+
 ## License
 
 Project is [MIT licensed](./LICENSE).
