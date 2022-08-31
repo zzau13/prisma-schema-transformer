@@ -8,9 +8,8 @@ const config = {
 
 export type Config = typeof config;
 
-export const defConfig = (config: Partial<Config>) => config;
+export const defConfig = (cfg: Partial<Config>) => ({ ...config, ...cfg });
 
 export const getConfigFile = (
-  path = join(process.cwd(), 'schema-trans.js'),
-): Promise<Config> =>
-  import(path).then((x) => ({ ...config, ...x.default })).catch(() => config);
+  path = join(process.cwd(), 'schema-trans.mjs'),
+): Promise<Config> => import(path);

@@ -37,11 +37,14 @@
     "fmt:check": "prettier --check '**/*.{md,prisma,json}'",
     "prepare": "husky install"
   },
+  "engines": {
+    "node": ">=18"
+  },
   "dependencies": {
     "@prisma/engine-core": "^4.2.1",
     "@prisma/generator-helper": "^4.2.1",
     "@prisma/internals": "^4.2.1",
-    "camelcase": "^6.0.0",
+    "camelcase": "^7.0.0",
     "commander": "^9.4.0",
     "dotenv": "^16.0.1",
     "immer": "^9.0.15",

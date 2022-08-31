@@ -13,7 +13,7 @@ specifiers:
   '@typescript-eslint/eslint-plugin': 5.36.1
   '@typescript-eslint/parser': 5.36.1
   '@vitest/coverage-c8': 0.22.1
-  camelcase: ^6.0.0
+  camelcase: ^7.0.0
   commander: ^9.4.0
   dotenv: ^16.0.1
   dotenv-cli: 6.0.0
@@ -36,7 +36,7 @@ dependencies:
   '@prisma/engine-core': 4.2.1
   '@prisma/generator-helper': 4.2.1
   '@prisma/internals': 4.2.1
-  camelcase: 6.3.0
+  camelcase: 7.0.0
   commander: 9.4.0
   dotenv: 16.0.1
   immer: 9.0.15
@@ -1388,15 +1388,9 @@ packages:
     engines: {node: '>=6'}
     dev: true
 
-  /camelcase/6.3.0:
-    resolution: {integrity: sha512-Gmy6FhYlCY7uOElZUSbxo2UCDH8owEk996gkbrpsgGtrJLM3J7jGxl9Ic7Qwwj4ivOE5AWZWRMecDdF7hqGjFA==}
-    engines: {node: '>=10'}
-    dev: false
-
   /camelcase/7.0.0:
     resolution: {integrity: sha512-JToIvOmz6nhGsUhAYScbo2d6Py5wojjNfoxoc2mEVLUdJ70gJK2gnd+ABY1Tc3sVMyK7QDPtN0T/XdlCQWITyQ==}
     engines: {node: '>=14.16'}
-    dev: true
 
   /chai/4.3.6:
     resolution: {integrity: sha512-bbcp3YfHCUzMOvKqsztczerVgBKSsEijCySNlHHbX3VG1nskvqjz5Rfso1gGwD6w6oOV3eI60pKuMOV5MV7p3Q==}

@@ -15,6 +15,7 @@ export async function fixPrismaFile(
   configPath?: string,
 ) {
   const configFile = await getConfigFile(configPath);
+
   const dmmf = await getDMMF({ datamodel: schema });
   const config = await getConfig({ datamodel: schema });
 
