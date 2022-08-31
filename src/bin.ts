@@ -1,13 +1,15 @@
 #!/usr/bin/env node
+import fs from 'node:fs/promises';
+import { join } from 'node:path';
 
 import { formatSchema } from '@prisma/internals';
 import dotenv from 'dotenv';
-import fs from 'node:fs/promises';
 import { Argument, program } from 'commander';
 
-import pkg from '../package.json';
-
 import { fixPrismaFile } from './fixer';
+import { FILE } from './config';
+
+import pkg from '../package.json';
 
 dotenv.config();
 
@@ -15,7 +17,11 @@ program
   .name(pkg.name)
   .description(pkg.description)
   .version(pkg.version, '-v, --version', 'output the current version')
-  .option('-c, --config <path>', 'path to config file')
+  .option(
+    '-c, --config <path>',
+    'path to config file',
+    join(process.cwd(), FILE),
+  )
   .option('-p, --print', 'dry run and print result for stdout', false)
   // TODO:
   .option('-d, --deny <list>', 'deny model names', [])
