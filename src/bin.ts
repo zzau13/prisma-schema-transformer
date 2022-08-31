@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 import dotenv from 'dotenv';
-import fs from 'node:fs';
+import fs from 'node:fs/promises';
 import arg from 'arg';
 
 import { formatSchema } from '@prisma/internals';
@@ -12,6 +12,7 @@ dotenv.config();
 
 const args = arg({
   // Types
+  '--config': String,
   '--help': Boolean,
   '--version': Boolean,
   '--print': Boolean,
@@ -56,17 +57,18 @@ if (args._.length !== 1) {
 const schemaPath = args._[0];
 const isPrint = args['--print'] || false;
 const denyList = args['--deny'] || [];
+const configPath = args['--config'] || 'schema-trans.js';
 
 (async function () {
-  const schema = fs.readFileSync(schemaPath, 'utf-8');
+  const schema = await fs.readFile(schemaPath, 'utf-8');
   const schemaFormatted = await formatSchema({ schema });
   const output = await formatSchema({
-    schema: await fixPrismaFile(schemaFormatted, denyList),
+    schema: await fixPrismaFile(schemaFormatted, denyList, configPath),
   });
   if (isPrint) {
     console.log(output);
   } else {
-    fs.writeFileSync(schemaPath, output);
+    await fs.writeFile(schemaPath, output);
   }
 
   process.exit(0);

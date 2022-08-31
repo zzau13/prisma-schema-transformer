@@ -12,8 +12,9 @@ import { dmmfEnumTransformer, dmmfModelTransformer } from './transformer';
 export async function fixPrismaFile(
   schema: string,
   denyList: readonly string[] = [],
+  configPath?: string,
 ) {
-  const configFile = await getConfigFile();
+  const configFile = await getConfigFile(configPath);
   const dmmf = await getDMMF({ datamodel: schema });
   const config = await getConfig({ datamodel: schema });
 

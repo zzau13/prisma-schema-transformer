@@ -39,7 +39,12 @@ In the root file `schema-trans.js`
 ```javascript
 import { defConfig } from 'prisma-schema-trans';
 
-export default defConfig({ updatedAtByTrigger: false });
+// Default options
+export default defConfig({
+  omitPluralFields: [],
+  pluralFields: true,
+  updatedAtByTrigger: false,
+});
 ```
 
 ## License
