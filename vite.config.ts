@@ -4,6 +4,8 @@ export default defineConfig({
   test: {
     coverage: {
       reporter: ['json', 'text-summary'],
+      extension: ['mts'],
+      exclude: ['bin.mts', 'test'],
     },
   },
 });
