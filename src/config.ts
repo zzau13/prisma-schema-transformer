@@ -1,15 +1,17 @@
 import { join } from 'path';
+import { stat } from 'node:fs/promises';
 
 const config = {
   pluralFields: true,
   omitPluralFields: new Array<string>(),
   updatedAtByTrigger: false,
-} as const;
+};
 
-export type Config = typeof config;
+export type Config = Readonly<typeof config>;
 
 export const defConfig = (cfg: Partial<Config>) => ({ ...config, ...cfg });
 
-export const getConfigFile = (
+export const getConfigFile = async (
   path = join(process.cwd(), 'schema-trans.mjs'),
-): Promise<Config> => import(path).catch(() => config);
+): Promise<Config> =>
+  (await stat(path).catch(() => false)) ? import(path) : config;
