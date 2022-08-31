@@ -25,7 +25,7 @@ export const getConfigFile = async (
       if (path !== PATH) throw new Error(
         `bad config path ${JSON.stringify(
           path,
-        )} or not correct file. Using default config`,
+        )} or not correct file`,
       );
       return false;
     }))
