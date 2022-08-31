@@ -1,10 +1,13 @@
 import { produce } from 'immer';
 import { DMMF } from '@prisma/generator-helper';
 
+// TODO:
 import pluralize = require('pluralize');
+// TODO:
 import camelcase = require('camelcase');
-import { Model } from '.';
+
 import { Config } from './config';
+import { Model } from './deserializer';
 
 function transformModelName(modelName: string) {
   return camelcase(pluralize(modelName, 1), { pascalCase: true });

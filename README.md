@@ -32,6 +32,16 @@ Options:
   --version Version info
 ```
 
+## Config file
+
+In the root file `schema-trans.js`
+
+```javascript
+import { defConfig } from 'prisma-schema-trans';
+
+export default defConfig({ updatedAtByTrigger: false });
+```
+
 ## License
 
 This project is [MIT licensed](./LICENSE).

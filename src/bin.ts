@@ -1,12 +1,14 @@
 #!/usr/bin/env node
-/* eslint-disable @typescript-eslint/no-var-requires */
+import dotenv from 'dotenv';
+import fs from 'node:fs';
+import arg from 'arg';
 
-require('dotenv').config();
-const fs = require('fs');
-const arg = require('arg');
-const { formatSchema } = require('@prisma/internals');
-const pkg = require('./package.json');
-const { fixPrismaFile } = require('./dist');
+import { formatSchema } from '@prisma/internals';
+import pkg from '../package.json';
+
+import { fixPrismaFile } from './fixer';
+
+dotenv.config();
 
 const args = arg({
   // Types

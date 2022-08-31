@@ -1,7 +1,7 @@
 import { readFileSync } from 'node:fs';
 import { test, expect } from 'vitest';
 
-import { fixPrismaFile } from '../src';
+import { fixPrismaFile } from '../src/fixer';
 
 test('deserialized simple', () =>
   expect(

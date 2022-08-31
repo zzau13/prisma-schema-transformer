@@ -17,12 +17,11 @@
   "license": "MIT",
   "main": "dist/index.js",
   "bin": {
-    "prisma-schema-trans": "bin.js",
+    "prisma-schema-trans": "dist/bin.js",
     "prisma-db-pull": "db-pull.sh"
   },
   "files": [
     "dist",
-    "bin.js",
     "schema.awk",
     "db-pull.sh"
   ],
