@@ -10,7 +10,7 @@ $ prisma-schema-trans -h
 
 > schema-trans.mjs
 
-```ecmascript 6
+```javascript
 import { defConfig } from 'prisma-schema-trans';
 
 // Default options
