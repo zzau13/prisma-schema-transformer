@@ -1,13 +1,14 @@
-import { getConfig, getDMMF } from '@prisma/internals';
-import { getConfigFile } from './config';
+import p from '@prisma/internals';
+const { getConfig, getDMMF } = p;
+import { getConfigFile } from './config.mjs';
 import {
   datasourceDeserializer,
   dmmfEnumsDeserializer,
   dmmfModelsDeserializer,
   generatorsDeserializer,
   Model,
-} from './deserializer';
-import { dmmfEnumTransformer, dmmfModelTransformer } from './transformer';
+} from './deserializer.mjs';
+import { dmmfEnumTransformer, dmmfModelTransformer } from './transformer.mjs';
 
 export async function fixPrismaFile(
   schema: string,

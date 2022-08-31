@@ -2,14 +2,15 @@
 import fs from 'node:fs/promises';
 import { join } from 'node:path';
 
-import { formatSchema } from '@prisma/internals';
+import  p from '@prisma/internals';
+const { formatSchema } = p;
 import dotenv from 'dotenv';
 import { Argument, program } from 'commander';
 
-import { fixPrismaFile } from './fixer';
-import { FILE } from './config';
+import { fixPrismaFile } from './fixer.mjs';
+import { FILE } from './config.mjs';
 
-import pkg from '../package.json';
+import pkg from '../package.json' assert { type: "json" } ;
 
 dotenv.config();
 
