@@ -1,4 +1,4 @@
-import { defConfig } from './src/index';
+import { defConfig } from './dist/src/index.mjs';
 
 export default defConfig({
   updatedAtByTrigger: true,

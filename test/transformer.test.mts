@@ -1,13 +1,14 @@
 import { readFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { test, expect } from 'vitest';
-import { getDMMF } from '@prisma/internals';
+import p from '@prisma/internals';
+const { getDMMF } = p;
 
 import {
   dmmfModelsDeserializer,
   Model,
   dmmfEnumsDeserializer,
-} from '../src/deserializer';
+} from '../src/deserializer.mjs';
 
 test('transform model name from snake_case to camelCase from simple schema', async () => {
   const schemaPath = join(__dirname, './fixtures/simple.prisma');
