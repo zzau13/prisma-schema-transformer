@@ -8,7 +8,6 @@ test('deserialized simple', () =>
   expect(
     fixPrismaFile(
       readFileSync(join(__dirname, './fixtures/simple.prisma'), 'utf-8'),
-      [],
     ),
   ).resolves.toMatchSnapshot());
 
@@ -16,7 +15,6 @@ test('deserialized schema', () =>
   expect(
     fixPrismaFile(
       readFileSync(join(__dirname, './fixtures/schema.prisma'), 'utf-8'),
-      [],
     ),
   ).resolves.toMatchSnapshot());
 
@@ -25,5 +23,6 @@ test('deserialized blog', () =>
     fixPrismaFile(
       readFileSync(join(__dirname, './fixtures/blog.prisma'), 'utf-8'),
       [],
+        'not-exist.mjs'
     ),
   ).resolves.toMatchSnapshot());
