@@ -8,7 +8,6 @@ const config = {
 };
 
 export type Config = Readonly<typeof config>;
-
 export const defConfig = (cfg: Partial<Config>) => ({ ...config, ...cfg });
 
 export const getConfigFile = async (
