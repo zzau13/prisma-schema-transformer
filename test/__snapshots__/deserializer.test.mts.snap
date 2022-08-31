@@ -1,6 +1,6 @@
 // Vitest Snapshot v1
 
-exports[`bad config path 1`] = `[Error: bad config path "not-exist.mjs" or not correct file]`;
+exports[`bad config path 1`] = `[Error: bad config path "not-exist.mjs"]`;
 
 exports[`deserialized blog 1`] = `
 "

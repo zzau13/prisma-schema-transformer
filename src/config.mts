@@ -14,20 +14,38 @@ export const defConfig = (cfg: Partial<Config>): Config => ({
   ...cfg,
 });
 
+enum Stat {
+    File,
+    NotFile,
+    NotDefined
+}
+
 export const FILE = 'schema-trans.mjs';
 const PATH =  join(process.cwd(), FILE);
-export const getConfigFile = async (
+export async function getConfigFile (
   path = PATH,
-): Promise<Config> =>
-  (extname(path) === '.mjs' && await stat(path)
-    .then((x) => x.isFile())
+): Promise<Config> {
+    if (extname(path) !== '.mjs')
+        throw new Error('config file extension should be ".mjs"');
+
+    const throwBad = () => {
+        throw new Error(
+            `bad config path ${JSON.stringify(
+                path,
+            )}`,
+        );
+    }
+    switch (await stat(path)
+    .then((x) => x.isFile()? Stat.File: Stat.NotFile)
     .catch(() => {
-      if (path !== PATH) throw new Error(
-        `bad config path ${JSON.stringify(
-          path,
-        )} or not correct file`,
-      );
-      return false;
-    }))
-    ? import(path)
-    : config;
+      if (path !== PATH) throwBad();
+      return Stat.NotDefined;
+    })) {
+        case Stat.File:
+            return import(path);
+        case Stat.NotFile:
+            return throwBad();
+        case Stat.NotDefined:
+            return config;
+    }
+}
