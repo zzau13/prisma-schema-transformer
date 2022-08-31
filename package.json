@@ -33,7 +33,7 @@
   "scripts": {
     "build": "rm -rf dist && tsc -p tsconfig.build.json",
     "test": "DATABASE_URL=postgresql://localhost:5432/prisma vitest test.ts",
-    "release": "pnpm fix && pnpm test -- --run && pnpm build && dotenv release-it",
+    "release": "pnpm check && pnpm test -- --run && pnpm build && dotenv release-it",
     "fix": "pnpm lint && pnpm fmt",
     "check": "pnpm lint:check && pnpm fmt:check",
     "lint": "eslint --cache --max-warnings 0 --fix '**/*.{ts,js}'",
