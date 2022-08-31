@@ -12,4 +12,4 @@ export const defConfig = (cfg: Partial<Config>) => ({ ...config, ...cfg });
 
 export const getConfigFile = (
   path = join(process.cwd(), 'schema-trans.mjs'),
-): Promise<Config> => import(path);
+): Promise<Config> => import(path).catch(() => config);
