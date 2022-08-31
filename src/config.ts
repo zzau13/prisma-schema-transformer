@@ -27,5 +27,5 @@ export const getConfigFile = async (
       );
       return false;
     }))
-    ? (Function(`return import(${JSON.stringify(path)})`)() as Promise<Config>)
+    ? import(path)
     : config;

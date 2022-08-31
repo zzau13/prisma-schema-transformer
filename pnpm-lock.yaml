@@ -20,6 +20,7 @@ specifiers:
   eslint: 8.23.0
   eslint-config-prettier: 8.5.0
   eslint-plugin-prettier: 4.2.1
+  fp-ts: ^2.12.3
   husky: 8.0.1
   immer: ^9.0.15
   lint-staged: 13.0.3
@@ -58,6 +59,7 @@ devDependencies:
   eslint: 8.23.0
   eslint-config-prettier: 8.5.0_eslint@8.23.0
   eslint-plugin-prettier: 4.2.1_tgumt6uwl2md3n6uqnggd6wvce
+  fp-ts: 2.12.3
   husky: 8.0.1
   lint-staged: 13.0.3
   prettier: 2.7.1
@@ -2719,6 +2721,10 @@ packages:
   /fp-ts/2.12.2:
     resolution: {integrity: sha512-v8J7ud+nTkP5Zz17GhpCsY19wiRbB9miuj61nBcCJyDpu52zs9Z4O7OLDfYoKFQMJ9EsSZA7W1vRgC1d3jy5qw==}
     dev: false
+
+  /fp-ts/2.12.3:
+    resolution: {integrity: sha512-8m0XvW8kZbfnJOA4NvSVXu95mLbPf4LQGwQyqVukIYS4KzSNJiyKSmuZUmbVHteUi6MGkAJGPb0goPZqI+Tsqg==}
+    dev: true
 
   /fs-constants/1.0.0:
     resolution: {integrity: sha512-y6OAwoSIf7FyjMIv94u+b5rdheZEjzR63GTyZJm5qh4Bi+2YgwLCcI/fPFZkL5PSixOt6ZNKm+w+Hfp/Bciwow==}

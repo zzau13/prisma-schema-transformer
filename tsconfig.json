@@ -2,6 +2,7 @@
   "compilerOptions": {
     "lib": ["esnext"],
     "module": "CommonJS",
+    "moduleResolution": "NodeNext",
     "strict": true,
     "declaration": true,
     "incremental": true,
