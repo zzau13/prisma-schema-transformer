@@ -15,6 +15,11 @@
     }
   ],
   "license": "MIT",
+  "keywords": [
+    "prisma",
+    "camelcase",
+    "schema"
+  ],
   "main": "dist/src/index.js",
   "bin": {
     "prisma-schema-trans": "dist/src/bin.js",
