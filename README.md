@@ -50,4 +50,5 @@ export default defConfig({
 ## License
 
 This project is [MIT licensed](./LICENSE).
-This is a fork from [https://github.com/IBM/prisma-schema-transformer](https://github.com/IBM/prisma-schema-transformer)
+
+Fork from [https://github.com/IBM/prisma-schema-transformer](https://github.com/IBM/prisma-schema-transformer)
