@@ -12,7 +12,7 @@ specifiers:
   '@types/pluralize': 0.0.29
   '@typescript-eslint/eslint-plugin': 5.36.1
   '@typescript-eslint/parser': 5.36.1
-  '@vitest/coverage-c8': 0.22.1
+  '@vitest/coverage-c8': 0.23.0
   camelcase: ^7.0.0
   commander: ^9.4.0
   dotenv: ^16.0.2
@@ -54,7 +54,7 @@ devDependencies:
   '@types/pluralize': 0.0.29
   '@typescript-eslint/eslint-plugin': 5.36.1_lbwfnm54o3pmr3ypeqp3btnera
   '@typescript-eslint/parser': 5.36.1_yqf6kl63nyoq5megxukfnom5rm
-  '@vitest/coverage-c8': 0.22.1
+  '@vitest/coverage-c8': 0.23.0
   dotenv-cli: 6.0.0
   eslint: 8.23.0
   eslint-config-prettier: 8.5.0_eslint@8.23.0
@@ -1011,11 +1011,11 @@ packages:
       eslint-visitor-keys: 3.3.0
     dev: true
 
-  /@vitest/coverage-c8/0.22.1:
-    resolution: {integrity: sha512-KOOYpO7EGpaF+nD8GD+Y05D0JtZp12NUu6DdLXvBPqSOPo2HkZ7KNBtfR0rb6gOy3NLtGiWTYTzCwhajgb2HlA==}
+  /@vitest/coverage-c8/0.23.0:
+    resolution: {integrity: sha512-8vhn1xViCNI1rx8dzncuzePZsN2eiQN8xFtsXy4sW2nZjH4UcIQlD1nwIY6Yei/RwFalay9F1sq588a/OPMjwg==}
     dependencies:
       c8: 7.12.0
-      vitest: 0.22.1
+      vitest: 0.23.0
     transitivePeerDependencies:
       - '@edge-runtime/vm'
       - '@vitest/browser'
