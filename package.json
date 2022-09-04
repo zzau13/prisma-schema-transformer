@@ -78,7 +78,7 @@
     "prettier-plugin-prisma": "4.2.0",
     "release-it": "15.4.1",
     "typescript": "4.8.2",
-    "vitest": "0.22.1"
+    "vitest": "0.23.0"
   },
   "lint-staged": {
     "*.{ts,js}": "eslint --cache --fix",
