@@ -32,6 +32,7 @@ model Anothers {
   Employee   Employees @relation(fields: [PlantId, EmployeeId], references: [PlantId, EmployeeId], onDelete: NoAction, onUpdate: NoAction)
 
   @@id([PlantId, AnotherId])
+  @@unique([PlantId, EmployeeId])
 }
 
 model Last {

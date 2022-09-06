@@ -1,8 +1,9 @@
 model posts {
   id         Int      @id @default(autoincrement())
-  title      String
-  content    String?
+  title      String   @default("foo")
+  number     Int      @default(3)
   published  Boolean  @default(false)
+  content    String?
   author_id  Int
   author     users    @relation(fields: [author_id], references: [id])
   created_at DateTime @default(now())

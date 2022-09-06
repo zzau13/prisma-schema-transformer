@@ -46,15 +46,15 @@
     "prepare": "husky install"
   },
   "dependencies": {
-    "@prisma/engine-core": "^4.3.0",
-    "@prisma/generator-helper": "^4.3.0",
-    "@prisma/internals": "^4.3.0",
+    "@prisma/engine-core": "^4.3.1",
+    "@prisma/generator-helper": "^4.3.1",
+    "@prisma/internals": "^4.3.1",
     "camelcase": "^7.0.0",
     "commander": "^9.4.0",
     "dotenv": "^16.0.2",
     "immer": "^9.0.15",
     "pluralize": "^8.0.0",
-    "prisma": "^4.3.0",
+    "prisma": "^4.3.1",
     "ts-toolbelt": "^9.6.0"
   },
   "devDependencies": {
@@ -62,11 +62,11 @@
     "@commitlint/config-conventional": "17.1.0",
     "@release-it/conventional-changelog": "5.1.0",
     "@types/jest": "29.0.0",
-    "@types/node": "18.7.14",
+    "@types/node": "18.7.15",
     "@types/pluralize": "0.0.29",
-    "@typescript-eslint/eslint-plugin": "5.36.1",
-    "@typescript-eslint/parser": "5.36.1",
-    "@vitest/coverage-c8": "0.23.0",
+    "@typescript-eslint/eslint-plugin": "5.36.2",
+    "@typescript-eslint/parser": "5.36.2",
+    "@vitest/coverage-c8": "0.23.1",
     "dotenv-cli": "6.0.0",
     "eslint": "8.23.0",
     "eslint-config-prettier": "8.5.0",
@@ -78,7 +78,7 @@
     "prettier-plugin-prisma": "4.2.0",
     "release-it": "15.4.1",
     "typescript": "4.8.2",
-    "vitest": "0.23.0"
+    "vitest": "0.23.1"
   },
   "lint-staged": {
     "*.{mts,ts,js}": "eslint --cache --fix",

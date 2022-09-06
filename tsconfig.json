@@ -7,11 +7,11 @@
     "strict": true,
     "declaration": true,
     "incremental": true,
+    "sourceMap": true,
     "forceConsistentCasingInFileNames": true,
     "resolveJsonModule": true,
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
-    "noImplicitAny": false,
     "outDir": "dist"
   },
 

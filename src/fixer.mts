@@ -1,5 +1,5 @@
 import p from '@prisma/internals';
-const { getConfig, getDMMF } = p;
+const { getConfig, getDMMF, formatSchema } = p;
 import { getConfigFile } from './config.mjs';
 import {
   datasourceDeserializer,
@@ -32,14 +32,16 @@ export async function fixPrismaFile(
   const transformedModels = dmmfModelTransformer(filteredModels, configFile);
   const transformedEnums = dmmfEnumTransformer(filteredEnums);
 
-  return (
-    await Promise.all([
-      datasourceDeserializer(datasources),
-      generatorsDeserializer(generators),
-      dmmfModelsDeserializer(transformedModels),
-      dmmfEnumsDeserializer(transformedEnums),
-    ])
-  )
-    .filter((e) => e)
-    .join('\n\n\n');
+  return await formatSchema({
+    schema: (
+      await Promise.all([
+        datasourceDeserializer(datasources),
+        generatorsDeserializer(generators),
+        dmmfModelsDeserializer(transformedModels),
+        dmmfEnumsDeserializer(transformedEnums),
+      ])
+    )
+      .filter((e) => e)
+      .join('\n\n\n'),
+  });
 }

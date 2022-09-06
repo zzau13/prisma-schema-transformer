@@ -9,12 +9,15 @@ import {
   Model,
   dmmfEnumsDeserializer,
 } from '../src/deserializer.mjs';
+import { console } from 'fp-ts';
 
 test('transform model name from snake_case to camelCase from simple schema', async () => {
   const schemaPath = join(__dirname, './fixtures/simple.prisma');
 
   const schema = readFileSync(schemaPath, 'utf-8');
+  console.error('######################');
   const dmmf = await getDMMF({ datamodel: schema });
+  console.log('hola');
   const models = dmmf.datamodel.models as Model[];
 
   const outputSchema = await dmmfModelsDeserializer(models);

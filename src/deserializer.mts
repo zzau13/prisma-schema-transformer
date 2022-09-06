@@ -7,152 +7,89 @@ import {
   GeneratorConfig,
 } from '@prisma/generator-helper/dist';
 
-export type Attribute = Pick<
-  DMMF.Field,
-  | 'isUnique'
-  | 'isId'
-  | 'dbNames'
-  | 'relationFromFields'
-  | 'relationToFields'
-  | 'relationOnDelete'
-  | 'relationName'
-  | 'isReadOnly'
-  | 'default'
-  | 'isGenerated'
-  | 'isUpdatedAt'
->;
-
 export interface Model extends DMMF.Model {
   uniqueFields: string[][];
 }
 
-// eslint-disable-next-line @typescript-eslint/no-empty-function
-const empty = () => {};
-
-const handlers = (type: string, kind: string) => {
-  return {
-    default: (value: unknown) => {
-      if (kind === 'enum') {
-        return `@default(${value})`;
-      }
-
-      if (type === 'Boolean') {
-        return `@default(${value})`;
-      }
-
-      if (!value) {
-        return '';
-      }
-
-      if (typeof value === 'object') {
-        const { name, args } = value as { name: string; args: unknown[] };
-        return `@default(${name}(${
-          args.length ? args.map((x) => JSON.stringify(x)).join(',') : ''
-        }))`;
-      }
-
-      if (typeof value === 'number') {
-        return `@default(${value})`;
-      }
-
-      if (typeof value === 'string') {
-        return `@default("${value}")`;
-      }
-
+const printDefault = (kind: DMMF.FieldKind, value: unknown) => {
+  if (kind === 'enum') {
+    return `@default(${value})`;
+  }
+  switch (typeof value) {
+    case 'object':
+      const { name, args } = value as { name: string; args: unknown[] };
+      return `@default(${name}(${
+        args.length ? args.map((x) => JSON.stringify(x)).join(',') : ''
+      }))`;
+    case 'boolean':
+    case 'number':
+    case 'string':
+      return `@default(${JSON.stringify(value)})`;
+    default:
       throw new Error(`Unsupported field attribute ${value}`);
-    },
-    isId: (value) => (value ? '@id' : ''),
-    isUnique: (value) => (value ? '@unique' : ''),
-    dbNames: empty,
-    relationToFields: empty,
-    relationOnDelete: empty,
-    hasDefaultValue: empty,
-    relationName: empty,
-    documentation: empty,
-    isReadOnly: empty,
-    isGenerated: empty,
-    isUpdatedAt: (value) => (value ? '@updatedAt' : ''),
-    columnName: (value) => (value ? `@map("${value}")` : ''),
-  };
+  }
 };
+
+const printAttr = ({
+  isId,
+  isUpdatedAt,
+  isUnique,
+  default: def,
+  hasDefaultValue,
+  columnName,
+  kind,
+}: DMMF.Field & { columnName: string }) =>
+  (isId ? '@id' : '') +
+  (isUnique ? ' @unique' : '') +
+  (isUpdatedAt ? ' @updatedAt' : '') +
+  (columnName ? ` @map(${JSON.stringify(columnName)})` : '') +
+  (hasDefaultValue ? ' ' + printDefault(kind, def) : '');
 
 // Handler for Attributes
 // https://www.prisma.io/docs/reference/tools-and-interfaces/prisma-schema/data-model#attributes
-function handleAttributes(
-  attributes: Attribute,
-  kind: DMMF.FieldKind,
-  type: string,
-) {
+function handleAttributes(attributes: DMMF.Field) {
   const {
     relationFromFields,
     relationToFields,
     relationOnDelete,
     relationName,
+    kind,
   } = attributes;
-  if (kind === 'scalar') {
-    return `${Object.keys(attributes)
-      .map((each) => handlers(type, kind)[each](attributes[each]))
-      .join(' ')}`;
+  switch (kind) {
+    case 'scalar':
+    case 'enum':
+      // TODO:
+      return printAttr(attributes as never);
+    case 'object':
+      return relationFromFields?.length && relationToFields?.length
+        ? `@relation("${relationName}", fields: [${relationFromFields.join(
+            ',',
+          )}], references: [${relationToFields.join(',')}]${
+            relationOnDelete ? `, onDelete: ${relationOnDelete}` : ''
+          })`
+        : relationName
+        ? `@relation("${relationName}"${
+            relationOnDelete ? `, onDelete: ${relationOnDelete}` : ''
+          })`
+        : '';
+    default:
+      return '';
   }
-
-  if (kind === 'object') {
-    return relationFromFields?.length && relationToFields?.length
-      ? `@relation("${relationName}", fields: [${relationFromFields.join(
-          ',',
-        )}], references: [${relationToFields.join(',')}]${
-          relationOnDelete ? `, onDelete: ${relationOnDelete}` : ''
-        })`
-      : relationName
-      ? `@relation("${relationName}"${
-          relationOnDelete ? `, onDelete: ${relationOnDelete}` : ''
-        })`
-      : '';
-  }
-
-  if (kind === 'enum')
-    return `${Object.keys(attributes)
-      .map((each) => handlers(type, kind)[each](attributes[each]))
-      .join(' ')}`;
-
-  return '';
 }
 
 const handleFields = (fields: DMMF.Field[]) =>
   fields
-    .map(
-      ({
-        name,
-        kind,
-        type,
-        isRequired,
-        isList,
-        documentation,
-        ...attributes
-      }) => {
-        const doc = documentation
-          ? `/// ${documentation.replaceAll('\n', '\n/// ')}\n`
-          : '';
-        if (kind === 'scalar') {
-          return `${doc}  ${name} ${type}${
-            isRequired ? '' : '?'
-          } ${handleAttributes(attributes, kind, type)}`;
-        }
-
-        if (kind === 'object') {
-          return `${doc}  ${name} ${type}${
-            isList ? '[]' : isRequired ? '' : '?'
-          } ${handleAttributes(attributes, kind, type)}`;
-        }
-
-        if (kind === 'enum') {
-          return `${doc}  ${name} ${type}${
-            isList ? '[]' : isRequired ? '' : '?'
-          } ${handleAttributes(attributes, kind, type)}`;
-        }
-
-        throw new Error(`Unsupported field kind "${kind}"`);
-      },
-    )
+    .map((attributes) => {
+      const { documentation, kind, name, type, isRequired, isList } =
+        attributes;
+      const doc = documentation
+        ? `/// ${documentation.replaceAll('\n', '\n/// ')}\n`
+        : '';
+      if (kind === 'unsupported') throw new Error(`Unsupported field kind`);
+      return `${doc}  ${name} ${type}${
+        isList ? '[]' : isRequired ? '' : '?'
+      } ${handleAttributes(attributes)}`;
+    })
     .join('\n');
 
 const handleIdFields = (idFields?: string[]) =>
