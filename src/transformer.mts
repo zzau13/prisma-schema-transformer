@@ -5,7 +5,7 @@ import pluralize from 'pluralize';
 import camelcase from 'camelcase';
 
 import { Config } from './config.mjs';
-import { Model } from './deserializer.mjs';
+import { Field, Model } from './deserializer.mjs';
 
 function transformModelName(modelName: string) {
   return camelcase(pluralize(modelName, 1), { pascalCase: true });
@@ -25,7 +25,7 @@ function transformModel(
   });
 
   const fixFieldsName = produce(fixModelName, (draftModel) => {
-    const fields = draftModel.fields as unknown as DMMF.Field[];
+    const fields = draftModel.fields as Field[];
     draftModel.fields = fields.map((field) =>
       produce(field, (draftField) => {
         const {
@@ -37,7 +37,7 @@ function transformModel(
           isList,
         } = draftField;
 
-        let trans;
+        let trans: string;
         if (
           (!pluralFields || !omitPluralFields.includes(name)) &&
           (!relationToFields || !relationFromFields)
@@ -80,7 +80,7 @@ function transformModel(
         )
           draftField.isUpdatedAt = true;
       }),
-    ) as unknown as DMMF.Field[]; // Force type conversion
+    ) as Field[];
   });
 
   const fixUniqueName = produce(fixFieldsName, (draftModel) => {
