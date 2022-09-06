@@ -1,4 +1,4 @@
-import { join, extname } from 'node:path';
+import { join, extname, isAbsolute } from 'node:path';
 import { stat } from 'node:fs/promises';
 
 const config = {
@@ -26,7 +26,7 @@ export async function getConfigFile (
 ): Promise<Config> {
     if (extname(file) !== '.mjs')
         throw new Error('config file extension should be ".mjs"');
-    const path = join(process.cwd(), file)
+    const path = isAbsolute(file)? file : join(process.cwd(), file)
 
     const throwBad = () => {
         throw new Error(

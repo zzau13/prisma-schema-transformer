@@ -54,6 +54,56 @@ enum PostStatus {
 }"
 `;
 
+exports[`deserialized blog absolute path config 1`] = `
+"
+datasource postgresql {
+	provider = \\"postgresql\\"
+	url = env(\\"DATABASE_URL\\")
+}
+
+
+generator client {
+  provider = \\"prisma-client-js\\"
+}
+
+
+model User {
+    id String  @id   @default(dbgenerated(\\"gen_random_uuid()\\"))  
+  email String @unique     
+  name String?      
+  posts Post[] @relation(\\"PostToUser\\")
+  likes Like[] @relation(\\"LikeToUser\\")
+}
+model Post {
+    id String  @id   @default(cuid())  
+  createdAt DateTime     @default(now())  
+  updatedAt DateTime      @updatedAt
+  published Boolean      
+  title String      
+  content String?      
+  authorId String?      
+  author User? @relation(\\"PostToUser\\", fields: [authorId], references: [id])
+  status PostStatus      
+  likes Like[] @relation(\\"LikeToPost\\")
+}
+model Like {
+    id String  @id   @default(cuid())  
+  userId String      
+  user User @relation(\\"LikeToUser\\", fields: [userId], references: [id])
+  postId String      
+  post Post @relation(\\"LikeToPost\\", fields: [postId], references: [id])
+@@unique([userId, postId])
+}
+
+
+
+enum PostStatus {
+	hidden
+	visible
+	@@map(\\"PostStatuses\\")
+}"
+`;
+
 exports[`deserialized blog default config 1`] = `
 "
 datasource postgresql {
