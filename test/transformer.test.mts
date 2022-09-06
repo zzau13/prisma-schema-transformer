@@ -12,7 +12,7 @@ import {
 
 const readSchema = (path: string) =>
   getDMMF({
-    datamodel: readFileSync(join(__dirname, './fixtures', path), 'utf-8'),
+    datamodel: readFileSync(join(__dirname, 'fixtures', path), 'utf-8'),
   });
 
 test('transform model name from snake_case to camelCase from simple schema', async () => {
