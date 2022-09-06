@@ -9,33 +9,32 @@ import {
   Model,
   dmmfEnumsDeserializer,
 } from '../src/deserializer.mjs';
-import { console } from 'fp-ts';
+
+const readSchema = (path: string) =>
+  getDMMF({
+    datamodel: readFileSync(join(__dirname, './fixtures', path), 'utf-8'),
+  });
 
 test('transform model name from snake_case to camelCase from simple schema', async () => {
-  const schemaPath = join(__dirname, './fixtures/simple.prisma');
-
-  const schema = readFileSync(schemaPath, 'utf-8');
-  console.error('######################');
-  const dmmf = await getDMMF({ datamodel: schema });
-  console.log('hola');
+  const dmmf = await readSchema('simple.prisma');
   const models = dmmf.datamodel.models as Model[];
 
-  const outputSchema = await dmmfModelsDeserializer(models);
+  const outputSchema = [
+    dmmfModelsDeserializer(models),
+    dmmfEnumsDeserializer(dmmf.datamodel.enums),
+  ].join('\n\n\n');
   const outputDmf = await getDMMF({ datamodel: outputSchema });
 
   expect(outputDmf.datamodel).toEqual(dmmf.datamodel);
 });
 
 test('transform model name from snake_case to camelCase from blog schema', async () => {
-  const schemaPath = join(__dirname, './fixtures/blog.prisma');
-
-  const schema = readFileSync(schemaPath, 'utf-8');
-  const dmmf = await getDMMF({ datamodel: schema });
+  const dmmf = await readSchema('blog.prisma');
   const models = dmmf.datamodel.models as Model[];
 
   const outputSchema = [
-    await dmmfModelsDeserializer(models),
-    await dmmfEnumsDeserializer(dmmf.datamodel.enums),
+    dmmfModelsDeserializer(models),
+    dmmfEnumsDeserializer(dmmf.datamodel.enums),
   ].join('\n\n\n');
 
   const outputDmf = await getDMMF({ datamodel: outputSchema });
@@ -44,15 +43,12 @@ test('transform model name from snake_case to camelCase from blog schema', async
 });
 
 test('transform model name from snake_case to camelCase from schema', async () => {
-  const schemaPath = join(__dirname, './fixtures/schema.prisma');
-
-  const datamodel = readFileSync(schemaPath, 'utf-8');
-  const dmmf = await getDMMF({ datamodel });
+  const dmmf = await readSchema('schema.prisma');
   const models = dmmf.datamodel.models as Model[];
 
   const outputSchema = [
-    await dmmfModelsDeserializer(models),
-    await dmmfEnumsDeserializer(dmmf.datamodel.enums),
+    dmmfModelsDeserializer(models),
+    dmmfEnumsDeserializer(dmmf.datamodel.enums),
   ].join('\n\n\n');
 
   const outputDmf = await getDMMF({ datamodel: outputSchema });

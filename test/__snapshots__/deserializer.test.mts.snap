@@ -215,6 +215,7 @@ exports[`deserialized simple 1`] = `
   title     String   @default(\\"foo\\")
   number    Int      @default(3)
   published Boolean  @default(false)
+  foo       Foo      @default(bar)
   content   String?
   authorId  Int      @map(\\"author_id\\")
   author    User     @relation(\\"postsTousers\\", fields: [authorId], references: [id])
@@ -233,6 +234,13 @@ model User {
   updatedAt DateTime @default(now()) @updatedAt @map(\\"updated_at\\")
 
   @@map(\\"users\\")
+}
+
+enum Foo {
+  bar  @map(\\"BAR\\")
+  bar2 @map(\\"BAR2\\")
+
+  @@map(\\"foos\\")
 }
 "
 `;
