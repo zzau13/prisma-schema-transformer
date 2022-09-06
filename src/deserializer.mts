@@ -1,4 +1,3 @@
-// TODO
 import {
   ConnectorType,
   DataSource,
@@ -9,7 +8,10 @@ import {
 
 export interface Model extends DMMF.Model {
   uniqueFields: string[][];
+  fields: (DMMF.Field & { columnName?: string })[];
 }
+
+export type Field = Model['fields'][number];
 
 const printDefault = (kind: DMMF.FieldKind, value: unknown) => {
   if (kind === 'enum') {
@@ -38,7 +40,7 @@ const printAttr = ({
   hasDefaultValue,
   columnName,
   kind,
-}: DMMF.Field & { columnName: string }) =>
+}: Field) =>
   (isId ? '@id' : '') +
   (isUnique ? ' @unique' : '') +
   (isUpdatedAt ? ' @updatedAt' : '') +
@@ -47,19 +49,18 @@ const printAttr = ({
 
 // Handler for Attributes
 // https://www.prisma.io/docs/reference/tools-and-interfaces/prisma-schema/data-model#attributes
-function handleAttributes(attributes: DMMF.Field) {
+function handleAttributes(field: Field) {
   const {
     relationFromFields,
     relationToFields,
     relationOnDelete,
     relationName,
     kind,
-  } = attributes;
+  } = field;
   switch (kind) {
     case 'scalar':
     case 'enum':
-      // TODO:
-      return printAttr(attributes as never);
+      return printAttr(field);
     case 'object':
       return relationFromFields?.length && relationToFields?.length
         ? `@relation("${relationName}", fields: [${relationFromFields.join(
@@ -77,7 +78,7 @@ function handleAttributes(attributes: DMMF.Field) {
   }
 }
 
-const handleFields = (fields: DMMF.Field[]) =>
+const handleFields = (fields: Field[]) =>
   fields
     .map((attributes) => {
       const { documentation, kind, name, type, isRequired, isList } =
