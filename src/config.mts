@@ -15,37 +15,33 @@ export const defConfig = (cfg: Partial<Config>): Config => ({
 });
 
 enum Stat {
-    File,
-    NotFile,
-    NotDefined
+  File,
+  NotFile,
+  NotDefined,
 }
 
 export const FILE = 'schema-trans.mjs';
-export async function getConfigFile (
-  file = FILE,
-): Promise<Config> {
-    if (extname(file) !== '.mjs')
-        throw new Error('config file extension should be ".mjs"');
-    const path = isAbsolute(file)? file : join(process.cwd(), file)
+export async function getConfigFile(file = FILE): Promise<Config> {
+  if (extname(file) !== '.mjs')
+    throw new Error('config file extension should be ".mjs"');
+  const path = isAbsolute(file) ? file : join(process.cwd(), file);
 
-    const throwBad = () => {
-        throw new Error(
-            `bad config path ${JSON.stringify(
-                file,
-            )}`,
-        );
-    }
-    switch (await stat(path)
-    .then((x) => x.isFile()? Stat.File: Stat.NotFile)
-    .catch(() => {
-      if (file !== FILE) throwBad();
-      return Stat.NotDefined;
-    })) {
-        case Stat.File:
-            return import(path);
-        case Stat.NotFile:
-            return throwBad();
-        case Stat.NotDefined:
-            return config;
-    }
+  const throwBad = () => {
+    throw new Error(`bad config path ${JSON.stringify(file)}`);
+  };
+  switch (
+    await stat(path)
+      .then((x) => (x.isFile() ? Stat.File : Stat.NotFile))
+      .catch(() => {
+        if (file !== FILE) throwBad();
+        return Stat.NotDefined;
+      })
+  ) {
+    case Stat.File:
+      return import(path);
+    case Stat.NotFile:
+      return throwBad();
+    case Stat.NotDefined:
+      return config;
+  }
 }
