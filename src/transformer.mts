@@ -74,13 +74,14 @@ function transformModel(
 
         if (
           !updatedAtByTrigger &&
-          (name === 'updated_at' || name === 'update_at')
+          (draftField.name === 'updatedAt' || draftField.name === 'updateAt')
         )
           draftField.isUpdatedAt = true;
       }),
     ) as Field[];
   });
 
+  // TODO: simplify
   const fixUniqueName = produce(fixFieldsName, (draftModel) => {
     if (uniqueFields.length > 0) {
       draftModel.uniqueFields = uniqueFields.map((eachUniqueField) =>
@@ -89,6 +90,7 @@ function transformModel(
     }
   });
 
+  // TODO: simplify
   return produce(fixUniqueName, (draftModel) => {
     if (primaryKey) {
       draftModel.primaryKey = {

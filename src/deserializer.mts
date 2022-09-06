@@ -9,7 +9,6 @@ import {
 export type Field = DMMF.Field & { columnName?: string };
 
 export interface Model extends DMMF.Model {
-  uniqueFields: string[][];
   fields: Field[];
 }
 
