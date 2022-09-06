@@ -33,15 +33,11 @@ export async function fixPrismaFile(
   const transformedEnums = dmmfEnumTransformer(filteredEnums);
 
   return await formatSchema({
-    schema: (
-      await Promise.all([
-        datasourceDeserializer(datasources),
-        generatorsDeserializer(generators),
-        dmmfModelsDeserializer(transformedModels),
-        dmmfEnumsDeserializer(transformedEnums),
-      ])
-    )
-      .filter((e) => e)
-      .join('\n\n\n'),
+    schema: [
+      datasourceDeserializer(datasources),
+      generatorsDeserializer(generators),
+      dmmfModelsDeserializer(transformedModels),
+      dmmfEnumsDeserializer(transformedEnums),
+    ].join('\n\n\n'),
   });
 }

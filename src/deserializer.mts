@@ -154,11 +154,11 @@ enum ${name} {
 /**
  * Deserialize DMMF.Model[] into prisma schema file
  */
-export async function dmmfModelsDeserializer(models: Model[]) {
+export function dmmfModelsDeserializer(models: Model[]) {
   return models.map((model) => deserializeModel(model)).join('\n');
 }
 
-export async function datasourceDeserializer(datasource: DataSource[]) {
+export function datasourceDeserializer(datasource: DataSource[]) {
   return datasource
     .map((datasource) => deserializeDatasource(datasource))
     .join('\n');
@@ -189,6 +189,6 @@ const printGenerator = ({
 export const generatorsDeserializer = (generators: GeneratorConfig[]) =>
   generators.map(printGenerator).join('\n');
 
-export async function dmmfEnumsDeserializer(enums: DMMF.DatamodelEnum[]) {
+export function dmmfEnumsDeserializer(enums: DMMF.DatamodelEnum[]) {
   return enums.map((each) => deserializeEnum(each)).join('\n');
 }
