@@ -21,24 +21,24 @@ enum Stat {
 }
 
 export const FILE = 'schema-trans.mjs';
-const PATH =  join(process.cwd(), FILE);
 export async function getConfigFile (
-  path = PATH,
+  file = FILE,
 ): Promise<Config> {
-    if (extname(path) !== '.mjs')
+    if (extname(file) !== '.mjs')
         throw new Error('config file extension should be ".mjs"');
+    const path = join(process.cwd(), file)
 
     const throwBad = () => {
         throw new Error(
             `bad config path ${JSON.stringify(
-                path,
+                file,
             )}`,
         );
     }
     switch (await stat(path)
     .then((x) => x.isFile()? Stat.File: Stat.NotFile)
     .catch(() => {
-      if (path !== PATH) throwBad();
+      if (file !== FILE) throwBad();
       return Stat.NotDefined;
     })) {
         case Stat.File:
