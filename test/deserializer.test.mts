@@ -2,12 +2,12 @@ import { readFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { test, expect } from 'vitest';
 
-import { fixPrismaFile } from '../src/fixer.mjs';
+import { fixSchema } from '../src/fixer.mjs';
 
 const getFile = (path = './fixtures/blog.prisma') =>
   readFileSync(join(__dirname, path), 'utf-8');
 const fix = (path: string, config = 'schema-config.mjs') =>
-  fixPrismaFile(getFile(path), config);
+  fixSchema(getFile(path), config);
 
 test('deserialized simple', () =>
   expect(fix('./fixtures/simple.prisma')).resolves.toMatchSnapshot());
@@ -29,7 +29,7 @@ test('deserialized blog absolute path config', () =>
   ).resolves.toMatchSnapshot());
 
 test('bad config path', () =>
-  expect(fixPrismaFile(getFile(), 'not-exist.mjs')).rejects.toMatchSnapshot());
+  expect(fixSchema(getFile(), 'not-exist.mjs')).rejects.toMatchSnapshot());
 
 test('bad config path extension', () =>
-  expect(fixPrismaFile(getFile(), 'not-exist.js')).rejects.toMatchSnapshot());
+  expect(fixSchema(getFile(), 'not-exist.js')).rejects.toMatchSnapshot());

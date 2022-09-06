@@ -10,7 +10,7 @@ import {
 } from './deserializer.mjs';
 import { dmmfEnumTransformer, dmmfModelTransformer } from './transformer.mjs';
 
-export async function fixPrismaFile(schema: string, configPath?: string) {
+export async function fixSchema(schema: string, configPath?: string) {
   const configFile = await getConfigFile(configPath);
   const denyList = configFile.deny;
 
