@@ -2,6 +2,8 @@
 
 exports[`bad config path 1`] = `[Error: bad config path "not-exist.mjs"]`;
 
+exports[`bad config path extension 1`] = `[Error: config file extension should be ".mjs"]`;
+
 exports[`deserialized blog 1`] = `
 "
 datasource postgresql {
