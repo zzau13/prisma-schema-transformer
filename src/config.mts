@@ -38,7 +38,7 @@ export async function getConfigFile(file = FILE): Promise<Config> {
       })
   ) {
     case Stat.File:
-      return import(path);
+      return (await import(path)).default;
     case Stat.NotFile:
       return throwBad();
     case Stat.NotDefined:
