@@ -1,6 +1,8 @@
 import { test, expect } from 'vitest';
 import { defConfig } from '../src/index.mjs';
 import { getConfigFile } from '../src/config.mjs';
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-ignore
 import config from '../schema-config.mjs';
 
 test('should define config', () => {
