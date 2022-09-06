@@ -34,6 +34,6 @@ export async function fixSchema(schema: string, configPath?: string) {
       generatorsDeserializer(generators),
       dmmfModelsDeserializer(transformedModels),
       dmmfEnumsDeserializer(transformedEnums),
-    ].join('\n\n\n'),
+    ].join('\n'),
   });
 }

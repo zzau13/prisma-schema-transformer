@@ -1,6 +1,7 @@
 import { join, extname, isAbsolute } from 'node:path';
 import { stat } from 'node:fs/promises';
 
+export const FILE = 'schema-trans.mjs';
 const config = {
   pluralFields: true,
   omitPluralFields: new Array<string>(),
@@ -20,7 +21,6 @@ enum Stat {
   NotDefined,
 }
 
-export const FILE = 'schema-trans.mjs';
 export async function getConfigFile(file = FILE): Promise<Config> {
   if (extname(file) !== '.mjs')
     throw new Error('config file extension should be ".mjs"');

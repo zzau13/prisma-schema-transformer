@@ -4,14 +4,14 @@ import {
   DMMF,
   EnvValue,
   GeneratorConfig,
-} from '@prisma/generator-helper/dist';
+} from '@prisma/generator-helper';
+
+export type Field = DMMF.Field & { columnName?: string };
 
 export interface Model extends DMMF.Model {
   uniqueFields: string[][];
-  fields: (DMMF.Field & { columnName?: string })[];
+  fields: Field[];
 }
-
-export type Field = Model['fields'][number];
 
 const printDefault = (kind: DMMF.FieldKind, value: unknown) => {
   if (kind === 'enum') {

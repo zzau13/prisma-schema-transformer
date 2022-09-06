@@ -1,15 +1,13 @@
 import { produce } from 'immer';
 import { DMMF } from '@prisma/generator-helper';
-
 import pluralize from 'pluralize';
 import camelcase from 'camelcase';
 
 import { Config } from './config.mjs';
 import { Field, Model } from './deserializer.mjs';
 
-function transformModelName(modelName: string) {
-  return camelcase(pluralize(modelName, 1), { pascalCase: true });
-}
+const transformModelName = (modelName: string) =>
+  camelcase(pluralize(modelName, 1), { pascalCase: true });
 
 function transformModel(
   model: Model,
@@ -127,12 +125,11 @@ function transformEnum(enums: DMMF.DatamodelEnum) {
   });
 }
 
-export function dmmfModelTransformer(models: Model[], config: Config): Model[] {
-  return models.map((model) => transformModel(model, config));
-}
+export const dmmfModelTransformer = (
+  models: Model[],
+  config: Config,
+): Model[] => models.map((model) => transformModel(model, config));
 
-export function dmmfEnumTransformer(
+export const dmmfEnumTransformer = (
   enums: DMMF.DatamodelEnum[],
-): DMMF.DatamodelEnum[] {
-  return enums.map((each) => transformEnum(each));
-}
+): DMMF.DatamodelEnum[] => enums.map((each) => transformEnum(each));
