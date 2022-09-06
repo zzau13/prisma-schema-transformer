@@ -1,6 +1,6 @@
 {
   "name": "prisma-schema-trans",
-  "description": "Transform names from any case to camelCase in Prisma schema.",
+  "description": "Prisma schema post-processor for change names and fields to camelcase and pluralize for push db to a prisma schema.",
   "version": "1.5.1",
   "repository": "https://github.com/botika/prisma-schema-transformer",
   "authors": [
