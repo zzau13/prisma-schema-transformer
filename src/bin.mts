@@ -26,11 +26,9 @@ const options = program.opts<{
 }>();
 const schemaPath = program.args[0];
 
-(async function () {
-  const output = await fixSchema(
-    await readFile(schemaPath, 'utf-8'),
-    options.config,
-  );
-  if (options.print) console.log(output);
-  else await writeFile(schemaPath, output);
-})();
+const output = await fixSchema(
+  await readFile(schemaPath, 'utf-8'),
+  options.config,
+);
+if (options.print) console.log(output);
+else await writeFile(schemaPath, output);
