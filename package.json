@@ -68,7 +68,7 @@
     "@typescript-eslint/parser": "5.36.2",
     "@vitest/coverage-c8": "0.23.2",
     "dotenv-cli": "6.0.0",
-    "eslint": "8.23.0",
+    "eslint": "8.24.0",
     "eslint-config-prettier": "8.5.0",
     "eslint-plugin-prettier": "4.2.1",
     "fp-ts": "2.12.3",
