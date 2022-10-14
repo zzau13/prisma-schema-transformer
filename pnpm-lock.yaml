@@ -31,7 +31,7 @@ specifiers:
   release-it: 15.5.0
   ts-toolbelt: ^9.6.0
   typescript: 4.8.4
-  vitest: 0.24.2
+  vitest: 0.24.3
 
 dependencies:
   '@prisma/engine-core': 4.4.0
@@ -66,7 +66,7 @@ devDependencies:
   prettier-plugin-prisma: 4.4.0_prettier@2.7.1
   release-it: 15.5.0
   typescript: 4.8.4
-  vitest: 0.24.2
+  vitest: 0.24.3
 
 packages:
 
