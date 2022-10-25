@@ -8,7 +8,7 @@ specifiers:
   '@prisma/internals': ^4.3.1
   '@release-it/conventional-changelog': 5.1.1
   '@types/jest': 29.2.0
-  '@types/node': 18.7.21
+  '@types/node': 18.11.5
   '@types/pluralize': 0.0.29
   '@typescript-eslint/eslint-plugin': 5.41.0
   '@typescript-eslint/parser': 5.41.0
@@ -50,7 +50,7 @@ devDependencies:
   '@commitlint/config-conventional': 17.1.0
   '@release-it/conventional-changelog': 5.1.1_release-it@15.5.0
   '@types/jest': 29.2.0
-  '@types/node': 18.7.21
+  '@types/node': 18.11.5
   '@types/pluralize': 0.0.29
   '@typescript-eslint/eslint-plugin': 5.41.0_huremdigmcnkianavgfk3x6iou
   '@typescript-eslint/parser': 5.41.0_wyqvi574yv7oiwfeinomdzmc3m
@@ -351,7 +351,7 @@ packages:
       '@jest/schemas': 29.0.0
       '@types/istanbul-lib-coverage': 2.0.4
       '@types/istanbul-reports': 3.0.1
-      '@types/node': 18.7.21
+      '@types/node': 18.11.5
       '@types/yargs': 17.0.13
       chalk: 4.1.2
     dev: true
@@ -789,7 +789,7 @@ packages:
   /@types/cross-spawn/6.0.2:
     resolution: {integrity: sha512-KuwNhp3eza+Rhu8IFI5HUXRP0LIhqH5cAjubUvGXXthh4YYBuP2ntwEX+Cz8GJoZUHlKo247wPWOfA9LYEq4cw==}
     dependencies:
-      '@types/node': 18.7.21
+      '@types/node': 18.11.5
     dev: false
 
   /@types/debug/4.1.7:
@@ -841,8 +841,8 @@ packages:
     resolution: {integrity: sha512-Y6S38pFr04yb13qqHf8uk1nHE3lXgQ30WZbv1mLliV9pt0NjvqdWttLcrOYLnXbOafknVYRHZGoMSpR9UwfYow==}
     dev: true
 
-  /@types/node/18.7.21:
-    resolution: {integrity: sha512-rLFzK5bhM0YPyCoTC8bolBjMk7bwnZ8qeZUBslBfjZQou2ssJdWslx9CZ8DGM+Dx7QXQiiTVZ/6QO6kwtHkZCA==}
+  /@types/node/18.11.5:
+    resolution: {integrity: sha512-3JRwhbjI+cHLAkUorhf8RnqUbFXajvzX4q6fMn5JwkgtuwfYtRQYI3u4V92vI6NJuTsbBQWWh3RZjFsuevyMGQ==}
 
   /@types/normalize-package-data/2.4.1:
     resolution: {integrity: sha512-Gj7cI7z+98M282Tqmp2K5EIsoouUEzbBJhQQzDE3jSIRk6r9gsz0oUokqIUR4u1R3dMHo0pDHM7sNOHyhulypw==}
@@ -3542,7 +3542,7 @@ packages:
     engines: {node: ^14.15.0 || ^16.10.0 || >=18.0.0}
     dependencies:
       '@jest/types': 29.2.1
-      '@types/node': 18.7.21
+      '@types/node': 18.11.5
       chalk: 4.1.2
       ci-info: 3.5.0
       graceful-fs: 4.2.10
@@ -5576,7 +5576,7 @@ packages:
     dependencies:
       '@types/chai': 4.3.3
       '@types/chai-subset': 1.3.3
-      '@types/node': 18.7.21
+      '@types/node': 18.11.5
       chai: 4.3.6
       debug: 4.3.4
       local-pkg: 0.4.2
