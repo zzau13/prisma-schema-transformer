@@ -73,7 +73,7 @@
     "eslint-plugin-prettier": "4.2.1",
     "fp-ts": "2.13.1",
     "husky": "8.0.2",
-    "lint-staged": "13.0.4",
+    "lint-staged": "13.1.0",
     "prettier": "2.8.0",
     "prettier-plugin-prisma": "4.4.0",
     "release-it": "15.5.1",
