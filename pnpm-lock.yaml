@@ -7,7 +7,7 @@ specifiers:
   '@prisma/generator-helper': ^4.3.1
   '@prisma/internals': ^4.3.1
   '@release-it/conventional-changelog': 5.1.1
-  '@types/jest': 29.2.4
+  '@types/jest': 29.2.5
   '@types/node': 18.11.18
   '@types/pluralize': 0.0.29
   '@typescript-eslint/eslint-plugin': 5.47.1
@@ -49,7 +49,7 @@ devDependencies:
   '@commitlint/cli': 17.3.0
   '@commitlint/config-conventional': 17.3.0
   '@release-it/conventional-changelog': 5.1.1_release-it@15.6.0
-  '@types/jest': 29.2.4
+  '@types/jest': 29.2.5
   '@types/node': 18.11.18
   '@types/pluralize': 0.0.29
   '@typescript-eslint/eslint-plugin': 5.47.1_txmweb6yn7coi7nfrp22gpyqmy
@@ -811,8 +811,8 @@ packages:
       '@types/istanbul-lib-report': 3.0.0
     dev: true
 
-  /@types/jest/29.2.4:
-    resolution: {integrity: sha512-PipFB04k2qTRPePduVLTRiPzQfvMeLwUN3Z21hsAKaB/W9IIzgB2pizCL466ftJlcyZqnHoC9ZHpxLGl3fS86A==}
+  /@types/jest/29.2.5:
+    resolution: {integrity: sha512-H2cSxkKgVmqNHXP7TC2L/WUorrZu8ZigyRywfVzv6EyBlxj39n4C00hjXYQWsbwqgElaj/CiAeSRmk5GoaKTgw==}
     dependencies:
       expect: 29.3.1
       pretty-format: 29.3.1
