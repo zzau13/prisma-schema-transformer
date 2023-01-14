@@ -14,7 +14,7 @@ specifiers:
   '@typescript-eslint/parser': 5.48.1
   '@vitest/coverage-c8': 0.24.4
   camelcase: ^7.0.0
-  commander: ^9.4.0
+  commander: ^10.0.0
   dotenv: ^16.0.2
   dotenv-cli: 6.0.0
   eslint: 8.31.0
@@ -38,7 +38,7 @@ dependencies:
   '@prisma/generator-helper': 4.8.1
   '@prisma/internals': 4.8.1
   camelcase: 7.0.1
-  commander: 9.5.0
+  commander: 10.0.0
   dotenv: 16.0.3
   immer: 9.0.17
   pluralize: 8.0.0
@@ -1534,9 +1534,15 @@ packages:
     resolution: {integrity: sha512-3tlv/dIP7FWvj3BsbHrGLJ6l/oKh1O3TcgBqMn+yyCagOxc23fyzDS6HypQbgxWbkpDnf52p1LuR4eWDQ/K9WQ==}
     dev: true
 
+  /commander/10.0.0:
+    resolution: {integrity: sha512-zS5PnTI22FIRM6ylNW8G4Ap0IEOyk62fhLSD0+uHRT9McRCLGpkVNvao4bjimpK/GShynyQkFFxHhwMcETmduA==}
+    engines: {node: '>=14'}
+    dev: false
+
   /commander/9.5.0:
     resolution: {integrity: sha512-KRs7WVDKg86PWiuAqhDrAQnTXZKraVcCc6vFdL14qrZ/DcWwuRo7VoiYXalXO7S5GKpqYiVEwCbgFDfxNHKJBQ==}
     engines: {node: ^12.20.0 || >=14}
+    dev: true
 
   /commondir/1.0.1:
     resolution: {integrity: sha512-W9pAhw0ja1Edb5GVdIF1mjZw/ASI0AlShXM83UUGe2DVr5TdAPEA1OA8m/g8zWp9x6On7gqufY+FatDbC3MDQg==}
