@@ -26,7 +26,7 @@ specifiers:
   lint-staged: 13.1.1
   pluralize: ^8.0.0
   prettier: 2.8.4
-  prettier-plugin-prisma: 4.9.0
+  prettier-plugin-prisma: 4.10.0
   prisma: ^4.3.1
   release-it: 15.6.0
   ts-toolbelt: ^9.6.0
@@ -63,7 +63,7 @@ devDependencies:
   husky: 8.0.3
   lint-staged: 13.1.1
   prettier: 2.8.4
-  prettier-plugin-prisma: 4.9.0_prettier@2.8.4
+  prettier-plugin-prisma: 4.10.0_prettier@2.8.4
   release-it: 15.6.0
   typescript: 4.9.5
   vitest: 0.24.4
@@ -719,13 +719,13 @@ packages:
       - supports-color
     dev: false
 
+  /@prisma/prisma-fmt-wasm/4.10.0-85.d02666423b9d2b618381d5bee85532527a012123:
+    resolution: {integrity: sha512-0ZBIrOQ3Glr4l7l/ehu+nl8EzJ/FgqNjlhVodEWCk649DVeb7+czOrpCDv+DJO3uU9Xai4mBQ5TifzYzGsndNQ==}
+    dev: true
+
   /@prisma/prisma-fmt-wasm/4.9.0-42.ceb5c99003b99c9ee2c1d2e618e359c14aef2ea5:
     resolution: {integrity: sha512-G754IrVEiv0OuhD47d16Jzu3yjFzoQobP97N0nqzFnOAsJehn9KiSNiJ/DM4kp3uL+MqcJzb+YW4l8OqrBoV5A==}
     dev: false
-
-  /@prisma/prisma-fmt-wasm/4.9.0-44.b29121153404aa8eda60ec38e41e477cc1c0ee66:
-    resolution: {integrity: sha512-+bsLKaDvK46lVN8dv0FicmnbG5/si9A4ONXFd6sYLYX1T3+Z6H5eq+MRbXZOK993s1vJvTgD0LYcRHcieMeHDw==}
-    dev: true
 
   /@release-it/conventional-changelog/5.1.1_release-it@15.6.0:
     resolution: {integrity: sha512-QtbDBe36dQfzexAfDYrbLPvd5Cb5bMWmLcjcGhCOWBss7fe1/gCjoxDULVz+7N7G5Nu2UMeBwHcUp/w8RDh5VQ==}
@@ -4524,13 +4524,13 @@ packages:
       fast-diff: 1.2.0
     dev: true
 
-  /prettier-plugin-prisma/4.9.0_prettier@2.8.4:
-    resolution: {integrity: sha512-qR6/FyViOXi3KZZ8q/WsdjwPoVnjMl9YFj0DAa81t38qP3ySBrOcg23AxvFX5QCTjMslY/+HLuwgRuQqlDDBrw==}
+  /prettier-plugin-prisma/4.10.0_prettier@2.8.4:
+    resolution: {integrity: sha512-tSt7ILOdva2IXbHzzqsBxwSKgsbNQQGUwtCpKnFpjMACIjbX4ghZTM9jYuZMfByCjhv0IJLl+eQlfxO17rRLew==}
     engines: {node: '>=14'}
     peerDependencies:
       prettier: '>=2'
     dependencies:
-      '@prisma/prisma-fmt-wasm': 4.9.0-44.b29121153404aa8eda60ec38e41e477cc1c0ee66
+      '@prisma/prisma-fmt-wasm': 4.10.0-85.d02666423b9d2b618381d5bee85532527a012123
       prettier: 2.8.4
     dev: true
 
