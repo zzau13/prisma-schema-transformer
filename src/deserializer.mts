@@ -18,6 +18,11 @@ const printDefault = (kind: DMMF.FieldKind, value: unknown) => {
   }
   switch (typeof value) {
     case 'object':
+      // Prisma does not support default values for arrays yet
+      // https://www.prisma.io/docs/concepts/components/prisma-client/working-with-fields/working-with-scalar-lists-arrays
+      if (value instanceof Array) {
+        return ``;
+      }
       const { name, args } = value as { name: string; args: unknown[] };
       return `@default(${name}(${
         args.length ? args.map((x) => JSON.stringify(x)).join(',') : ''
