@@ -177,10 +177,16 @@ const printGenerator = ({
   config,
   provider,
   output,
+  binaryTargets,
+  previewFeatures,
 }: GeneratorConfig) => {
   let ret = `generator ${name} {
   provider = ${printEnvVar(provider)}`;
   if (output) ret += `\n  output = ${printEnvVar(output)}`;
+  if (binaryTargets && binaryTargets.length > 0)
+    ret += `\n  binaryTargets = ${JSON.stringify(binaryTargets)}`;
+  if (previewFeatures && previewFeatures.length > 0)
+    ret += `\n  previewFeatures = ${JSON.stringify(previewFeatures)}`;
   const conf = Object.entries(config).sort(([a], [b]) => a.localeCompare(b));
   if (conf.length)
     ret += `\n  ${conf
