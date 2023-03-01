@@ -28,7 +28,7 @@ specifiers:
   prettier: 2.8.4
   prettier-plugin-prisma: 4.10.0
   prisma: ^4.3.1
-  release-it: 15.6.1
+  release-it: 15.7.0
   ts-toolbelt: ^9.6.0
   typescript: 4.9.5
   vitest: 0.24.4
@@ -48,7 +48,7 @@ dependencies:
 devDependencies:
   '@commitlint/cli': 17.4.4
   '@commitlint/config-conventional': 17.4.4
-  '@release-it/conventional-changelog': 5.1.1_release-it@15.6.1
+  '@release-it/conventional-changelog': 5.1.1_release-it@15.7.0
   '@types/jest': 29.4.0
   '@types/node': 18.14.2
   '@types/pluralize': 0.0.29
@@ -64,7 +64,7 @@ devDependencies:
   lint-staged: 13.1.2
   prettier: 2.8.4
   prettier-plugin-prisma: 4.10.0_prettier@2.8.4
-  release-it: 15.6.1
+  release-it: 15.7.0
   typescript: 4.9.5
   vitest: 0.24.4
 
@@ -730,7 +730,7 @@ packages:
     resolution: {integrity: sha512-MdKvG+jpYhM/furi1N4hZFJKRyyWFgnbSFQgqWTsTPTHX6TxRHPUrUisvvI/hcNVpctGZD1558zxgzmerLrjEg==}
     dev: false
 
-  /@release-it/conventional-changelog/5.1.1_release-it@15.6.1:
+  /@release-it/conventional-changelog/5.1.1_release-it@15.7.0:
     resolution: {integrity: sha512-QtbDBe36dQfzexAfDYrbLPvd5Cb5bMWmLcjcGhCOWBss7fe1/gCjoxDULVz+7N7G5Nu2UMeBwHcUp/w8RDh5VQ==}
     engines: {node: '>=14'}
     peerDependencies:
@@ -739,7 +739,7 @@ packages:
       concat-stream: 2.0.0
       conventional-changelog: 3.1.25
       conventional-recommended-bump: 6.1.0
-      release-it: 15.6.1
+      release-it: 15.7.0
       semver: 7.3.8
     dev: true
 
@@ -4794,8 +4794,8 @@ packages:
       rc: 1.2.8
     dev: true
 
-  /release-it/15.6.1:
-    resolution: {integrity: sha512-oPJKP2yxMcA/TaGFnS5uB0spDSPiDXXd1yGKSSMQ2xutyiSs8X+1UahlJCF/xHnp01QwUqRv0fpsV9MFr2GKmQ==}
+  /release-it/15.7.0:
+    resolution: {integrity: sha512-/ajllmzQNuxXCrPySwx+MiR/nBHp8H+lTn42QFw9YlFPJQpLFwgMjCOFTB4hhuavi9jMbDpWcTPFy31QJgzNcw==}
     engines: {node: '>=14.9'}
     hasBin: true
     dependencies:
