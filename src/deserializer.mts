@@ -6,7 +6,7 @@ import {
   GeneratorConfig,
 } from '@prisma/generator-helper';
 
-export type Field = DMMF.Field & { columnName?: string };
+export type Field = DMMF.Field & { columnName?: string; dbName?: string };
 
 export interface Model extends DMMF.Model {
   fields: Field[];
@@ -44,11 +44,13 @@ const printAttr = ({
   hasDefaultValue,
   columnName,
   kind,
+  dbName,
 }: Field) =>
   (isId ? '@id' : '') +
   (isUnique ? ' @unique' : '') +
   (isUpdatedAt ? ' @updatedAt' : '') +
   (columnName ? ` @map(${JSON.stringify(columnName)})` : '') +
+  (!columnName && dbName ? ` @map(${JSON.stringify(dbName)})` : '') +
   (hasDefaultValue ? ' ' + printDefault(kind, def) : '');
 
 // Handler for Attributes
