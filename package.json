@@ -58,8 +58,8 @@
     "ts-toolbelt": "^9.6.0"
   },
   "devDependencies": {
-    "@commitlint/cli": "17.6.1",
-    "@commitlint/config-conventional": "17.6.1",
+    "@commitlint/cli": "17.6.3",
+    "@commitlint/config-conventional": "17.6.3",
     "@release-it/conventional-changelog": "5.1.1",
     "@types/jest": "29.5.1",
     "@types/node": "18.16.3",
