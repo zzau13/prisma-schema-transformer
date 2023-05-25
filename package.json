@@ -71,7 +71,7 @@
     "eslint": "8.41.0",
     "eslint-config-prettier": "8.8.0",
     "eslint-plugin-prettier": "4.2.1",
-    "fp-ts": "2.15.0",
+    "fp-ts": "2.16.0",
     "husky": "8.0.3",
     "lint-staged": "13.2.2",
     "prettier": "2.8.8",
