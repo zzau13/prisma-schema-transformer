@@ -45,7 +45,7 @@ devDependencies:
     version: 17.6.5
   '@release-it/conventional-changelog':
     specifier: 5.1.1
-    version: 5.1.1(release-it@15.10.5)
+    version: 5.1.1(release-it@15.11.0)
   '@types/jest':
     specifier: 29.5.2
     version: 29.5.2
@@ -92,8 +92,8 @@ devDependencies:
     specifier: 4.13.0
     version: 4.13.0(prettier@2.8.8)
   release-it:
-    specifier: 15.10.5
-    version: 15.10.5
+    specifier: 15.11.0
+    version: 15.11.0
   typescript:
     specifier: 5.1.3
     version: 5.1.3
@@ -791,7 +791,7 @@ packages:
     resolution: {integrity: sha512-65su522mHdxErZ7yIF/jd2/1gyj6lONpcpMchDUW+rWMCnqAjMXE3hxdmpdCetIV4Wfupgot1Uqd3GlMLU2y6g==}
     dev: false
 
-  /@release-it/conventional-changelog@5.1.1(release-it@15.10.5):
+  /@release-it/conventional-changelog@5.1.1(release-it@15.11.0):
     resolution: {integrity: sha512-QtbDBe36dQfzexAfDYrbLPvd5Cb5bMWmLcjcGhCOWBss7fe1/gCjoxDULVz+7N7G5Nu2UMeBwHcUp/w8RDh5VQ==}
     engines: {node: '>=14'}
     peerDependencies:
@@ -800,7 +800,7 @@ packages:
       concat-stream: 2.0.0
       conventional-changelog: 3.1.25
       conventional-recommended-bump: 6.1.0
-      release-it: 15.10.5
+      release-it: 15.11.0
       semver: 7.3.8
     dev: true
 
@@ -4245,7 +4245,7 @@ packages:
     resolution: {integrity: sha512-/5CMN3T0R4XTj4DcGaexo+roZSdSFW/0AOOTROrjxzCG1wrWXEsGbRKevjlIL+ZDE4sZlJr5ED4YW0yqmkK+eA==}
     dependencies:
       hosted-git-info: 2.8.9
-      resolve: 1.22.1
+      resolve: 1.22.2
       semver: 5.7.1
       validate-npm-package-license: 3.0.4
 
@@ -4255,7 +4255,7 @@ packages:
     dependencies:
       hosted-git-info: 4.1.0
       is-core-module: 2.12.1
-      semver: 7.3.8
+      semver: 7.5.1
       validate-npm-package-license: 3.0.4
     dev: true
 
@@ -4883,8 +4883,8 @@ packages:
       rc: 1.2.8
     dev: true
 
-  /release-it@15.10.5:
-    resolution: {integrity: sha512-6AWkcOYsEfCzegtAKvXekUG+CLjlFXztDwGzxFOGa8VJRuXbPONfM8rvaPYJX1hTlL5+KC4MWOEoKKzWhQ65gA==}
+  /release-it@15.11.0:
+    resolution: {integrity: sha512-lZwoGEnKYKwGnfxxlA7vtR7vvozPrOSsIgQaHO4bgQ5ARbG3IA6Dmo0IVusv6nR1KmnjH70QIeNAgsWs6Ji/tw==}
     engines: {node: '>=14.9'}
     hasBin: true
     dependencies:
@@ -4963,6 +4963,7 @@ packages:
       is-core-module: 2.12.1
       path-parse: 1.0.7
       supports-preserve-symlinks-flag: 1.0.0
+    dev: false
 
   /resolve@1.22.2:
     resolution: {integrity: sha512-Sb+mjNHOULsBv818T40qSPeRiuWLyaGMa5ewydRLFimneixmVy2zdivRl+AF6jaYPC8ERxGDmFSiqui6SfPd+g==}
@@ -4971,7 +4972,6 @@ packages:
       is-core-module: 2.12.1
       path-parse: 1.0.7
       supports-preserve-symlinks-flag: 1.0.0
-    dev: true
 
   /responselike@3.0.0:
     resolution: {integrity: sha512-40yHxbNcl2+rzXvZuVkrYohathsSJlMTXKryG5y8uciHv1+xDLHQpgjG64JUO9nrEq2jGLH6IZ8BcZyw3wrweg==}
