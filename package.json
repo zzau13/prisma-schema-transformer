@@ -76,7 +76,7 @@
     "lint-staged": "13.2.3",
     "prettier": "3.0.0",
     "prettier-plugin-prisma": "4.13.0",
-    "release-it": "15.11.0",
+    "release-it": "16.0.0",
     "typescript": "5.1.6",
     "vitest": "0.24.4"
   },
