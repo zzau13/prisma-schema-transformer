@@ -74,7 +74,7 @@
     "fp-ts": "2.16.1",
     "husky": "8.0.3",
     "lint-staged": "14.0.1",
-    "prettier": "3.0.2",
+    "prettier": "3.0.3",
     "prettier-plugin-prisma": "5.0.0",
     "release-it": "16.1.5",
     "typescript": "5.2.2",
