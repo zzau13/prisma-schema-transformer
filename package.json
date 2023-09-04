@@ -60,7 +60,7 @@
   "devDependencies": {
     "@commitlint/cli": "17.7.1",
     "@commitlint/config-conventional": "17.7.0",
-    "@release-it/conventional-changelog": "7.0.0",
+    "@release-it/conventional-changelog": "7.0.1",
     "@types/jest": "29.5.4",
     "@types/node": "18.17.8",
     "@types/pluralize": "0.0.30",
