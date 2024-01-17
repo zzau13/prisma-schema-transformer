@@ -75,7 +75,7 @@ devDependencies:
     version: 9.1.0(eslint@8.45.0)
   eslint-plugin-prettier:
     specifier: 5.1.3
-    version: 5.1.3(eslint-config-prettier@9.1.0)(eslint@8.45.0)(prettier@3.2.2)
+    version: 5.1.3(eslint-config-prettier@9.1.0)(eslint@8.45.0)(prettier@3.2.3)
   fp-ts:
     specifier: 2.16.2
     version: 2.16.2
@@ -86,11 +86,11 @@ devDependencies:
     specifier: 15.2.0
     version: 15.2.0
   prettier:
-    specifier: 3.2.2
-    version: 3.2.2
+    specifier: 3.2.3
+    version: 3.2.3
   prettier-plugin-prisma:
     specifier: 5.0.0
-    version: 5.0.0(prettier@3.2.2)
+    version: 5.0.0(prettier@3.2.3)
   release-it:
     specifier: 17.0.1
     version: 17.0.1(typescript@5.3.3)
@@ -2917,7 +2917,7 @@ packages:
       eslint: 8.45.0
     dev: true
 
-  /eslint-plugin-prettier@5.1.3(eslint-config-prettier@9.1.0)(eslint@8.45.0)(prettier@3.2.2):
+  /eslint-plugin-prettier@5.1.3(eslint-config-prettier@9.1.0)(eslint@8.45.0)(prettier@3.2.3):
     resolution: {integrity: sha512-C9GCVAs4Eq7ZC/XFQHITLiHJxQngdtraXaM+LoUFoFp/lHNl2Zn8f3WQbe9HvTBBQ9YnKFB0/2Ajdqwo5D1EAw==}
     engines: {node: ^14.18.0 || >=16.0.0}
     peerDependencies:
@@ -2933,7 +2933,7 @@ packages:
     dependencies:
       eslint: 8.45.0
       eslint-config-prettier: 9.1.0(eslint@8.45.0)
-      prettier: 3.2.2
+      prettier: 3.2.3
       prettier-linter-helpers: 1.0.0
       synckit: 0.8.8
     dev: true
@@ -5154,18 +5154,18 @@ packages:
       fast-diff: 1.3.0
     dev: true
 
-  /prettier-plugin-prisma@5.0.0(prettier@3.2.2):
+  /prettier-plugin-prisma@5.0.0(prettier@3.2.3):
     resolution: {integrity: sha512-jTJV04D9+yF7ziOOMs7CJe4ijgAH7DEGjt0SAWAToGNRy1H6BEhvcKA2UQH6gC6KVW5zeeOSAvsoiDDTt9oKXg==}
     engines: {node: '>=14', npm: '>=8'}
     peerDependencies:
       prettier: '>=2 || >=3'
     dependencies:
       '@prisma/prisma-schema-wasm': 4.17.0-26.6b0aef69b7cdfc787f822ecd7cdc76d5f1991584
-      prettier: 3.2.2
+      prettier: 3.2.3
     dev: true
 
-  /prettier@3.2.2:
-    resolution: {integrity: sha512-HTByuKZzw7utPiDO523Tt2pLtEyK7OibUD9suEJQrPUCYQqrHr74GGX6VidMrovbf/I50mPqr8j/II6oBAuc5A==}
+  /prettier@3.2.3:
+    resolution: {integrity: sha512-QNhUTBq+mqt1oH1dTfY3phOKNhcDdJkfttHI6u0kj7M2+c+7fmNKlgh2GhnHiqMcbxJ+a0j2igz/2jfl9QKLuw==}
     engines: {node: '>=14'}
     hasBin: true
     dev: true
