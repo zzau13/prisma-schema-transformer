@@ -53,8 +53,8 @@ devDependencies:
     specifier: 20.11.30
     version: 20.11.30
   '@types/pluralize':
-    specifier: 0.0.31
-    version: 0.0.31
+    specifier: 0.0.33
+    version: 0.0.33
   '@typescript-eslint/eslint-plugin':
     specifier: 7.0.1
     version: 7.0.1(@typescript-eslint/parser@7.0.1)(eslint@8.57.0)(typescript@5.4.3)
@@ -1170,8 +1170,8 @@ packages:
     resolution: {integrity: sha512-Gj7cI7z+98M282Tqmp2K5EIsoouUEzbBJhQQzDE3jSIRk6r9gsz0oUokqIUR4u1R3dMHo0pDHM7sNOHyhulypw==}
     dev: true
 
-  /@types/pluralize@0.0.31:
-    resolution: {integrity: sha512-MQh69PPwFlYAL2qz/Mw5Zc34VTdt7pTck0Xbb6pbPSzdt5oaLB87iyJJxEMS5Dco/s7lXHunEezAvQurZZdrsQ==}
+  /@types/pluralize@0.0.33:
+    resolution: {integrity: sha512-JOqsl+ZoCpP4e8TDke9W79FDcSgPAR0l6pixx2JHkhnRjvShyYiAYw2LVsnA7K08Y6DeOnaU6ujmENO4os/cYg==}
     dev: true
 
   /@types/retry@0.12.0:
