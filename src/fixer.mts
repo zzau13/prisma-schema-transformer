@@ -30,8 +30,8 @@ export async function fixSchema(schema: string, configPath?: string) {
 
   return await formatSchema({
     schema: [
-      datasourceDeserializer(datasources),
       generatorsDeserializer(generators),
+      datasourceDeserializer(datasources),
       dmmfModelsDeserializer(transformedModels),
       dmmfEnumsDeserializer(transformedEnums),
     ].join('\n'),

@@ -5,13 +5,13 @@ exports[`bad config path 1`] = `[Error: bad config path "not-exist.mjs"]`;
 exports[`bad config path extension 1`] = `[Error: config file extension should be ".mjs"]`;
 
 exports[`deserialized blog 1`] = `
-"datasource postgresql {
-  provider = \\"postgresql\\"
-  url      = env(\\"DATABASE_URL\\")
+"generator client {
+  provider = \\"prisma-client-js\\"
 }
 
-generator client {
-  provider = \\"prisma-client-js\\"
+datasource postgresql {
+  provider = \\"postgresql\\"
+  url      = env(\\"DATABASE_URL\\")
 }
 
 model User {
@@ -55,13 +55,13 @@ enum PostStatus {
 `;
 
 exports[`deserialized blog absolute path config 1`] = `
-"datasource postgresql {
-  provider = \\"postgresql\\"
-  url      = env(\\"DATABASE_URL\\")
+"generator client {
+  provider = \\"prisma-client-js\\"
 }
 
-generator client {
-  provider = \\"prisma-client-js\\"
+datasource postgresql {
+  provider = \\"postgresql\\"
+  url      = env(\\"DATABASE_URL\\")
 }
 
 model User {
@@ -105,13 +105,13 @@ enum PostStatus {
 `;
 
 exports[`deserialized blog default config 1`] = `
-"datasource postgresql {
-  provider = \\"postgresql\\"
-  url      = env(\\"DATABASE_URL\\")
+"generator client {
+  provider = \\"prisma-client-js\\"
 }
 
-generator client {
-  provider = \\"prisma-client-js\\"
+datasource postgresql {
+  provider = \\"postgresql\\"
+  url      = env(\\"DATABASE_URL\\")
 }
 
 model User {
@@ -155,16 +155,16 @@ enum PostStatus {
 `;
 
 exports[`deserialized schema 1`] = `
-"datasource db {
-  provider = \\"postgresql\\"
-  url      = env(\\"DATABASE_URL\\")
-}
-
-generator client {
+"generator client {
   provider   = \\"prisma-client-js\\"
   output     = env(\\"FOO\\")
   another    = \\"foo\\"
   anotherFoo = \\"foo\\"
+}
+
+datasource db {
+  provider = \\"postgresql\\"
+  url      = env(\\"DATABASE_URL\\")
 }
 
 model Employee {
