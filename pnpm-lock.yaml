@@ -47,7 +47,7 @@ importers:
         version: 19.2.2
       '@release-it/conventional-changelog':
         specifier: 8.0.1
-        version: 8.0.1(release-it@17.4.1(typescript@5.5.3))
+        version: 8.0.1(release-it@17.5.0(typescript@5.5.3))
       '@types/jest':
         specifier: 29.5.12
         version: 29.5.12
@@ -94,8 +94,8 @@ importers:
         specifier: 5.0.0
         version: 5.0.0(prettier@3.3.2)
       release-it:
-        specifier: 17.4.1
-        version: 17.4.1(typescript@5.5.3)
+        specifier: 17.5.0
+        version: 17.5.0(typescript@5.5.3)
       typescript:
         specifier: 5.5.3
         version: 5.5.3
@@ -2547,8 +2547,8 @@ packages:
     resolution: {integrity: sha512-+crtS5QjFRqFCoQmvGduwYWEBng99ZvmFvF+cUJkGYF1L1BfU8C6Zp9T7f5vPAwyLkUExpvK+ANVZmGU49qi4Q==}
     engines: {node: '>=12'}
 
-  release-it@17.4.1:
-    resolution: {integrity: sha512-Aa48kKx5qZRVXJ6YCnCJRg6sJiofEX7RErTLmnlFbCE7k1Kg8ayhgJovofuBhCtz3FRdsYnxBKjlh+VAMeazEA==}
+  release-it@17.5.0:
+    resolution: {integrity: sha512-+g6k/7i6AjdCozLkcybvwgYLw/RF6bcYJHf1xDLcg36GeBu8zr/geI9joLk5drubiE/UKdN694vwAeimmJWt8Q==}
     engines: {node: ^18.18.0 || ^20.9.0 || ^22.0.0}
     hasBin: true
 
@@ -3696,12 +3696,12 @@ snapshots:
       '@prisma/prisma-schema-wasm': 5.16.0-24.34ace0eb2704183d2c05b60b52fba5c43c13f303
       fs-extra: 11.1.1
 
-  '@release-it/conventional-changelog@8.0.1(release-it@17.4.1(typescript@5.5.3))':
+  '@release-it/conventional-changelog@8.0.1(release-it@17.5.0(typescript@5.5.3))':
     dependencies:
       concat-stream: 2.0.0
       conventional-changelog: 5.1.0
       conventional-recommended-bump: 9.0.0
-      release-it: 17.4.1(typescript@5.5.3)
+      release-it: 17.5.0(typescript@5.5.3)
       semver: 7.5.4
 
   '@rollup/rollup-android-arm-eabi@4.9.2':
@@ -3964,7 +3964,7 @@ snapshots:
 
   agent-base@7.1.0:
     dependencies:
-      debug: 4.3.4
+      debug: 4.3.5
     transitivePeerDependencies:
       - supports-color
 
@@ -4813,7 +4813,7 @@ snapshots:
     dependencies:
       basic-ftp: 5.0.3
       data-uri-to-buffer: 5.0.1
-      debug: 4.3.4
+      debug: 4.3.5
       fs-extra: 8.1.0
     transitivePeerDependencies:
       - supports-color
@@ -4945,7 +4945,7 @@ snapshots:
   http-proxy-agent@7.0.1:
     dependencies:
       agent-base: 7.1.0
-      debug: 4.3.4
+      debug: 4.3.5
     transitivePeerDependencies:
       - supports-color
 
@@ -4957,7 +4957,7 @@ snapshots:
   https-proxy-agent@7.0.3:
     dependencies:
       agent-base: 7.1.0
-      debug: 4.3.4
+      debug: 4.3.5
     transitivePeerDependencies:
       - supports-color
 
@@ -5496,7 +5496,7 @@ snapshots:
     dependencies:
       '@tootallnate/quickjs-emscripten': 0.23.0
       agent-base: 7.1.0
-      debug: 4.3.4
+      debug: 4.3.5
       get-uri: 6.0.1
       http-proxy-agent: 7.0.1
       https-proxy-agent: 7.0.3
@@ -5624,7 +5624,7 @@ snapshots:
   proxy-agent@6.4.0:
     dependencies:
       agent-base: 7.1.0
-      debug: 4.3.4
+      debug: 4.3.5
       http-proxy-agent: 7.0.1
       https-proxy-agent: 7.0.3
       lru-cache: 7.18.3
@@ -5686,7 +5686,7 @@ snapshots:
     dependencies:
       rc: 1.2.8
 
-  release-it@17.4.1(typescript@5.5.3):
+  release-it@17.5.0(typescript@5.5.3):
     dependencies:
       '@iarna/toml': 2.2.5
       '@octokit/rest': 20.1.1
@@ -5846,7 +5846,7 @@ snapshots:
   socks-proxy-agent@8.0.2:
     dependencies:
       agent-base: 7.1.0
-      debug: 4.3.4
+      debug: 4.3.5
       socks: 2.7.1
     transitivePeerDependencies:
       - supports-color
