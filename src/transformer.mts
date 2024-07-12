@@ -23,7 +23,7 @@ function transformModel(
   });
 
   const fixFieldsName = produce(fixModelName, (draftModel) => {
-    const fields = draftModel.fields as Field[];
+    const fields = draftModel.fields;
     draftModel.fields = fields.map((field) =>
       produce(field, (draftField) => {
         const {
@@ -78,7 +78,7 @@ function transformModel(
         )
           draftField.isUpdatedAt = true;
       }),
-    ) as Field[];
+    );
   });
 
   // TODO: simplify

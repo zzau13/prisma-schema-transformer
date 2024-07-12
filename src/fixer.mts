@@ -1,5 +1,4 @@
-import p from '@prisma/internals';
-const { getConfig, getDMMF, formatSchema } = p;
+import { getConfig, getDMMF, formatSchema } from '@prisma/internals';
 import { getConfigFile } from './config.mjs';
 import {
   datasourceDeserializer,
@@ -10,7 +9,7 @@ import {
 } from './deserializer.mjs';
 import { dmmfEnumTransformer, dmmfModelTransformer } from './transformer.mjs';
 
-export async function fixSchema(schema: string, configPath?: string) {
+export async function fixSchema(schemaPath: string, schema: string, configPath?: string) {
   const configFile = await getConfigFile(configPath);
   const denyList = configFile.deny;
 
@@ -28,12 +27,13 @@ export async function fixSchema(schema: string, configPath?: string) {
   const transformedModels = dmmfModelTransformer(filteredModels, configFile);
   const transformedEnums = dmmfEnumTransformer(filteredEnums);
 
-  return await formatSchema({
-    schema: [
+  const multi = await formatSchema({
+    schemas: [[schemaPath, [
       datasourceDeserializer(datasources),
       generatorsDeserializer(generators),
       dmmfModelsDeserializer(transformedModels),
       dmmfEnumsDeserializer(transformedEnums),
-    ].join('\n'),
+    ].join('\n')]],
   });
+  return multi[0][1];
 }

@@ -1,4 +1,4 @@
-// Vitest Snapshot v1
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
 exports[`bad config path 1`] = `[Error: bad config path "not-exist.mjs"]`;
 
@@ -6,20 +6,20 @@ exports[`bad config path extension 1`] = `[Error: config file extension should b
 
 exports[`deserialized blog 1`] = `
 "datasource postgresql {
-  provider = \\"postgresql\\"
-  url      = env(\\"DATABASE_URL\\")
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
 }
 
 generator client {
-  provider = \\"prisma-client-js\\"
+  provider = "prisma-client-js"
 }
 
 model User {
-  id    String  @id @default(dbgenerated(\\"gen_random_uuid()\\"))
+  id    String  @id @default(dbgenerated("gen_random_uuid()"))
   email String  @unique
   name  String?
-  posts Post[]  @relation(\\"PostToUser\\")
-  likes Like[]  @relation(\\"LikeToUser\\")
+  posts Post[]  @relation("PostToUser")
+  likes Like[]  @relation("LikeToUser")
 }
 
 model Post {
@@ -30,17 +30,17 @@ model Post {
   title     String
   content   String?
   authorId  String?
-  author    User?      @relation(\\"PostToUser\\", fields: [authorId], references: [id])
+  author    User?      @relation("PostToUser", fields: [authorId], references: [id])
   status    PostStatus
-  likes     Like[]     @relation(\\"LikeToPost\\")
+  likes     Like[]     @relation("LikeToPost")
 }
 
 model Like {
   id     String @id @default(cuid())
   userId String
-  user   User   @relation(\\"LikeToUser\\", fields: [userId], references: [id])
+  user   User   @relation("LikeToUser", fields: [userId], references: [id])
   postId String
-  post   Post   @relation(\\"LikeToPost\\", fields: [postId], references: [id])
+  post   Post   @relation("LikeToPost", fields: [postId], references: [id])
 
   @@unique([userId, postId])
 }
@@ -49,27 +49,27 @@ enum PostStatus {
   hidden
   visible
 
-  @@map(\\"PostStatuses\\")
+  @@map("PostStatuses")
 }
 "
 `;
 
 exports[`deserialized blog absolute path config 1`] = `
 "datasource postgresql {
-  provider = \\"postgresql\\"
-  url      = env(\\"DATABASE_URL\\")
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
 }
 
 generator client {
-  provider = \\"prisma-client-js\\"
+  provider = "prisma-client-js"
 }
 
 model User {
-  id    String  @id @default(dbgenerated(\\"gen_random_uuid()\\"))
+  id    String  @id @default(dbgenerated("gen_random_uuid()"))
   email String  @unique
   name  String?
-  posts Post[]  @relation(\\"PostToUser\\")
-  likes Like[]  @relation(\\"LikeToUser\\")
+  posts Post[]  @relation("PostToUser")
+  likes Like[]  @relation("LikeToUser")
 }
 
 model Post {
@@ -80,17 +80,17 @@ model Post {
   title     String
   content   String?
   authorId  String?
-  author    User?      @relation(\\"PostToUser\\", fields: [authorId], references: [id])
+  author    User?      @relation("PostToUser", fields: [authorId], references: [id])
   status    PostStatus
-  likes     Like[]     @relation(\\"LikeToPost\\")
+  likes     Like[]     @relation("LikeToPost")
 }
 
 model Like {
   id     String @id @default(cuid())
   userId String
-  user   User   @relation(\\"LikeToUser\\", fields: [userId], references: [id])
+  user   User   @relation("LikeToUser", fields: [userId], references: [id])
   postId String
-  post   Post   @relation(\\"LikeToPost\\", fields: [postId], references: [id])
+  post   Post   @relation("LikeToPost", fields: [postId], references: [id])
 
   @@unique([userId, postId])
 }
@@ -99,27 +99,27 @@ enum PostStatus {
   hidden
   visible
 
-  @@map(\\"PostStatuses\\")
+  @@map("PostStatuses")
 }
 "
 `;
 
 exports[`deserialized blog default config 1`] = `
 "datasource postgresql {
-  provider = \\"postgresql\\"
-  url      = env(\\"DATABASE_URL\\")
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
 }
 
 generator client {
-  provider = \\"prisma-client-js\\"
+  provider = "prisma-client-js"
 }
 
 model User {
-  id    String  @id @default(dbgenerated(\\"gen_random_uuid()\\"))
+  id    String  @id @default(dbgenerated("gen_random_uuid()"))
   email String  @unique
   name  String?
-  posts Post[]  @relation(\\"PostToUser\\")
-  likes Like[]  @relation(\\"LikeToUser\\")
+  posts Post[]  @relation("PostToUser")
+  likes Like[]  @relation("LikeToUser")
 }
 
 model Post {
@@ -130,17 +130,17 @@ model Post {
   title     String
   content   String?
   authorId  String?
-  author    User?      @relation(\\"PostToUser\\", fields: [authorId], references: [id])
+  author    User?      @relation("PostToUser", fields: [authorId], references: [id])
   status    PostStatus
-  likes     Like[]     @relation(\\"LikeToPost\\")
+  likes     Like[]     @relation("LikeToPost")
 }
 
 model Like {
   id     String @id @default(cuid())
   userId String
-  user   User   @relation(\\"LikeToUser\\", fields: [userId], references: [id])
+  user   User   @relation("LikeToUser", fields: [userId], references: [id])
   postId String
-  post   Post   @relation(\\"LikeToPost\\", fields: [postId], references: [id])
+  post   Post   @relation("LikeToPost", fields: [postId], references: [id])
 
   @@unique([userId, postId])
 }
@@ -149,59 +149,59 @@ enum PostStatus {
   hidden
   visible
 
-  @@map(\\"PostStatuses\\")
+  @@map("PostStatuses")
 }
 "
 `;
 
 exports[`deserialized schema 1`] = `
 "datasource db {
-  provider = \\"postgresql\\"
-  url      = env(\\"DATABASE_URL\\")
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
 }
 
 generator client {
-  provider   = \\"prisma-client-js\\"
-  output     = env(\\"FOO\\")
-  another    = \\"foo\\"
-  anotherFoo = \\"foo\\"
+  provider   = "prisma-client-js"
+  output     = env("FOO")
+  another    = "foo"
+  anotherFoo = "foo"
 }
 
 model Employee {
-  plantId    String    @map(\\"PlantId\\")
-  employeeId String    @unique @map(\\"EmployeeId\\")
-  uni        String    @map(\\"Uni\\")
-  anothers   Another[] @relation(\\"AnothersToEmployees\\")
-  lastOne    Last?     @relation(\\"EmployeesToLast_PlantId_EmployeeOneId\\")
-  lastTwo    Last?     @relation(\\"EmployeesToLast_PlantId_EmployeeTwoId\\")
+  plantId    String    @map("PlantId")
+  employeeId String    @unique @map("EmployeeId")
+  uni        String    @map("Uni")
+  anothers   Another[] @relation("AnothersToEmployees")
+  lastOne    Last?     @relation("EmployeesToLast_PlantId_EmployeeOneId")
+  lastTwo    Last?     @relation("EmployeesToLast_PlantId_EmployeeTwoId")
 
   @@id([plantId, employeeId])
   @@unique([plantId, uni])
-  @@map(\\"Employees\\")
+  @@map("Employees")
 }
 
 model Another {
   /// @Foo
   /// @Bar
-  anotherId  String   @map(\\"AnotherId\\")
-  plantId    String   @map(\\"PlantId\\")
-  employeeId String   @map(\\"EmployeeId\\")
-  uni        String   @map(\\"Uni\\")
-  employee   Employee @relation(\\"AnothersToEmployees\\", fields: [plantId, employeeId], references: [plantId, employeeId], onDelete: NoAction)
+  anotherId  String   @map("AnotherId")
+  plantId    String   @map("PlantId")
+  employeeId String   @map("EmployeeId")
+  uni        String   @map("Uni")
+  employee   Employee @relation("AnothersToEmployees", fields: [plantId, employeeId], references: [plantId, employeeId], onDelete: NoAction)
 
   @@id([plantId, anotherId])
   @@unique([plantId, employeeId])
-  @@map(\\"Anothers\\")
+  @@map("Anothers")
 }
 
 model Last {
   /// @Foo
-  plantId       String   @map(\\"PlantId\\")
+  plantId       String   @map("PlantId")
   id            Int      @id
-  employeeOneId String   @map(\\"EmployeeOneId\\")
-  employeeOne   Employee @relation(\\"EmployeesToLast_PlantId_EmployeeOneId\\", fields: [plantId, employeeOneId], references: [plantId, employeeId], onDelete: NoAction)
-  employeeTwoId String   @map(\\"EmployeeTwoId\\")
-  employeeTwo   Employee @relation(\\"EmployeesToLast_PlantId_EmployeeTwoId\\", fields: [plantId, employeeTwoId], references: [plantId, employeeId], onDelete: NoAction)
+  employeeOneId String   @map("EmployeeOneId")
+  employeeOne   Employee @relation("EmployeesToLast_PlantId_EmployeeOneId", fields: [plantId, employeeOneId], references: [plantId, employeeId], onDelete: NoAction)
+  employeeTwoId String   @map("EmployeeTwoId")
+  employeeTwo   Employee @relation("EmployeesToLast_PlantId_EmployeeTwoId", fields: [plantId, employeeTwoId], references: [plantId, employeeId], onDelete: NoAction)
 
   @@unique([plantId, employeeOneId])
   @@unique([plantId, employeeTwoId])
@@ -212,35 +212,35 @@ model Last {
 exports[`deserialized simple 1`] = `
 "model Post {
   id        Int      @id @default(autoincrement())
-  title     String   @default(\\"foo\\")
+  title     String   @default("foo")
   number    Int      @default(3)
   published Boolean  @default(false)
   foo       Foo      @default(bar)
   content   String?
-  authorId  Int      @map(\\"author_id\\")
-  author    User     @relation(\\"postsTousers\\", fields: [authorId], references: [id])
-  createdAt DateTime @default(now()) @map(\\"created_at\\")
-  updatedAt DateTime @default(now()) @updatedAt @map(\\"updated_at\\")
+  authorId  Int      @map("author_id")
+  author    User     @relation("postsTousers", fields: [authorId], references: [id])
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @default(now()) @updatedAt @map("updated_at")
 
-  @@map(\\"posts\\")
+  @@map("posts")
 }
 
 model User {
   id        Int      @id @default(autoincrement())
   email     String   @unique
   weight    Float
-  posts     Post[]   @relation(\\"postsTousers\\")
-  createdAt DateTime @default(now()) @map(\\"created_at\\")
-  updatedAt DateTime @default(now()) @updatedAt @map(\\"updated_at\\")
+  posts     Post[]   @relation("postsTousers")
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @default(now()) @updatedAt @map("updated_at")
 
-  @@map(\\"users\\")
+  @@map("users")
 }
 
 enum Foo {
-  bar  @map(\\"BAR\\")
-  bar2 @map(\\"BAR2\\")
+  bar  @map("BAR")
+  bar2 @map("BAR2")
 
-  @@map(\\"foos\\")
+  @@map("foos")
 }
 "
 `;
