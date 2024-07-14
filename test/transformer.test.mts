@@ -1,8 +1,7 @@
 import { readFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { test, expect } from 'vitest';
-import p from '@prisma/internals';
-const { getDMMF } = p;
+import { getDMMF } from '@prisma/internals';
 
 import {
   dmmfModelsDeserializer,

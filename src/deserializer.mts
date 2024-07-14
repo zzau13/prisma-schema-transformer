@@ -6,7 +6,7 @@ import {
   GeneratorConfig,
 } from '@prisma/generator-helper';
 
-export type Field = DMMF.Field & { columnName?: string };
+export type Field = DMMF.Field & { columnName?: string; dbName?: string };
 
 export interface Model extends DMMF.Model {
   fields: Field[];
@@ -44,11 +44,13 @@ const printAttr = ({
   hasDefaultValue,
   columnName,
   kind,
+  dbName,
 }: Field) =>
   (isId ? '@id' : '') +
   (isUnique ? ' @unique' : '') +
   (isUpdatedAt ? ' @updatedAt' : '') +
   (columnName ? ` @map(${JSON.stringify(columnName)})` : '') +
+  (!columnName && dbName ? ` @map(${JSON.stringify(dbName)})` : '') +
   (hasDefaultValue ? ' ' + printDefault(kind, def) : '');
 
 // Handler for Attributes
@@ -97,10 +99,10 @@ const handleFields = (fields: Field[]) =>
     })
     .join('\n');
 
-const handleIdFields = (idFields?: string[]) =>
+const handleIdFields = (idFields?: readonly string[]) =>
   idFields?.length ? `@@id([${idFields.join(', ')}])` : '';
 
-const handleUniqueFields = (uniqueFields: string[][]) =>
+const handleUniqueFields = (uniqueFields: (readonly (readonly string[])[])) =>
   uniqueFields?.length
     ? uniqueFields
         .map((eachUniqueField) => `@@unique([${eachUniqueField.join(', ')}])`)
@@ -200,6 +202,6 @@ const printGenerator = ({
 export const generatorsDeserializer = (generators: GeneratorConfig[]) =>
   generators.map(printGenerator).join('\n');
 
-export function dmmfEnumsDeserializer(enums: DMMF.DatamodelEnum[]) {
+export function dmmfEnumsDeserializer(enums: readonly DMMF.DatamodelEnum[]) {
   return enums.map((each) => deserializeEnum(each)).join('\n');
 }
