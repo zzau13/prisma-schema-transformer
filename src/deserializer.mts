@@ -99,10 +99,10 @@ const handleFields = (fields: Field[]) =>
     })
     .join('\n');
 
-const handleIdFields = (idFields?: string[]) =>
+const handleIdFields = (idFields?: readonly string[]) =>
   idFields?.length ? `@@id([${idFields.join(', ')}])` : '';
 
-const handleUniqueFields = (uniqueFields: string[][]) =>
+const handleUniqueFields = (uniqueFields: (readonly (readonly string[])[])) =>
   uniqueFields?.length
     ? uniqueFields
         .map((eachUniqueField) => `@@unique([${eachUniqueField.join(', ')}])`)
@@ -196,6 +196,6 @@ const printGenerator = ({
 export const generatorsDeserializer = (generators: GeneratorConfig[]) =>
   generators.map(printGenerator).join('\n');
 
-export function dmmfEnumsDeserializer(enums: DMMF.DatamodelEnum[]) {
+export function dmmfEnumsDeserializer(enums: readonly DMMF.DatamodelEnum[]) {
   return enums.map((each) => deserializeEnum(each)).join('\n');
 }
