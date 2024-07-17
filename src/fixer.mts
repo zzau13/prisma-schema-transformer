@@ -29,8 +29,8 @@ export async function fixSchema(schemaPath: string, schema: string, configPath?:
 
   const multi = await formatSchema({
     schemas: [[schemaPath, [
-      datasourceDeserializer(datasources),
       generatorsDeserializer(generators),
+      datasourceDeserializer(datasources),
       dmmfModelsDeserializer(transformedModels),
       dmmfEnumsDeserializer(transformedEnums),
     ].join('\n')]],

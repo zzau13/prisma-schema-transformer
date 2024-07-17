@@ -6,7 +6,7 @@ import {
   GeneratorConfig,
 } from '@prisma/generator-helper';
 
-export type Field = DMMF.Field & { columnName?: string };
+export type Field = DMMF.Field & { columnName?: string; dbName?: string };
 
 export interface Model extends DMMF.Model {
   fields: Field[];
@@ -44,11 +44,13 @@ const printAttr = ({
   hasDefaultValue,
   columnName,
   kind,
+  dbName,
 }: Field) =>
   (isId ? '@id' : '') +
   (isUnique ? ' @unique' : '') +
   (isUpdatedAt ? ' @updatedAt' : '') +
   (columnName ? ` @map(${JSON.stringify(columnName)})` : '') +
+  (!columnName && dbName ? ` @map(${JSON.stringify(dbName)})` : '') +
   (hasDefaultValue ? ' ' + printDefault(kind, def) : '');
 
 // Handler for Attributes
@@ -177,10 +179,16 @@ const printGenerator = ({
   config,
   provider,
   output,
+  binaryTargets,
+  previewFeatures,
 }: GeneratorConfig) => {
   let ret = `generator ${name} {
   provider = ${printEnvVar(provider)}`;
   if (output) ret += `\n  output = ${printEnvVar(output)}`;
+  if (binaryTargets && binaryTargets.length > 0)
+    ret += `\n  binaryTargets = ${JSON.stringify(binaryTargets)}`;
+  if (previewFeatures && previewFeatures.length > 0)
+    ret += `\n  previewFeatures = ${JSON.stringify(previewFeatures)}`;
   const conf = Object.entries(config).sort(([a], [b]) => a.localeCompare(b));
   if (conf.length)
     ret += `\n  ${conf
