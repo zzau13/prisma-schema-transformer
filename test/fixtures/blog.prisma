@@ -1,5 +1,6 @@
 generator client {
-  provider = "prisma-client-js"
+  provider      = "prisma-client-js"
+  binaryTargets = ["native"]
 }
 
 datasource postgresql {
@@ -16,11 +17,11 @@ model User {
 }
 
 model Post {
-  id        String       @id @default(cuid())
+  id        String       @id @default(cuid()) @postgresql.Uuid
   createdAt DateTime     @default(now())
   updatedAt DateTime     @updatedAt
   published Boolean
-  title     String
+  title     String       @postgresql.VarChar(255)
   content   String?
   authorId  String?
   author    User?        @relation(fields: [authorId], references: [id])

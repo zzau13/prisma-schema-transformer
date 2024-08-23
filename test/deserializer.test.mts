@@ -5,8 +5,7 @@ import { test, expect } from 'vitest';
 import { fixSchema } from '../src/fixer.mjs';
 
 const DEFAULT = './fixtures/blog.prisma';
-const getFile = (path: string) =>
-  readFileSync(join(__dirname, path), 'utf-8');
+const getFile = (path: string) => readFileSync(join(__dirname, path), 'utf-8');
 const fix = (path: string, config = 'schema-config.mjs') =>
   fixSchema(path, getFile(path), config);
 
@@ -30,7 +29,11 @@ test('deserialized blog absolute path config', () =>
   ).resolves.toMatchSnapshot());
 
 test('bad config path', () =>
-  expect(fixSchema(DEFAULT, getFile(DEFAULT), 'not-exist.mjs')).rejects.toMatchSnapshot());
+  expect(
+    fixSchema(DEFAULT, getFile(DEFAULT), 'not-exist.mjs'),
+  ).rejects.toMatchSnapshot());
 
 test('bad config path extension', () =>
-  expect(fixSchema(DEFAULT, getFile(DEFAULT), 'not-exist.js')).rejects.toMatchSnapshot());
+  expect(
+    fixSchema(DEFAULT, getFile(DEFAULT), 'not-exist.js'),
+  ).rejects.toMatchSnapshot());

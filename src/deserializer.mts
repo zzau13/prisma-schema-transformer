@@ -5,8 +5,13 @@ import {
   EnvValue,
   GeneratorConfig,
 } from '@prisma/generator-helper';
+import { Attribute, Value } from '@mrleebo/prisma-ast';
 
-export type Field = DMMF.Field & { columnName?: string; dbName?: string };
+export type Field = DMMF.Field & {
+  columnName?: string;
+  dbName?: string;
+  dbAttributes?: Attribute[];
+};
 
 export interface Model extends DMMF.Model {
   fields: Field[];
@@ -45,12 +50,21 @@ const printAttr = ({
   columnName,
   kind,
   dbName,
+  dbAttributes,
 }: Field) =>
   (isId ? '@id' : '') +
   (isUnique ? ' @unique' : '') +
   (isUpdatedAt ? ' @updatedAt' : '') +
   (columnName ? ` @map(${JSON.stringify(columnName)})` : '') +
   (!columnName && dbName ? ` @map(${JSON.stringify(dbName)})` : '') +
+  (dbAttributes
+    ? dbAttributes
+        .map(
+          (attr) =>
+            ` @${attr.group}.${attr.name}${attr.args ? `(${attr.args.map(({ value }) => value).join(',')})` : ''}`,
+        )
+        .join('')
+    : '') +
   (hasDefaultValue ? ' ' + printDefault(kind, def) : '');
 
 // Handler for Attributes
@@ -75,10 +89,10 @@ function handleAttributes(field: Field) {
             relationOnDelete ? `, onDelete: ${relationOnDelete}` : ''
           })`
         : relationName
-        ? `@relation("${relationName}"${
-            relationOnDelete ? `, onDelete: ${relationOnDelete}` : ''
-          })`
-        : '';
+          ? `@relation("${relationName}"${
+              relationOnDelete ? `, onDelete: ${relationOnDelete}` : ''
+            })`
+          : '';
     default:
       return '';
   }
@@ -102,7 +116,7 @@ const handleFields = (fields: Field[]) =>
 const handleIdFields = (idFields?: readonly string[]) =>
   idFields?.length ? `@@id([${idFields.join(', ')}])` : '';
 
-const handleUniqueFields = (uniqueFields: (readonly (readonly string[])[])) =>
+const handleUniqueFields = (uniqueFields: readonly (readonly string[])[]) =>
   uniqueFields?.length
     ? uniqueFields
         .map((eachUniqueField) => `@@unique([${eachUniqueField.join(', ')}])`)
@@ -161,9 +175,8 @@ enum ${name} {
 /**
  * Deserialize DMMF.Model[] into prisma schema file
  */
-export function dmmfModelsDeserializer(models: Model[]) {
-  return models.map((model) => deserializeModel(model)).join('\n');
-}
+export const dmmfModelsDeserializer = (models: Model[]) =>
+  models.map((model) => deserializeModel(model)).join('\n');
 
 export function datasourceDeserializer(datasource: DataSource[]) {
   return datasource
@@ -174,14 +187,10 @@ export function datasourceDeserializer(datasource: DataSource[]) {
 const printEnvVar = ({ fromEnvVar, value }: EnvValue) =>
   fromEnvVar ? `env(${JSON.stringify(fromEnvVar)})` : JSON.stringify(value);
 
-const printGenerator = ({
-  name,
-  config,
-  provider,
-  output,
-  binaryTargets,
-  previewFeatures,
-}: GeneratorConfig) => {
+const printGenerator = (
+  { name, config, provider, output, previewFeatures }: GeneratorConfig,
+  binaryTargets?: Value[],
+) => {
   let ret = `generator ${name} {
   provider = ${printEnvVar(provider)}`;
   if (output) ret += `\n  output = ${printEnvVar(output)}`;
@@ -199,8 +208,10 @@ const printGenerator = ({
   return ret;
 };
 
-export const generatorsDeserializer = (generators: GeneratorConfig[]) =>
-  generators.map(printGenerator).join('\n');
+export const generatorsDeserializer = (
+  generators: GeneratorConfig[],
+  binaryTargets?: Value[],
+) => generators.map((x) => printGenerator(x, binaryTargets)).join('\n');
 
 export function dmmfEnumsDeserializer(enums: readonly DMMF.DatamodelEnum[]) {
   return enums.map((each) => deserializeEnum(each)).join('\n');

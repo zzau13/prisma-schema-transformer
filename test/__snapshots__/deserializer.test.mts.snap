@@ -6,8 +6,8 @@ exports[`bad config path extension 1`] = `[Error: config file extension should b
 
 exports[`deserialized blog 1`] = `
 "generator client {
-  provider = "prisma-client-js"
-  binaryTargets = [{"fromEnvVar":null,"value":"debian-openssl-1.1.x","native":true}]
+  provider      = "prisma-client-js"
+  binaryTargets = [["\\"native\\""]]
 }
 
 datasource postgresql {
@@ -24,11 +24,11 @@ model User {
 }
 
 model Post {
-  id        String     @id @default(cuid())
+  id        String     @id @default(cuid()) @postgresql.Uuid
   createdAt DateTime   @default(now())
   updatedAt DateTime   @updatedAt
   published Boolean
-  title     String
+  title     String     @postgresql.VarChar(255)
   content   String?
   authorId  String?
   author    User?      @relation("PostToUser", fields: [authorId], references: [id])
@@ -57,8 +57,8 @@ enum PostStatus {
 
 exports[`deserialized blog absolute path config 1`] = `
 "generator client {
-  provider = "prisma-client-js"
-  binaryTargets = [{"fromEnvVar":null,"value":"debian-openssl-1.1.x","native":true}]
+  provider      = "prisma-client-js"
+  binaryTargets = [["\\"native\\""]]
 }
 
 datasource postgresql {
@@ -75,11 +75,11 @@ model User {
 }
 
 model Post {
-  id        String     @id @default(cuid())
+  id        String     @id @default(cuid()) @postgresql.Uuid
   createdAt DateTime   @default(now())
   updatedAt DateTime   @updatedAt
   published Boolean
-  title     String
+  title     String     @postgresql.VarChar(255)
   content   String?
   authorId  String?
   author    User?      @relation("PostToUser", fields: [authorId], references: [id])
@@ -108,8 +108,8 @@ enum PostStatus {
 
 exports[`deserialized blog default config 1`] = `
 "generator client {
-  provider = "prisma-client-js"
-  binaryTargets = [{"fromEnvVar":null,"value":"debian-openssl-1.1.x","native":true}]
+  provider      = "prisma-client-js"
+  binaryTargets = [["\\"native\\""]]
 }
 
 datasource postgresql {
@@ -126,11 +126,11 @@ model User {
 }
 
 model Post {
-  id        String     @id @default(cuid())
+  id        String     @id @default(cuid()) @postgresql.Uuid
   createdAt DateTime   @default(now())
   updatedAt DateTime   @updatedAt
   published Boolean
-  title     String
+  title     String     @postgresql.VarChar(255)
   content   String?
   authorId  String?
   author    User?      @relation("PostToUser", fields: [authorId], references: [id])
@@ -161,7 +161,6 @@ exports[`deserialized schema 1`] = `
 "generator client {
   provider   = "prisma-client-js"
   output     = env("FOO")
-  binaryTargets = [{"fromEnvVar":null,"value":"debian-openssl-1.1.x","native":true}]
   another    = "foo"
   anotherFoo = "foo"
 }
@@ -172,9 +171,9 @@ datasource db {
 }
 
 model Employee {
-  plantId    String    @map("PlantId")
-  employeeId String    @unique @map("EmployeeId")
-  uni        String    @map("Uni")
+  plantId    String    @map("PlantId") @db.VarChar(10)
+  employeeId String    @unique @map("EmployeeId") @db.VarChar(10)
+  uni        String    @map("Uni") @db.VarChar(10)
   anothers   Another[] @relation("AnothersToEmployees")
   lastOne    Last?     @relation("EmployeesToLast_PlantId_EmployeeOneId")
   lastTwo    Last?     @relation("EmployeesToLast_PlantId_EmployeeTwoId")
@@ -187,10 +186,10 @@ model Employee {
 model Another {
   /// @Foo
   /// @Bar
-  anotherId  String   @map("AnotherId")
-  plantId    String   @map("PlantId")
-  employeeId String   @map("EmployeeId")
-  uni        String   @map("Uni")
+  anotherId  String   @map("AnotherId") @db.VarChar(10)
+  plantId    String   @map("PlantId") @db.VarChar(10)
+  employeeId String   @map("EmployeeId") @db.VarChar(10)
+  uni        String   @map("Uni") @db.VarChar(10)
   employee   Employee @relation("AnothersToEmployees", fields: [plantId, employeeId], references: [plantId, employeeId], onDelete: NoAction)
 
   @@id([plantId, anotherId])
@@ -200,11 +199,11 @@ model Another {
 
 model Last {
   /// @Foo
-  plantId       String   @map("PlantId")
+  plantId       String   @map("PlantId") @db.VarChar(10)
   id            Int      @id
-  employeeOneId String   @map("EmployeeOneId")
+  employeeOneId String   @map("EmployeeOneId") @db.VarChar(10)
   employeeOne   Employee @relation("EmployeesToLast_PlantId_EmployeeOneId", fields: [plantId, employeeOneId], references: [plantId, employeeId], onDelete: NoAction)
-  employeeTwoId String   @map("EmployeeTwoId")
+  employeeTwoId String   @map("EmployeeTwoId") @db.VarChar(10)
   employeeTwo   Employee @relation("EmployeesToLast_PlantId_EmployeeTwoId", fields: [plantId, employeeTwoId], references: [plantId, employeeId], onDelete: NoAction)
 
   @@unique([plantId, employeeOneId])
@@ -219,7 +218,7 @@ exports[`deserialized simple 1`] = `
   title     String   @default("foo")
   number    Int      @default(3)
   published Boolean  @default(false)
-  foo       Foo      @default(bar)
+  foo       Foo      @default(BAR)
   content   String?
   authorId  Int      @map("author_id")
   author    User     @relation("postsTousers", fields: [authorId], references: [id])
