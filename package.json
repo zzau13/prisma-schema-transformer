@@ -64,7 +64,7 @@
     "@commitlint/cli": "19.5.0",
     "@commitlint/config-conventional": "19.5.0",
     "@eslint/compat": "^1.1.1",
-    "@release-it/conventional-changelog": "8.0.1",
+    "@release-it/conventional-changelog": "8.0.2",
     "@types/node": "22.5.4",
     "@types/pluralize": "0.0.33",
     "@types/jest": "29.5.12",
