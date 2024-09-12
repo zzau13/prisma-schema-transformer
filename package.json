@@ -79,7 +79,7 @@
     "prettier-plugin-prisma": "5.0.0",
     "release-it": "17.6.0",
     "typescript": "5.6.2",
-    "vitest": "2.0.5"
+    "vitest": "2.1.0"
   },
   "lint-staged": {
     "*.{mts,ts,js}": "eslint --cache --fix",
