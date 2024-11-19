@@ -79,8 +79,8 @@ importers:
         specifier: 2.1.5
         version: 2.1.5(vitest@2.1.5(@types/node@22.6.1))
       dotenv-cli:
-        specifier: 7.4.2
-        version: 7.4.2
+        specifier: 7.4.3
+        version: 7.4.3
       eslint:
         specifier: 9.15.0
         version: 9.15.0(jiti@1.21.6)
@@ -1328,8 +1328,8 @@ packages:
     resolution: {integrity: sha512-1gxPBJpI/pcjQhKgIU91II6Wkay+dLcN3M6rf2uwP8hRur3HtQXjVrdAK3sjC0piaEuxzMwjXChcETiJl47lAQ==}
     engines: {node: '>=18'}
 
-  dotenv-cli@7.4.2:
-    resolution: {integrity: sha512-SbUj8l61zIbzyhIbg0FwPJq6+wjbzdn9oEtozQpZ6kW2ihCcapKVZj49oCT3oPM+mgQm+itgvUQcG5szxVrZTA==}
+  dotenv-cli@7.4.3:
+    resolution: {integrity: sha512-lf1E+TL1xFeoOHy2hSO3kLkx3KX8CDi17ccn5z5dVCnk2PuWqUKAnBVgQmhfS0BPuzFbptTEHVcIKFsGF0NAcg==}
     hasBin: true
 
   dotenv-expand@10.0.0:
@@ -4161,7 +4161,7 @@ snapshots:
     dependencies:
       type-fest: 4.27.0
 
-  dotenv-cli@7.4.2:
+  dotenv-cli@7.4.3:
     dependencies:
       cross-spawn: 7.0.5
       dotenv: 16.4.5
