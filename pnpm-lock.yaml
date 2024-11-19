@@ -10,7 +10,7 @@ importers:
     dependencies:
       '@antfu/ni':
         specifier: ^0.23.0
-        version: 0.23.0
+        version: 0.23.1
       '@mrleebo/prisma-ast':
         specifier: ^0.12.0
         version: 0.12.0
@@ -112,8 +112,8 @@ packages:
     resolution: {integrity: sha512-30iZtAPgz+LTIYoeivqYo853f02jBYSd5uGnGpkFV0M3xOt9aN73erkgYAmZU43x4VfqcnLxW9Kpg3R5LC4YYw==}
     engines: {node: '>=6.0.0'}
 
-  '@antfu/ni@0.23.0':
-    resolution: {integrity: sha512-R5/GkA3PfGewAXLzz6lN5XagunF6PKeDtWt8dbZQXvHfebLS0qEczV+Azg/d+tKgSh6kRBpxvu8oSjARdPtw0A==}
+  '@antfu/ni@0.23.1':
+    resolution: {integrity: sha512-VFAvMTJhjP6L7CuBKT5FioDCSpdmZxJ4POKTJOrFNicI2CK6mlaRwVEBGWLGm2V6BtQgdbBn9X68piHSbw5wQQ==}
     hasBin: true
 
   '@babel/code-frame@7.26.2':
@@ -2918,7 +2918,7 @@ snapshots:
       '@jridgewell/gen-mapping': 0.3.5
       '@jridgewell/trace-mapping': 0.3.25
 
-  '@antfu/ni@0.23.0': {}
+  '@antfu/ni@0.23.1': {}
 
   '@babel/code-frame@7.26.2':
     dependencies:
