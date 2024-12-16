@@ -13,7 +13,7 @@ importers:
         version: 0.23.1
       '@mrleebo/prisma-ast':
         specifier: ^0.12.0
-        version: 0.12.0
+        version: 0.12.1
       '@prisma/engine-core':
         specifier: ^4.13.0
         version: 4.13.0
@@ -483,8 +483,8 @@ packages:
   '@jridgewell/trace-mapping@0.3.25':
     resolution: {integrity: sha512-vNk6aEwybGtawWmy/PzwnGDOjCkLWSD2wqvjGGAgOAwCGWySYXfYoxt00IJkTF+8Lb57DwOb3Aa0o9CApepiYQ==}
 
-  '@mrleebo/prisma-ast@0.12.0':
-    resolution: {integrity: sha512-qQsScED+KOMbnKP946Tiyi0Jzxq3YjvxkjD7MsR+SI815JLyoc2Ca6pi3t7ub8DJzO6kv3PC9Ly4ru7JufFnyQ==}
+  '@mrleebo/prisma-ast@0.12.1':
+    resolution: {integrity: sha512-JwqeCQ1U3fvccttHZq7Tk0m/TMC6WcFAQZdukypW3AzlJYKYTGNVd1ANU2GuhKnv4UQuOFj3oAl0LLG/gxFN1w==}
     engines: {node: '>=16'}
 
   '@nodelib/fs.scandir@2.1.5':
@@ -3238,7 +3238,7 @@ snapshots:
       '@jridgewell/resolve-uri': 3.1.2
       '@jridgewell/sourcemap-codec': 1.5.0
 
-  '@mrleebo/prisma-ast@0.12.0':
+  '@mrleebo/prisma-ast@0.12.1':
     dependencies:
       chevrotain: 10.5.0
       lilconfig: 2.1.0
