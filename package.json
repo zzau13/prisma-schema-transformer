@@ -65,7 +65,7 @@
     "@commitlint/config-conventional": "19.6.0",
     "@eslint/compat": "^1.1.1",
     "@release-it/conventional-changelog": "9.0.4",
-    "@types/node": "22.6.1",
+    "@types/node": "22.10.2",
     "@types/pluralize": "0.0.33",
     "@types/jest": "29.5.14",
     "@typescript-eslint/eslint-plugin": "8.18.2",
