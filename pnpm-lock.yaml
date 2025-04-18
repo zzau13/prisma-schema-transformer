@@ -59,7 +59,7 @@ importers:
         version: 1.2.8(eslint@9.23.0(jiti@2.4.2))
       '@release-it/conventional-changelog':
         specifier: 10.0.1
-        version: 10.0.1(conventional-commits-filter@5.0.0)(conventional-commits-parser@6.1.0)(release-it@19.0.0(@types/node@22.6.1)(magicast@0.3.5))
+        version: 10.0.1(conventional-commits-filter@5.0.0)(conventional-commits-parser@6.1.0)(release-it@19.0.1(@types/node@22.6.1)(magicast@0.3.5))
       '@types/jest':
         specifier: 29.5.14
         version: 29.5.14
@@ -97,8 +97,8 @@ importers:
         specifier: 5.0.0
         version: 5.0.0(prettier@3.5.3)
       release-it:
-        specifier: 19.0.0
-        version: 19.0.0(@types/node@22.6.1)(magicast@0.3.5)
+        specifier: 19.0.1
+        version: 19.0.1(@types/node@22.6.1)(magicast@0.3.5)
       typescript:
         specifier: 5.8.2
         version: 5.8.2
@@ -2479,8 +2479,8 @@ packages:
   regexp-to-ast@0.5.0:
     resolution: {integrity: sha512-tlbJqcMHnPKI9zSrystikWKwHkBqu2a/Sgw01h3zFjvYrMxEDYHzzoMZnUrbIfpTFEsoRnnviOXNCzFiSc54Qw==}
 
-  release-it@19.0.0:
-    resolution: {integrity: sha512-gbhYQ9gT8LvnXGgW97fvtFAZb57LwaOnwga+LxpWkkMudIvdaIY8K5/fDeE8AUW5N3HsfmLSqAxt0yXsUVVfdg==}
+  release-it@19.0.1:
+    resolution: {integrity: sha512-n+ZgPmyaEigl+oZguu4fwxIGGE+ydiFSzxuUZWDsQ822qbaCah5CC4EwSDqMT/bRT+ekYnb2Qyf2nV8vjK+Xdg==}
     engines: {node: ^20.9.0 || >=22.0.0}
     hasBin: true
 
@@ -3694,13 +3694,13 @@ snapshots:
       '@prisma/prisma-schema-wasm': 6.6.0-53.f676762280b54cd07c770017ed3711ddde35f37a
       fs-extra: 11.3.0
 
-  '@release-it/conventional-changelog@10.0.1(conventional-commits-filter@5.0.0)(conventional-commits-parser@6.1.0)(release-it@19.0.0(@types/node@22.6.1)(magicast@0.3.5))':
+  '@release-it/conventional-changelog@10.0.1(conventional-commits-filter@5.0.0)(conventional-commits-parser@6.1.0)(release-it@19.0.1(@types/node@22.6.1)(magicast@0.3.5))':
     dependencies:
       concat-stream: 2.0.0
       conventional-changelog: 6.0.0(conventional-commits-filter@5.0.0)
       conventional-recommended-bump: 10.0.0
       git-semver-tags: 8.0.0(conventional-commits-filter@5.0.0)(conventional-commits-parser@6.1.0)
-      release-it: 19.0.0(@types/node@22.6.1)(magicast@0.3.5)
+      release-it: 19.0.1(@types/node@22.6.1)(magicast@0.3.5)
       semver: 7.7.1
     transitivePeerDependencies:
       - conventional-commits-filter
@@ -5422,7 +5422,7 @@ snapshots:
 
   regexp-to-ast@0.5.0: {}
 
-  release-it@19.0.0(@types/node@22.6.1)(magicast@0.3.5):
+  release-it@19.0.1(@types/node@22.6.1)(magicast@0.3.5):
     dependencies:
       '@nodeutils/defaults-deep': 1.1.0
       '@octokit/rest': 21.1.1
