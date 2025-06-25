@@ -91,11 +91,11 @@ importers:
         specifier: 16.1.2
         version: 16.1.2
       prettier:
-        specifier: 3.6.0
-        version: 3.6.0
+        specifier: 3.6.1
+        version: 3.6.1
       prettier-plugin-prisma:
         specifier: 5.0.0
-        version: 5.0.0(prettier@3.6.0)
+        version: 5.0.0(prettier@3.6.1)
       release-it:
         specifier: 19.0.3
         version: 19.0.3(@types/node@22.6.1)(magicast@0.3.5)
@@ -2450,8 +2450,8 @@ packages:
     peerDependencies:
       prettier: '>=2 || >=3'
 
-  prettier@3.6.0:
-    resolution: {integrity: sha512-ujSB9uXHJKzM/2GBuE0hBOUgC77CN3Bnpqa+g80bkv3T3A93wL/xlzDATHhnhkzifz/UE2SNOvmbTz5hSkDlHw==}
+  prettier@3.6.1:
+    resolution: {integrity: sha512-5xGWRa90Sp2+x1dQtNpIpeOQpTDBs9cZDmA/qs2vDNN2i18PdapqY7CmBeyLlMuGqXJRIOPaCaVZTLNQRWUH/A==}
     engines: {node: '>=14'}
     hasBin: true
 
@@ -5420,12 +5420,12 @@ snapshots:
 
   prelude-ls@1.2.1: {}
 
-  prettier-plugin-prisma@5.0.0(prettier@3.6.0):
+  prettier-plugin-prisma@5.0.0(prettier@3.6.1):
     dependencies:
       '@prisma/prisma-schema-wasm': 4.17.0-26.6b0aef69b7cdfc787f822ecd7cdc76d5f1991584
-      prettier: 3.6.0
+      prettier: 3.6.1
 
-  prettier@3.6.0: {}
+  prettier@3.6.1: {}
 
   pretty-format@30.0.2:
     dependencies:
