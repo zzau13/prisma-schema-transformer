@@ -31,7 +31,7 @@ importers:
         version: 14.0.0
       dotenv:
         specifier: ^17.0.0
-        version: 17.2.0
+        version: 17.2.1
       fp-ts:
         specifier: 2.16.10
         version: 2.16.10
@@ -1537,8 +1537,8 @@ packages:
     resolution: {integrity: sha512-uBq4egWHTcTt33a72vpSG0z3HnPuIl6NqYcTrKEg2azoEyl2hpW0zqlxysq2pK9HlDIHyHyakeYaYnSAwd8bow==}
     engines: {node: '>=12'}
 
-  dotenv@17.2.0:
-    resolution: {integrity: sha512-Q4sgBT60gzd0BB0lSyYD3xM4YxrXA9y4uBDof1JNYGzOXrQdQ6yX+7XIAqoFOGQFOTK1D3Hts5OllpxMDZFONQ==}
+  dotenv@17.2.1:
+    resolution: {integrity: sha512-kQhDYKZecqnM0fCnzI5eIv5L4cAe/iRI+HqMbO/hbRdTAeXDG+M9FjipUxNfbARuEg4iHIbhnhs78BCHNbSxEQ==}
     engines: {node: '>=12'}
 
   eastasianwidth@0.2.0:
@@ -4503,7 +4503,7 @@ snapshots:
   dotenv-cli@9.0.0:
     dependencies:
       cross-spawn: 7.0.6
-      dotenv: 17.2.0
+      dotenv: 17.2.1
       dotenv-expand: 10.0.0
       minimist: 1.2.8
 
@@ -4511,7 +4511,7 @@ snapshots:
 
   dotenv@16.6.1: {}
 
-  dotenv@17.2.0: {}
+  dotenv@17.2.1: {}
 
   eastasianwidth@0.2.0: {}
 
