@@ -54,7 +54,7 @@
     "camelcase": "^8.0.0",
     "commander": "^14.0.0",
     "dotenv": "^17.0.0",
-    "fp-ts": "2.16.10",
+    "fp-ts": "2.16.11",
     "immer": "^10.1.1",
     "pluralize": "^8.0.0",
     "prisma": "^6.0.0",
