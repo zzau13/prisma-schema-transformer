@@ -46,7 +46,7 @@
     "prepare": "husky"
   },
   "dependencies": {
-    "@antfu/ni": "^26.0.0",
+    "@antfu/ni": "^27.0.0",
     "@mrleebo/prisma-ast": "^0.13.0",
     "@prisma/engine-core": "^4.13.0",
     "@prisma/generator-helper": "^6.0.0",
