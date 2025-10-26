@@ -10,7 +10,7 @@ importers:
     dependencies:
       '@antfu/ni':
         specifier: ^27.0.0
-        version: 27.0.0
+        version: 27.0.1
       '@mrleebo/prisma-ast':
         specifier: ^0.13.0
         version: 0.13.1
@@ -108,8 +108,8 @@ importers:
 
 packages:
 
-  '@antfu/ni@27.0.0':
-    resolution: {integrity: sha512-r6Qy0CU0xqOKUqEYUnjVrysytX0Z5FFQ0jWnnp9N/8HrvFFD+YmKu73MDgn/2EQrHcg1QmUvfWLKKbgUKPDFcA==}
+  '@antfu/ni@27.0.1':
+    resolution: {integrity: sha512-I6SOlwJ0MN73ECYcr7VJHpqSseyd7bpshx6JAaD0zNowS4kSWzFsqg8ikQT7DnCLiD4AZ+FaQJQ8WAk0Qi89Vw==}
     engines: {node: '>=20'}
     hasBin: true
 
@@ -2963,7 +2963,7 @@ packages:
 
 snapshots:
 
-  '@antfu/ni@27.0.0':
+  '@antfu/ni@27.0.1':
     dependencies:
       ansis: 4.2.0
       fzf: 0.5.2
