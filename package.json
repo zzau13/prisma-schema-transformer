@@ -63,7 +63,7 @@
   "devDependencies": {
     "@commitlint/cli": "20.1.0",
     "@commitlint/config-conventional": "20.0.0",
-    "@eslint/compat": "^1.1.1",
+    "@eslint/compat": "^2.0.0",
     "@release-it/conventional-changelog": "10.0.1",
     "@types/node": "24.10.1",
     "@types/pluralize": "0.0.33",
