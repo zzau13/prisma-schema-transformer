@@ -59,7 +59,7 @@ importers:
         version: 2.0.0(eslint@9.23.0(jiti@2.6.1))
       '@release-it/conventional-changelog':
         specifier: 10.0.4
-        version: 10.0.4(conventional-commits-filter@5.0.0)(conventional-commits-parser@6.2.1)(release-it@19.2.1(@types/node@24.10.4))
+        version: 10.0.4(conventional-commits-filter@5.0.0)(conventional-commits-parser@6.2.1)(release-it@19.2.2(@types/node@24.10.4))
       '@types/jest':
         specifier: 30.0.0
         version: 30.0.0
@@ -97,8 +97,8 @@ importers:
         specifier: 5.0.0
         version: 5.0.0(prettier@3.7.4)
       release-it:
-        specifier: 19.2.1
-        version: 19.2.1(@types/node@24.10.4)
+        specifier: 19.2.2
+        version: 19.2.2(@types/node@24.10.4)
       typescript:
         specifier: 5.8.2
         version: 5.8.2
@@ -2546,8 +2546,8 @@ packages:
   regexp-to-ast@0.5.0:
     resolution: {integrity: sha512-tlbJqcMHnPKI9zSrystikWKwHkBqu2a/Sgw01h3zFjvYrMxEDYHzzoMZnUrbIfpTFEsoRnnviOXNCzFiSc54Qw==}
 
-  release-it@19.2.1:
-    resolution: {integrity: sha512-Tu9kZKtCJkrLG6nD0OLbVdVP8wHgpQBpRvtZQmdEgGHDwg0FiiHmdnnPskTQllPWJFMtpHo3O7MHtr8/AWEFbA==}
+  release-it@19.2.2:
+    resolution: {integrity: sha512-57TBUTBbBXLJsPufYS+Hsb1dSZKZ0ktiYgPkNc3Pmlq/QQtH9X0oD0SG2ib5CsXHTI11m19pyK60NXmvtE6cLg==}
     engines: {node: ^20.12.0 || >=22.0.0}
     hasBin: true
 
@@ -3829,7 +3829,7 @@ snapshots:
       react: 19.2.3
       react-dom: 19.2.3(react@19.2.3)
 
-  '@release-it/conventional-changelog@10.0.4(conventional-commits-filter@5.0.0)(conventional-commits-parser@6.2.1)(release-it@19.2.1(@types/node@24.10.4))':
+  '@release-it/conventional-changelog@10.0.4(conventional-commits-filter@5.0.0)(conventional-commits-parser@6.2.1)(release-it@19.2.2(@types/node@24.10.4))':
     dependencies:
       '@conventional-changelog/git-client': 2.5.1(conventional-commits-filter@5.0.0)(conventional-commits-parser@6.2.1)
       concat-stream: 2.0.0
@@ -3837,7 +3837,7 @@ snapshots:
       conventional-changelog-angular: 8.1.0
       conventional-changelog-conventionalcommits: 9.1.0
       conventional-recommended-bump: 11.2.0
-      release-it: 19.2.1(@types/node@24.10.4)
+      release-it: 19.2.2(@types/node@24.10.4)
       semver: 7.7.3
     transitivePeerDependencies:
       - conventional-commits-filter
@@ -5574,7 +5574,7 @@ snapshots:
 
   regexp-to-ast@0.5.0: {}
 
-  release-it@19.2.1(@types/node@24.10.4):
+  release-it@19.2.2(@types/node@24.10.4):
     dependencies:
       '@nodeutils/defaults-deep': 1.1.0
       '@octokit/rest': 22.0.1
