@@ -70,7 +70,7 @@
     "@types/jest": "30.0.0",
     "@typescript-eslint/eslint-plugin": "8.35.1",
     "@typescript-eslint/parser": "8.35.1",
-    "@vitest/coverage-v8": "4.0.16",
+    "@vitest/coverage-v8": "4.0.17",
     "dotenv-cli": "11.0.0",
     "eslint": "9.23.0",
     "husky": "9.1.7",
@@ -79,7 +79,7 @@
     "prettier-plugin-prisma": "5.0.0",
     "release-it": "19.2.3",
     "typescript": "5.8.2",
-    "vitest": "4.0.16"
+    "vitest": "4.0.17"
   },
   "lint-staged": {
     "*.{mts,ts,js}": "eslint --cache --fix",
