@@ -12,8 +12,8 @@ importers:
         specifier: ^29.0.0
         version: 29.0.0
       '@mrleebo/prisma-ast':
-        specifier: ^0.14.0
-        version: 0.14.0
+        specifier: ^0.15.0
+        version: 0.15.0
       '@prisma/engine-core':
         specifier: ^4.13.0
         version: 4.13.0
@@ -502,8 +502,8 @@ packages:
     resolution: {integrity: sha512-XyroGQXcHrZdvmrGJvsA9KNeOOgGMg1Vg9OlheUsBOSKznLMDl+YChxbkboRHvtFYJEMRYmlV3uoo/njCw05iw==}
     engines: {node: '>=16'}
 
-  '@mrleebo/prisma-ast@0.14.0':
-    resolution: {integrity: sha512-nKouX7rsrzk/5nk6Wayvgqt81tnAbSbPFC5XzRTDc5/tSCrBf/tSMAXEm1CeUznC/ZL664iH5KNwvvmPtJ8jqQ==}
+  '@mrleebo/prisma-ast@0.15.0':
+    resolution: {integrity: sha512-EZv5j5BeaVF/tAByFPwGRddaW3C+ZoSyuDBFfho0d0ed7vE6Hbp/oktI8gmDRgkIGrQrZ3XjA+XcUOoC33PnHA==}
     engines: {node: '>=20.19.0'}
 
   '@napi-rs/wasm-runtime@1.1.1':
@@ -3372,7 +3372,7 @@ snapshots:
       chevrotain: 10.5.0
       lilconfig: 2.1.0
 
-  '@mrleebo/prisma-ast@0.14.0':
+  '@mrleebo/prisma-ast@0.15.0':
     dependencies:
       chevrotain: 11.2.0
       lilconfig: 2.1.0
