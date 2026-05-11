@@ -47,7 +47,7 @@
   },
   "dependencies": {
     "@antfu/ni": "^30.0.0",
-    "@mrleebo/prisma-ast": "^0.15.0",
+    "@mrleebo/prisma-ast": "^0.16.0",
     "@prisma/engine-core": "^4.13.0",
     "@prisma/generator-helper": "^7.0.0",
     "@prisma/internals": "^7.0.0",
