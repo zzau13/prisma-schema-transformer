@@ -15,7 +15,7 @@ jobs:
         with:
           node-version: lts/hydrogen
 
-      - uses: pnpm/action-setup@v6.0.7
+      - uses: pnpm/action-setup@v6.0.8
         name: Install pnpm
         id: pnpm-install
         with:
