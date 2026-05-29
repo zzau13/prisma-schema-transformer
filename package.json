@@ -52,7 +52,7 @@
     "@prisma/generator-helper": "^7.0.0",
     "@prisma/internals": "^7.0.0",
     "camelcase": "^9.0.0",
-    "commander": "^14.0.0",
+    "commander": "^15.0.0",
     "dotenv": "^17.0.0",
     "fp-ts": "2.16.11",
     "immer": "^11.0.0",
