@@ -91,11 +91,11 @@ importers:
         specifier: 17.0.8
         version: 17.0.8
       prettier:
-        specifier: 3.8.4
-        version: 3.8.4
+        specifier: 3.8.5
+        version: 3.8.5
       prettier-plugin-prisma:
         specifier: 5.0.0
-        version: 5.0.0(prettier@3.8.4)
+        version: 5.0.0(prettier@3.8.5)
       release-it:
         specifier: 20.2.0
         version: 20.2.0(@types/node@24.13.2)(magicast@0.5.3)
@@ -1702,6 +1702,7 @@ packages:
   git-raw-commits@5.0.1:
     resolution: {integrity: sha512-Y+csSm2GD/PCSh6Isd/WiMjNAydu0VBiG9J7EdQsNA5P9uXvLayqjmTsNlK5Gs9IhblFZqOU0yid5Il5JPoLiQ==}
     engines: {node: '>=18'}
+    deprecated: Deprecated and no longer maintained. Use @conventional-changelog/git-client instead.
     hasBin: true
 
   git-up@8.1.1:
@@ -2386,8 +2387,8 @@ packages:
     peerDependencies:
       prettier: '>=2 || >=3'
 
-  prettier@3.8.4:
-    resolution: {integrity: sha512-N2MylSdi48+5N/6S5j+maeHbUSIzzZ5uOcX5Hm4QpV8Dkb1HFjfAKTKX6yNPJQD9AhcT3ifHNB66tWTTJDi11Q==}
+  prettier@3.8.5:
+    resolution: {integrity: sha512-zxcTTCedNGJM4R8sj/Cq/F0W/c4iE0afWBcBwMTRtw4WHYP9TWkYjdiH3npPRUYsXQCPR0hTU9yjovOu+E6EQA==}
     engines: {node: '>=14'}
     hasBin: true
 
@@ -5286,12 +5287,12 @@ snapshots:
 
   prelude-ls@1.2.1: {}
 
-  prettier-plugin-prisma@5.0.0(prettier@3.8.4):
+  prettier-plugin-prisma@5.0.0(prettier@3.8.5):
     dependencies:
       '@prisma/prisma-schema-wasm': 4.17.0-26.6b0aef69b7cdfc787f822ecd7cdc76d5f1991584
-      prettier: 3.8.4
+      prettier: 3.8.5
 
-  prettier@3.8.4: {}
+  prettier@3.8.5: {}
 
   pretty-format@30.4.1:
     dependencies:
