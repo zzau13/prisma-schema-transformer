@@ -58,8 +58,8 @@ importers:
         specifier: ^2.0.0
         version: 2.1.1(eslint@10.10.0(jiti@2.7.0)(supports-color@7.2.0))
       '@release-it/conventional-changelog':
-        specifier: 12.0.0
-        version: 12.0.0(conventional-commits-filter@6.0.1)(conventional-commits-parser@7.1.2)(release-it@21.0.2(@types/node@24.13.4)(magicast@0.5.5)(supports-color@7.2.0))
+        specifier: 12.0.1
+        version: 12.0.1(conventional-commits-filter@6.0.1)(conventional-commits-parser@7.1.2)(release-it@21.0.2(@types/node@24.13.4)(magicast@0.5.5)(supports-color@7.2.0))
       '@types/jest':
         specifier: 30.0.0
         version: 30.0.0
@@ -767,9 +767,9 @@ packages:
       '@types/react':
         optional: true
 
-  '@release-it/conventional-changelog@12.0.0':
-    resolution: {integrity: sha512-b9N8/tUjO9JNH1u2fVSmq8QmbqnE//Y5iCgvPcytsk0pj0GhgGCp+VmfzhEBIdd+lVGZJKs+ZSaGaOHjtmtv7g==}
-    engines: {node: ^22.21.0 || >=24.0.0}
+  '@release-it/conventional-changelog@12.0.1':
+    resolution: {integrity: sha512-3Wck+10IQJQdzaRgiRO+7/Foh4w4EWwN3mRf9CLyDnNU1B2K2WMMn7eqLus4Awcb6lRDCQewdK2rz8QQZXGdag==}
+    engines: {node: ^22.22.2 || ^24.15.0 || >=26.0.0}
     peerDependencies:
       release-it: ^18.0.0 || ^19.0.0 || ^20.0.0 || ^21.0.0
 
@@ -3837,7 +3837,7 @@ snapshots:
     optionalDependencies:
       '@types/react': 19.3.0
 
-  '@release-it/conventional-changelog@12.0.0(conventional-commits-filter@6.0.1)(conventional-commits-parser@7.1.2)(release-it@21.0.2(@types/node@24.13.4)(magicast@0.5.5)(supports-color@7.2.0))':
+  '@release-it/conventional-changelog@12.0.1(conventional-commits-filter@6.0.1)(conventional-commits-parser@7.1.2)(release-it@21.0.2(@types/node@24.13.4)(magicast@0.5.5)(supports-color@7.2.0))':
     dependencies:
       '@conventional-changelog/git-client': 3.1.2(conventional-commits-filter@6.0.1)(conventional-commits-parser@7.1.2)
       concat-stream: 2.0.0
