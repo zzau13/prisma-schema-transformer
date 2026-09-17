@@ -75,7 +75,7 @@
     "eslint": "10.10.0",
     "husky": "9.1.7",
     "lint-staged": "17.5.1",
-    "prettier": "3.9.7",
+    "prettier": "3.9.8",
     "prettier-plugin-prisma": "5.0.0",
     "release-it": "21.0.3",
     "typescript": "7.0.2",
