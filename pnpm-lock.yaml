@@ -19,7 +19,7 @@ importers:
         version: 4.13.0(supports-color@7.2.0)
       '@prisma/generator-helper':
         specifier: ^7.0.0
-        version: 7.10.0
+        version: 7.10.1
       '@prisma/internals':
         specifier: ^7.0.0
         version: 7.10.1(magicast@0.5.5)(typescript@7.0.2)
@@ -619,9 +619,6 @@ packages:
   '@prisma/dev@0.24.17':
     resolution: {integrity: sha512-UvdZzmpFwknnfreh6Jije84ekkYGPYEJhXG1tFzCsCfQyzJifrOo38eZc0qajzvaC6OLUOrN9ML5XfCnEZL9DA==}
 
-  '@prisma/dmmf@7.10.0':
-    resolution: {integrity: sha512-TSw3Vo+TFKGRXNH/D2/M755Vm9rD3h3F0xoFfexPvEcPunQWlxUmj5VU/k8Pe3afQ4jFjUVBxem+/+A7YFwvsg==}
-
   '@prisma/dmmf@7.10.1':
     resolution: {integrity: sha512-56mAUF8wlLAqe9jCVBJKwo5UgaAksctB4vGrIK34X6+8UOUU2gDNVz8I+CNra9BeqFrRiCZUWvQJJu88ukPsmA==}
 
@@ -646,14 +643,8 @@ packages:
   '@prisma/generator-helper@4.13.0':
     resolution: {integrity: sha512-Zx9rtbsEIU/9DKnGRvmjLdyeyhzeeXNFp1alkRh1w//rQ5jTcobiay/jU4Qo+EQOs2bnWEfUeiBoOjfaysdLNg==}
 
-  '@prisma/generator-helper@7.10.0':
-    resolution: {integrity: sha512-hEOsOo4pxmsJJjw64hu8Yh2PYYl3cvoSQT0xMDKkYDmgRNBARshnjrJJ/DJT35iFEsoej5ndViEpHmt3G3Aeaw==}
-
   '@prisma/generator-helper@7.10.1':
     resolution: {integrity: sha512-JnejJ/ricWKO+yCrNEkHa0zLo7VyNRvlHtA6O5AmCPgAp8XUcoGdonssdOauNjTgXCUzQ1YOBWNryNM9y6Ivdg==}
-
-  '@prisma/generator@7.10.0':
-    resolution: {integrity: sha512-GJfd4E7buRlOjc4FT1Sfo9SW4zlzYbmkmGy6OVWedzsZdBA4C+ommdfDDmMc8ZcokccpUmZK/zJ1A3tdR0tKFg==}
 
   '@prisma/generator@7.10.1':
     resolution: {integrity: sha512-SGrXz4CmQgoxQVoT70wzhL5vD5XLEhMYT7keQQL2zMNFE0WYO9hQ2HJHKHAsMYI9LyordFRrjYj/W9EpN/YyQw==}
@@ -3632,8 +3623,6 @@ snapshots:
     transitivePeerDependencies:
       - typescript
 
-  '@prisma/dmmf@7.10.0': {}
-
   '@prisma/dmmf@7.10.1': {}
 
   '@prisma/driver-adapter-utils@7.10.1':
@@ -3686,19 +3675,11 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  '@prisma/generator-helper@7.10.0':
-    dependencies:
-      '@prisma/debug': 7.10.0
-      '@prisma/dmmf': 7.10.0
-      '@prisma/generator': 7.10.0
-
   '@prisma/generator-helper@7.10.1':
     dependencies:
       '@prisma/debug': 7.10.1
       '@prisma/dmmf': 7.10.1
       '@prisma/generator': 7.10.1
-
-  '@prisma/generator@7.10.0': {}
 
   '@prisma/generator@7.10.1': {}
 
