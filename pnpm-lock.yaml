@@ -37,7 +37,7 @@ importers:
         version: 2.16.11
       immer:
         specifier: ^11.0.0
-        version: 11.2.10
+        version: 11.2.13
       pluralize:
         specifier: ^8.0.0
         version: 8.0.0
@@ -2011,8 +2011,8 @@ packages:
     resolution: {integrity: sha512-52N+Y4HRMOJmbLmr+DqO4iSRyyB7N52gm7PWCT6h0p978+oKbqHCB7gIJIwZvBUsjlSdWbrBFqUSmIFNZMpn0A==}
     engines: {node: '>= 4'}
 
-  immer@11.2.10:
-    resolution: {integrity: sha512-pzANBj+0A9u+prdhBJ14DVi44vCvVUQzBa8DKt6I0AMCokPHtt722BK9IX5bFC70xUSU9TnzLRIJLTGqIzjEFw==}
+  immer@11.2.13:
+    resolution: {integrity: sha512-APCAndbWjj/fqxe7EXYq1TesdC30XCMPifhd0lyGVELvwLu6d5URaTzdvm6TX78NmuuuMa0/Nxv/D7BcXx5NnQ==}
 
   import-fresh@3.3.1:
     resolution: {integrity: sha512-TR3KfrTZTYLPB6jUjfx6MF9WcWrHL9su5TObK4ZkYgBdWKPOFoSoQIdEuTuR82pmtxH2spWG9h6etwfr1pLBqQ==}
@@ -5054,7 +5054,7 @@ snapshots:
 
   ignore@7.0.16: {}
 
-  immer@11.2.10: {}
+  immer@11.2.13: {}
 
   import-fresh@3.3.1:
     dependencies:
